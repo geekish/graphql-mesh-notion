@@ -1,0 +1,25 @@
+{
+  "name": "graphqlmesh",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "mesh dev"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.69.2",
+    "@graphql-mesh/graphql": "^0.20.24",
+    "@graphql-mesh/openapi": "^0.23.14",
+    "@graphql-mesh/transform-extend": "^0.9.19",
+    "@graphql-mesh/transform-federation": "^0.8.19",
+    "@graphql-mesh/transform-filter-schema": "^0.14.20",
+    "@graphql-mesh/transform-mock": "^0.14.5",
+    "@graphql-mesh/transform-naming-convention": "^0.10.9",
+    "@graphql-mesh/transform-rename": "^0.12.9",
+    "@graphql-mesh/transform-replace-field": "^0.3.19",
+    "concurrently": "^7.0.0",
+    "graphql": "^16.5.0",
+    "node-fetch": "^2.6.7",
+    "@graphql-mesh/json-schema": "^0.27.2"
+  }
+}
