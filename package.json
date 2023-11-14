@@ -4,7 +4,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "mesh dev"
+    "build": "mesh build",
+    "start": "mesh start",
+    "dev": "mesh dev"
   },
   "dependencies": {
     "@graphql-mesh/cli": "^0.69.2",

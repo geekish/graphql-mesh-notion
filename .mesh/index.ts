@@ -28,10 +28,12 @@ export type Scalars = {
   Date: string;
   /** Represents NULL values */
   Void: void;
+  QueryDatabaseString1People: any;
 };
 
 export type Query = {
   page?: Maybe<Page>;
+  database?: Maybe<Database>;
 };
 
 
@@ -39,164 +41,169 @@ export type QuerypageArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
+
+export type QuerydatabaseArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
 export type Page = {
   object?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  created_time?: Maybe<Scalars['DateTime']>;
-  last_edited_time?: Maybe<Scalars['DateTime']>;
-  created_by?: Maybe<query_page_created_by>;
-  last_edited_by?: Maybe<query_page_created_by>;
-  cover?: Maybe<query_page_cover>;
-  icon?: Maybe<query_page_icon>;
-  parent?: Maybe<query_page_parent>;
+  createdTime?: Maybe<Scalars['DateTime']>;
+  lastEditedTime?: Maybe<Scalars['DateTime']>;
+  createdBy?: Maybe<QueryPageCreatedBy>;
+  lastEditedBy?: Maybe<QueryPageCreatedBy>;
+  cover?: Maybe<QueryPageCover>;
+  icon?: Maybe<QueryPageIcon>;
+  parent?: Maybe<QueryPageParent>;
   archived?: Maybe<Scalars['Boolean']>;
-  properties?: Maybe<query_page>;
+  properties?: Maybe<QueryPage>;
   url?: Maybe<Scalars['URL']>;
-  public_url?: Maybe<Scalars['Void']>;
+  publicUrl?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_created_by = {
+export type QueryPageCreatedBy = {
   object?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
 };
 
-export type query_page_cover = {
+export type QueryPageCover = {
   type?: Maybe<Scalars['String']>;
-  external?: Maybe<query_page_cover_external>;
+  external?: Maybe<QueryPageCoverExternal>;
 };
 
-export type query_page_cover_external = {
+export type QueryPageCoverExternal = {
   url?: Maybe<Scalars['URL']>;
 };
 
-export type query_page_icon = {
+export type QueryPageIcon = {
   type?: Maybe<Scalars['String']>;
   emoji?: Maybe<Scalars['String']>;
 };
 
-export type query_page_parent = {
+export type QueryPageParent = {
   type?: Maybe<Scalars['String']>;
-  database_id?: Maybe<Scalars['String']>;
+  databaseId?: Maybe<Scalars['String']>;
 };
 
-export type query_page = {
-  Store_availability?: Maybe<query_page_Store_availability>;
-  Food_group?: Maybe<query_page_Food_group>;
-  Price?: Maybe<query_page_Price>;
-  Responsible_Person?: Maybe<query_page_Responsible_Person>;
-  Last_ordered?: Maybe<query_page_Last_ordered>;
-  Cost_of_next_trip?: Maybe<query_page_Cost_of_next_trip>;
-  Recipes?: Maybe<query_page_Recipes>;
-  Description?: Maybe<query_page_Description>;
-  In_stock?: Maybe<query_page_In_stock>;
-  Number_of_meals?: Maybe<query_page_Number_of_meals>;
-  Photo?: Maybe<query_page_Photo>;
-  Name?: Maybe<query_page_Name>;
+export type QueryPage = {
+  storeAvailability?: Maybe<QueryPageStoreAvailability>;
+  foodGroup?: Maybe<QueryPageFoodGroup>;
+  price?: Maybe<QueryPagePrice>;
+  responsiblePerson?: Maybe<QueryPageResponsiblePerson>;
+  lastOrdered?: Maybe<QueryPageLastOrdered>;
+  costOfNextTrip?: Maybe<QueryPageCostOfNextTrip>;
+  recipes?: Maybe<QueryPageRecipes>;
+  description?: Maybe<QueryPageDescription>;
+  inStock?: Maybe<QueryPageInStock>;
+  numberOfMeals?: Maybe<QueryPageNumberOfMeals>;
+  photo?: Maybe<QueryPagePhoto>;
+  name?: Maybe<QueryPageName>;
 };
 
-export type query_page_Store_availability = {
+export type QueryPageStoreAvailability = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  multi_select?: Maybe<Array<Maybe<query_page_Store_availability_multi_select_items>>>;
+  multiSelect?: Maybe<Array<Maybe<QueryPageStoreAvailabilityMultiSelectItems>>>;
 };
 
-export type query_page_Store_availability_multi_select_items = {
+export type QueryPageStoreAvailabilityMultiSelectItems = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Food_group = {
+export type QueryPageFoodGroup = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  select?: Maybe<query_page_Food_group_select>;
+  select?: Maybe<QueryPageFoodGroupSelect>;
 };
 
-export type query_page_Food_group_select = {
+export type QueryPageFoodGroupSelect = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Price = {
+export type QueryPagePrice = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   number?: Maybe<Scalars['Float']>;
 };
 
-export type query_page_Responsible_Person = {
+export type QueryPageResponsiblePerson = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  people?: Maybe<Array<Maybe<query_page_Responsible_Person_people_items>>>;
+  people?: Maybe<Array<Maybe<QueryPageResponsiblePersonPeopleItems>>>;
 };
 
-export type query_page_Responsible_Person_people_items = {
+export type QueryPageResponsiblePersonPeopleItems = {
   object?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  avatar_url?: Maybe<Scalars['URL']>;
+  avatarUrl?: Maybe<Scalars['URL']>;
   type?: Maybe<Scalars['String']>;
-  person?: Maybe<query_page_Responsible_Person_people_items_person>;
+  person?: Maybe<QueryPageResponsiblePersonPeopleItemsPerson>;
 };
 
-export type query_page_Responsible_Person_people_items_person = {
+export type QueryPageResponsiblePersonPeopleItemsPerson = {
   email?: Maybe<Scalars['EmailAddress']>;
 };
 
-export type query_page_Last_ordered = {
+export type QueryPageLastOrdered = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  date?: Maybe<query_page_Last_ordered_date>;
+  date?: Maybe<QueryPageLastOrderedDate>;
 };
 
-export type query_page_Last_ordered_date = {
+export type QueryPageLastOrderedDate = {
   start?: Maybe<Scalars['Date']>;
   end?: Maybe<Scalars['Void']>;
-  time_zone?: Maybe<Scalars['Void']>;
+  timeZone?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_Cost_of_next_trip = {
+export type QueryPageCostOfNextTrip = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  formula?: Maybe<query_page_Cost_of_next_trip_formula>;
+  formula?: Maybe<QueryPageCostOfNextTripFormula>;
 };
 
-export type query_page_Cost_of_next_trip_formula = {
+export type QueryPageCostOfNextTripFormula = {
   type?: Maybe<Scalars['String']>;
   number?: Maybe<Scalars['Int']>;
 };
 
-export type query_page_Recipes = {
+export type QueryPageRecipes = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  relation?: Maybe<Array<Maybe<query_page_Recipes_relation_items>>>;
-  has_more?: Maybe<Scalars['Boolean']>;
+  relation?: Maybe<Array<Maybe<QueryPageRecipesRelationItems>>>;
+  hasMore?: Maybe<Scalars['Boolean']>;
 };
 
-export type query_page_Recipes_relation_items = {
+export type QueryPageRecipesRelationItems = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Description = {
+export type QueryPageDescription = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  rich_text?: Maybe<Array<Maybe<query_page_Description_rich_text_items>>>;
+  richText?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
 };
 
-export type query_page_Description_rich_text_items = {
+export type QueryPageDescriptionRichTextItems = {
   type?: Maybe<Scalars['String']>;
-  text?: Maybe<query_page_Description_rich_text_items_text>;
-  annotations?: Maybe<query_page_Description_rich_text_items_annotations>;
-  plain_text?: Maybe<Scalars['String']>;
+  text?: Maybe<QueryPageDescriptionRichTextItemsText>;
+  annotations?: Maybe<QueryPageDescriptionRichTextItemsAnnotations>;
+  plainText?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_Description_rich_text_items_text = {
+export type QueryPageDescriptionRichTextItemsText = {
   content?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_Description_rich_text_items_annotations = {
+export type QueryPageDescriptionRichTextItemsAnnotations = {
   bold?: Maybe<Scalars['Boolean']>;
   italic?: Maybe<Scalars['Boolean']>;
   strikethrough?: Maybe<Scalars['Boolean']>;
@@ -205,34 +212,168 @@ export type query_page_Description_rich_text_items_annotations = {
   color?: Maybe<Scalars['String']>;
 };
 
-export type query_page_In_stock = {
+export type QueryPageInStock = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   checkbox?: Maybe<Scalars['Boolean']>;
 };
 
-export type query_page_Number_of_meals = {
+export type QueryPageNumberOfMeals = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  rollup?: Maybe<query_page_Number_of_meals_rollup>;
+  rollup?: Maybe<QueryPageNumberOfMealsRollup>;
 };
 
-export type query_page_Number_of_meals_rollup = {
+export type QueryPageNumberOfMealsRollup = {
   type?: Maybe<Scalars['String']>;
   number?: Maybe<Scalars['Int']>;
   function?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Photo = {
+export type QueryPagePhoto = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['URL']>;
 };
 
-export type query_page_Name = {
+export type QueryPageName = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  title?: Maybe<Array<Maybe<query_page_Description_rich_text_items>>>;
+  title?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
+};
+
+export type Database = {
+  object?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  createdTime?: Maybe<Scalars['DateTime']>;
+  lastEditedTime?: Maybe<Scalars['DateTime']>;
+  icon?: Maybe<QueryPageIcon>;
+  cover?: Maybe<QueryPageCover>;
+  url?: Maybe<Scalars['URL']>;
+  title?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
+  description?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
+  properties?: Maybe<QueryDatabase>;
+  parent?: Maybe<QueryDatabaseParent>;
+  archived?: Maybe<Scalars['Boolean']>;
+  isInline?: Maybe<Scalars['Boolean']>;
+  publicUrl?: Maybe<Scalars['Void']>;
+};
+
+export type QueryDatabase = {
+  string1?: Maybe<QueryDatabaseString1>;
+  inStock?: Maybe<QueryDatabaseInStock>;
+  price?: Maybe<QueryDatabasePrice>;
+  description?: Maybe<QueryDatabaseDescription>;
+  lastOrdered?: Maybe<QueryDatabaseLastOrdered>;
+  meals?: Maybe<QueryDatabaseMeals>;
+  numberOfMeals?: Maybe<QueryDatabaseNumberOfMeals>;
+  storeAvailability?: Maybe<QueryDatabaseStoreAvailability>;
+  photo?: Maybe<QueryDatabasePhoto>;
+  foodGroup?: Maybe<QueryDatabaseFoodGroup>;
+  name?: Maybe<QueryDatabaseName>;
+};
+
+export type QueryDatabaseString1 = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  people?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseInStock = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  checkbox?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabasePrice = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  number?: Maybe<QueryDatabasePriceNumber>;
+};
+
+export type QueryDatabasePriceNumber = {
+  format?: Maybe<Scalars['String']>;
+};
+
+export type QueryDatabaseDescription = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  richText?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseLastOrdered = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseMeals = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  relation?: Maybe<QueryDatabaseMealsRelation>;
+};
+
+export type QueryDatabaseMealsRelation = {
+  databaseId?: Maybe<Scalars['String']>;
+  syncedPropertyName?: Maybe<Scalars['String']>;
+};
+
+export type QueryDatabaseNumberOfMeals = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  rollup?: Maybe<QueryDatabaseNumberOfMealsRollup>;
+};
+
+export type QueryDatabaseNumberOfMealsRollup = {
+  rollupPropertyName?: Maybe<Scalars['String']>;
+  relationPropertyName?: Maybe<Scalars['String']>;
+  rollupPropertyId?: Maybe<Scalars['String']>;
+  relationPropertyId?: Maybe<Scalars['String']>;
+  function?: Maybe<Scalars['String']>;
+};
+
+export type QueryDatabaseStoreAvailability = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  multiSelect?: Maybe<QueryDatabaseStoreAvailabilityMultiSelect>;
+};
+
+export type QueryDatabaseStoreAvailabilityMultiSelect = {
+  options?: Maybe<Array<Maybe<QueryPageStoreAvailabilityMultiSelectItems>>>;
+};
+
+export type QueryDatabasePhoto = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  files?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseFoodGroup = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  select?: Maybe<QueryDatabaseStoreAvailabilityMultiSelect>;
+};
+
+export type QueryDatabaseName = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseParent = {
+  type?: Maybe<Scalars['String']>;
+  pageId?: Maybe<Scalars['String']>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -311,41 +452,60 @@ export type ResolversTypes = ResolversObject<{
   String: ResolverTypeWrapper<Scalars['String']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
-  query_page_created_by: ResolverTypeWrapper<query_page_created_by>;
-  query_page_cover: ResolverTypeWrapper<query_page_cover>;
-  query_page_cover_external: ResolverTypeWrapper<query_page_cover_external>;
+  QueryPageCreatedBy: ResolverTypeWrapper<QueryPageCreatedBy>;
+  QueryPageCover: ResolverTypeWrapper<QueryPageCover>;
+  QueryPageCoverExternal: ResolverTypeWrapper<QueryPageCoverExternal>;
   URL: ResolverTypeWrapper<Scalars['URL']>;
-  query_page_icon: ResolverTypeWrapper<query_page_icon>;
-  query_page_parent: ResolverTypeWrapper<query_page_parent>;
-  query_page: ResolverTypeWrapper<query_page>;
-  query_page_Store_availability: ResolverTypeWrapper<query_page_Store_availability>;
-  query_page_Store_availability_multi_select_items: ResolverTypeWrapper<query_page_Store_availability_multi_select_items>;
-  query_page_Food_group: ResolverTypeWrapper<query_page_Food_group>;
-  query_page_Food_group_select: ResolverTypeWrapper<query_page_Food_group_select>;
-  query_page_Price: ResolverTypeWrapper<query_page_Price>;
+  QueryPageIcon: ResolverTypeWrapper<QueryPageIcon>;
+  QueryPageParent: ResolverTypeWrapper<QueryPageParent>;
+  QueryPage: ResolverTypeWrapper<QueryPage>;
+  QueryPageStoreAvailability: ResolverTypeWrapper<QueryPageStoreAvailability>;
+  QueryPageStoreAvailabilityMultiSelectItems: ResolverTypeWrapper<QueryPageStoreAvailabilityMultiSelectItems>;
+  QueryPageFoodGroup: ResolverTypeWrapper<QueryPageFoodGroup>;
+  QueryPageFoodGroupSelect: ResolverTypeWrapper<QueryPageFoodGroupSelect>;
+  QueryPagePrice: ResolverTypeWrapper<QueryPagePrice>;
   Float: ResolverTypeWrapper<Scalars['Float']>;
-  query_page_Responsible_Person: ResolverTypeWrapper<query_page_Responsible_Person>;
-  query_page_Responsible_Person_people_items: ResolverTypeWrapper<query_page_Responsible_Person_people_items>;
-  query_page_Responsible_Person_people_items_person: ResolverTypeWrapper<query_page_Responsible_Person_people_items_person>;
+  QueryPageResponsiblePerson: ResolverTypeWrapper<QueryPageResponsiblePerson>;
+  QueryPageResponsiblePersonPeopleItems: ResolverTypeWrapper<QueryPageResponsiblePersonPeopleItems>;
+  QueryPageResponsiblePersonPeopleItemsPerson: ResolverTypeWrapper<QueryPageResponsiblePersonPeopleItemsPerson>;
   EmailAddress: ResolverTypeWrapper<Scalars['EmailAddress']>;
-  query_page_Last_ordered: ResolverTypeWrapper<query_page_Last_ordered>;
-  query_page_Last_ordered_date: ResolverTypeWrapper<query_page_Last_ordered_date>;
+  QueryPageLastOrdered: ResolverTypeWrapper<QueryPageLastOrdered>;
+  QueryPageLastOrderedDate: ResolverTypeWrapper<QueryPageLastOrderedDate>;
   Date: ResolverTypeWrapper<Scalars['Date']>;
   Void: ResolverTypeWrapper<Scalars['Void']>;
-  query_page_Cost_of_next_trip: ResolverTypeWrapper<query_page_Cost_of_next_trip>;
-  query_page_Cost_of_next_trip_formula: ResolverTypeWrapper<query_page_Cost_of_next_trip_formula>;
+  QueryPageCostOfNextTrip: ResolverTypeWrapper<QueryPageCostOfNextTrip>;
+  QueryPageCostOfNextTripFormula: ResolverTypeWrapper<QueryPageCostOfNextTripFormula>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
-  query_page_Recipes: ResolverTypeWrapper<query_page_Recipes>;
-  query_page_Recipes_relation_items: ResolverTypeWrapper<query_page_Recipes_relation_items>;
-  query_page_Description: ResolverTypeWrapper<query_page_Description>;
-  query_page_Description_rich_text_items: ResolverTypeWrapper<query_page_Description_rich_text_items>;
-  query_page_Description_rich_text_items_text: ResolverTypeWrapper<query_page_Description_rich_text_items_text>;
-  query_page_Description_rich_text_items_annotations: ResolverTypeWrapper<query_page_Description_rich_text_items_annotations>;
-  query_page_In_stock: ResolverTypeWrapper<query_page_In_stock>;
-  query_page_Number_of_meals: ResolverTypeWrapper<query_page_Number_of_meals>;
-  query_page_Number_of_meals_rollup: ResolverTypeWrapper<query_page_Number_of_meals_rollup>;
-  query_page_Photo: ResolverTypeWrapper<query_page_Photo>;
-  query_page_Name: ResolverTypeWrapper<query_page_Name>;
+  QueryPageRecipes: ResolverTypeWrapper<QueryPageRecipes>;
+  QueryPageRecipesRelationItems: ResolverTypeWrapper<QueryPageRecipesRelationItems>;
+  QueryPageDescription: ResolverTypeWrapper<QueryPageDescription>;
+  QueryPageDescriptionRichTextItems: ResolverTypeWrapper<QueryPageDescriptionRichTextItems>;
+  QueryPageDescriptionRichTextItemsText: ResolverTypeWrapper<QueryPageDescriptionRichTextItemsText>;
+  QueryPageDescriptionRichTextItemsAnnotations: ResolverTypeWrapper<QueryPageDescriptionRichTextItemsAnnotations>;
+  QueryPageInStock: ResolverTypeWrapper<QueryPageInStock>;
+  QueryPageNumberOfMeals: ResolverTypeWrapper<QueryPageNumberOfMeals>;
+  QueryPageNumberOfMealsRollup: ResolverTypeWrapper<QueryPageNumberOfMealsRollup>;
+  QueryPagePhoto: ResolverTypeWrapper<QueryPagePhoto>;
+  QueryPageName: ResolverTypeWrapper<QueryPageName>;
+  Database: ResolverTypeWrapper<Database>;
+  QueryDatabase: ResolverTypeWrapper<QueryDatabase>;
+  QueryDatabaseString1: ResolverTypeWrapper<QueryDatabaseString1>;
+  QueryDatabaseString1People: ResolverTypeWrapper<Scalars['QueryDatabaseString1People']>;
+  QueryDatabaseInStock: ResolverTypeWrapper<QueryDatabaseInStock>;
+  QueryDatabasePrice: ResolverTypeWrapper<QueryDatabasePrice>;
+  QueryDatabasePriceNumber: ResolverTypeWrapper<QueryDatabasePriceNumber>;
+  QueryDatabaseDescription: ResolverTypeWrapper<QueryDatabaseDescription>;
+  QueryDatabaseLastOrdered: ResolverTypeWrapper<QueryDatabaseLastOrdered>;
+  QueryDatabaseMeals: ResolverTypeWrapper<QueryDatabaseMeals>;
+  QueryDatabaseMealsRelation: ResolverTypeWrapper<QueryDatabaseMealsRelation>;
+  QueryDatabaseNumberOfMeals: ResolverTypeWrapper<QueryDatabaseNumberOfMeals>;
+  QueryDatabaseNumberOfMealsRollup: ResolverTypeWrapper<QueryDatabaseNumberOfMealsRollup>;
+  QueryDatabaseStoreAvailability: ResolverTypeWrapper<QueryDatabaseStoreAvailability>;
+  QueryDatabaseStoreAvailabilityMultiSelect: ResolverTypeWrapper<QueryDatabaseStoreAvailabilityMultiSelect>;
+  QueryDatabasePhoto: ResolverTypeWrapper<QueryDatabasePhoto>;
+  QueryDatabaseFoodGroup: ResolverTypeWrapper<QueryDatabaseFoodGroup>;
+  QueryDatabaseName: ResolverTypeWrapper<QueryDatabaseName>;
+  QueryDatabaseParent: ResolverTypeWrapper<QueryDatabaseParent>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -356,61 +516,81 @@ export type ResolversParentTypes = ResolversObject<{
   String: Scalars['String'];
   Boolean: Scalars['Boolean'];
   DateTime: Scalars['DateTime'];
-  query_page_created_by: query_page_created_by;
-  query_page_cover: query_page_cover;
-  query_page_cover_external: query_page_cover_external;
+  QueryPageCreatedBy: QueryPageCreatedBy;
+  QueryPageCover: QueryPageCover;
+  QueryPageCoverExternal: QueryPageCoverExternal;
   URL: Scalars['URL'];
-  query_page_icon: query_page_icon;
-  query_page_parent: query_page_parent;
-  query_page: query_page;
-  query_page_Store_availability: query_page_Store_availability;
-  query_page_Store_availability_multi_select_items: query_page_Store_availability_multi_select_items;
-  query_page_Food_group: query_page_Food_group;
-  query_page_Food_group_select: query_page_Food_group_select;
-  query_page_Price: query_page_Price;
+  QueryPageIcon: QueryPageIcon;
+  QueryPageParent: QueryPageParent;
+  QueryPage: QueryPage;
+  QueryPageStoreAvailability: QueryPageStoreAvailability;
+  QueryPageStoreAvailabilityMultiSelectItems: QueryPageStoreAvailabilityMultiSelectItems;
+  QueryPageFoodGroup: QueryPageFoodGroup;
+  QueryPageFoodGroupSelect: QueryPageFoodGroupSelect;
+  QueryPagePrice: QueryPagePrice;
   Float: Scalars['Float'];
-  query_page_Responsible_Person: query_page_Responsible_Person;
-  query_page_Responsible_Person_people_items: query_page_Responsible_Person_people_items;
-  query_page_Responsible_Person_people_items_person: query_page_Responsible_Person_people_items_person;
+  QueryPageResponsiblePerson: QueryPageResponsiblePerson;
+  QueryPageResponsiblePersonPeopleItems: QueryPageResponsiblePersonPeopleItems;
+  QueryPageResponsiblePersonPeopleItemsPerson: QueryPageResponsiblePersonPeopleItemsPerson;
   EmailAddress: Scalars['EmailAddress'];
-  query_page_Last_ordered: query_page_Last_ordered;
-  query_page_Last_ordered_date: query_page_Last_ordered_date;
+  QueryPageLastOrdered: QueryPageLastOrdered;
+  QueryPageLastOrderedDate: QueryPageLastOrderedDate;
   Date: Scalars['Date'];
   Void: Scalars['Void'];
-  query_page_Cost_of_next_trip: query_page_Cost_of_next_trip;
-  query_page_Cost_of_next_trip_formula: query_page_Cost_of_next_trip_formula;
+  QueryPageCostOfNextTrip: QueryPageCostOfNextTrip;
+  QueryPageCostOfNextTripFormula: QueryPageCostOfNextTripFormula;
   Int: Scalars['Int'];
-  query_page_Recipes: query_page_Recipes;
-  query_page_Recipes_relation_items: query_page_Recipes_relation_items;
-  query_page_Description: query_page_Description;
-  query_page_Description_rich_text_items: query_page_Description_rich_text_items;
-  query_page_Description_rich_text_items_text: query_page_Description_rich_text_items_text;
-  query_page_Description_rich_text_items_annotations: query_page_Description_rich_text_items_annotations;
-  query_page_In_stock: query_page_In_stock;
-  query_page_Number_of_meals: query_page_Number_of_meals;
-  query_page_Number_of_meals_rollup: query_page_Number_of_meals_rollup;
-  query_page_Photo: query_page_Photo;
-  query_page_Name: query_page_Name;
+  QueryPageRecipes: QueryPageRecipes;
+  QueryPageRecipesRelationItems: QueryPageRecipesRelationItems;
+  QueryPageDescription: QueryPageDescription;
+  QueryPageDescriptionRichTextItems: QueryPageDescriptionRichTextItems;
+  QueryPageDescriptionRichTextItemsText: QueryPageDescriptionRichTextItemsText;
+  QueryPageDescriptionRichTextItemsAnnotations: QueryPageDescriptionRichTextItemsAnnotations;
+  QueryPageInStock: QueryPageInStock;
+  QueryPageNumberOfMeals: QueryPageNumberOfMeals;
+  QueryPageNumberOfMealsRollup: QueryPageNumberOfMealsRollup;
+  QueryPagePhoto: QueryPagePhoto;
+  QueryPageName: QueryPageName;
+  Database: Database;
+  QueryDatabase: QueryDatabase;
+  QueryDatabaseString1: QueryDatabaseString1;
+  QueryDatabaseString1People: Scalars['QueryDatabaseString1People'];
+  QueryDatabaseInStock: QueryDatabaseInStock;
+  QueryDatabasePrice: QueryDatabasePrice;
+  QueryDatabasePriceNumber: QueryDatabasePriceNumber;
+  QueryDatabaseDescription: QueryDatabaseDescription;
+  QueryDatabaseLastOrdered: QueryDatabaseLastOrdered;
+  QueryDatabaseMeals: QueryDatabaseMeals;
+  QueryDatabaseMealsRelation: QueryDatabaseMealsRelation;
+  QueryDatabaseNumberOfMeals: QueryDatabaseNumberOfMeals;
+  QueryDatabaseNumberOfMealsRollup: QueryDatabaseNumberOfMealsRollup;
+  QueryDatabaseStoreAvailability: QueryDatabaseStoreAvailability;
+  QueryDatabaseStoreAvailabilityMultiSelect: QueryDatabaseStoreAvailabilityMultiSelect;
+  QueryDatabasePhoto: QueryDatabasePhoto;
+  QueryDatabaseFoodGroup: QueryDatabaseFoodGroup;
+  QueryDatabaseName: QueryDatabaseName;
+  QueryDatabaseParent: QueryDatabaseParent;
 }>;
 
 export type QueryResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   page?: Resolver<Maybe<ResolversTypes['Page']>, ParentType, ContextType, Partial<QuerypageArgs>>;
+  database?: Resolver<Maybe<ResolversTypes['Database']>, ParentType, ContextType, Partial<QuerydatabaseArgs>>;
 }>;
 
 export type PageResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Page'] = ResolversParentTypes['Page']> = ResolversObject<{
   object?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_time?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
-  last_edited_time?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
-  created_by?: Resolver<Maybe<ResolversTypes['query_page_created_by']>, ParentType, ContextType>;
-  last_edited_by?: Resolver<Maybe<ResolversTypes['query_page_created_by']>, ParentType, ContextType>;
-  cover?: Resolver<Maybe<ResolversTypes['query_page_cover']>, ParentType, ContextType>;
-  icon?: Resolver<Maybe<ResolversTypes['query_page_icon']>, ParentType, ContextType>;
-  parent?: Resolver<Maybe<ResolversTypes['query_page_parent']>, ParentType, ContextType>;
+  createdTime?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  lastEditedTime?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdBy?: Resolver<Maybe<ResolversTypes['QueryPageCreatedBy']>, ParentType, ContextType>;
+  lastEditedBy?: Resolver<Maybe<ResolversTypes['QueryPageCreatedBy']>, ParentType, ContextType>;
+  cover?: Resolver<Maybe<ResolversTypes['QueryPageCover']>, ParentType, ContextType>;
+  icon?: Resolver<Maybe<ResolversTypes['QueryPageIcon']>, ParentType, ContextType>;
+  parent?: Resolver<Maybe<ResolversTypes['QueryPageParent']>, ParentType, ContextType>;
   archived?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  properties?: Resolver<Maybe<ResolversTypes['query_page']>, ParentType, ContextType>;
+  properties?: Resolver<Maybe<ResolversTypes['QueryPage']>, ParentType, ContextType>;
   url?: Resolver<Maybe<ResolversTypes['URL']>, ParentType, ContextType>;
-  public_url?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
+  publicUrl?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -418,19 +598,19 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
   name: 'DateTime';
 }
 
-export type query_page_created_byResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_created_by'] = ResolversParentTypes['query_page_created_by']> = ResolversObject<{
+export type QueryPageCreatedByResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageCreatedBy'] = ResolversParentTypes['QueryPageCreatedBy']> = ResolversObject<{
   object?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_coverResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_cover'] = ResolversParentTypes['query_page_cover']> = ResolversObject<{
+export type QueryPageCoverResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageCover'] = ResolversParentTypes['QueryPageCover']> = ResolversObject<{
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  external?: Resolver<Maybe<ResolversTypes['query_page_cover_external']>, ParentType, ContextType>;
+  external?: Resolver<Maybe<ResolversTypes['QueryPageCoverExternal']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_cover_externalResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_cover_external'] = ResolversParentTypes['query_page_cover_external']> = ResolversObject<{
+export type QueryPageCoverExternalResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageCoverExternal'] = ResolversParentTypes['QueryPageCoverExternal']> = ResolversObject<{
   url?: Resolver<Maybe<ResolversTypes['URL']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
@@ -439,87 +619,87 @@ export interface URLScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes[
   name: 'URL';
 }
 
-export type query_page_iconResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_icon'] = ResolversParentTypes['query_page_icon']> = ResolversObject<{
+export type QueryPageIconResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageIcon'] = ResolversParentTypes['QueryPageIcon']> = ResolversObject<{
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   emoji?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_parentResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_parent'] = ResolversParentTypes['query_page_parent']> = ResolversObject<{
+export type QueryPageParentResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageParent'] = ResolversParentTypes['QueryPageParent']> = ResolversObject<{
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  database_id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  databaseId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_pageResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page'] = ResolversParentTypes['query_page']> = ResolversObject<{
-  Store_availability?: Resolver<Maybe<ResolversTypes['query_page_Store_availability']>, ParentType, ContextType>;
-  Food_group?: Resolver<Maybe<ResolversTypes['query_page_Food_group']>, ParentType, ContextType>;
-  Price?: Resolver<Maybe<ResolversTypes['query_page_Price']>, ParentType, ContextType>;
-  Responsible_Person?: Resolver<Maybe<ResolversTypes['query_page_Responsible_Person']>, ParentType, ContextType>;
-  Last_ordered?: Resolver<Maybe<ResolversTypes['query_page_Last_ordered']>, ParentType, ContextType>;
-  Cost_of_next_trip?: Resolver<Maybe<ResolversTypes['query_page_Cost_of_next_trip']>, ParentType, ContextType>;
-  Recipes?: Resolver<Maybe<ResolversTypes['query_page_Recipes']>, ParentType, ContextType>;
-  Description?: Resolver<Maybe<ResolversTypes['query_page_Description']>, ParentType, ContextType>;
-  In_stock?: Resolver<Maybe<ResolversTypes['query_page_In_stock']>, ParentType, ContextType>;
-  Number_of_meals?: Resolver<Maybe<ResolversTypes['query_page_Number_of_meals']>, ParentType, ContextType>;
-  Photo?: Resolver<Maybe<ResolversTypes['query_page_Photo']>, ParentType, ContextType>;
-  Name?: Resolver<Maybe<ResolversTypes['query_page_Name']>, ParentType, ContextType>;
+export type QueryPageResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPage'] = ResolversParentTypes['QueryPage']> = ResolversObject<{
+  storeAvailability?: Resolver<Maybe<ResolversTypes['QueryPageStoreAvailability']>, ParentType, ContextType>;
+  foodGroup?: Resolver<Maybe<ResolversTypes['QueryPageFoodGroup']>, ParentType, ContextType>;
+  price?: Resolver<Maybe<ResolversTypes['QueryPagePrice']>, ParentType, ContextType>;
+  responsiblePerson?: Resolver<Maybe<ResolversTypes['QueryPageResponsiblePerson']>, ParentType, ContextType>;
+  lastOrdered?: Resolver<Maybe<ResolversTypes['QueryPageLastOrdered']>, ParentType, ContextType>;
+  costOfNextTrip?: Resolver<Maybe<ResolversTypes['QueryPageCostOfNextTrip']>, ParentType, ContextType>;
+  recipes?: Resolver<Maybe<ResolversTypes['QueryPageRecipes']>, ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['QueryPageDescription']>, ParentType, ContextType>;
+  inStock?: Resolver<Maybe<ResolversTypes['QueryPageInStock']>, ParentType, ContextType>;
+  numberOfMeals?: Resolver<Maybe<ResolversTypes['QueryPageNumberOfMeals']>, ParentType, ContextType>;
+  photo?: Resolver<Maybe<ResolversTypes['QueryPagePhoto']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['QueryPageName']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Store_availabilityResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Store_availability'] = ResolversParentTypes['query_page_Store_availability']> = ResolversObject<{
+export type QueryPageStoreAvailabilityResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageStoreAvailability'] = ResolversParentTypes['QueryPageStoreAvailability']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  multi_select?: Resolver<Maybe<Array<Maybe<ResolversTypes['query_page_Store_availability_multi_select_items']>>>, ParentType, ContextType>;
+  multiSelect?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageStoreAvailabilityMultiSelectItems']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Store_availability_multi_select_itemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Store_availability_multi_select_items'] = ResolversParentTypes['query_page_Store_availability_multi_select_items']> = ResolversObject<{
+export type QueryPageStoreAvailabilityMultiSelectItemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageStoreAvailabilityMultiSelectItems'] = ResolversParentTypes['QueryPageStoreAvailabilityMultiSelectItems']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Food_groupResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Food_group'] = ResolversParentTypes['query_page_Food_group']> = ResolversObject<{
+export type QueryPageFoodGroupResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageFoodGroup'] = ResolversParentTypes['QueryPageFoodGroup']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  select?: Resolver<Maybe<ResolversTypes['query_page_Food_group_select']>, ParentType, ContextType>;
+  select?: Resolver<Maybe<ResolversTypes['QueryPageFoodGroupSelect']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Food_group_selectResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Food_group_select'] = ResolversParentTypes['query_page_Food_group_select']> = ResolversObject<{
+export type QueryPageFoodGroupSelectResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageFoodGroupSelect'] = ResolversParentTypes['QueryPageFoodGroupSelect']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_PriceResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Price'] = ResolversParentTypes['query_page_Price']> = ResolversObject<{
+export type QueryPagePriceResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPagePrice'] = ResolversParentTypes['QueryPagePrice']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   number?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Responsible_PersonResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Responsible_Person'] = ResolversParentTypes['query_page_Responsible_Person']> = ResolversObject<{
+export type QueryPageResponsiblePersonResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageResponsiblePerson'] = ResolversParentTypes['QueryPageResponsiblePerson']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  people?: Resolver<Maybe<Array<Maybe<ResolversTypes['query_page_Responsible_Person_people_items']>>>, ParentType, ContextType>;
+  people?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageResponsiblePersonPeopleItems']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Responsible_Person_people_itemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Responsible_Person_people_items'] = ResolversParentTypes['query_page_Responsible_Person_people_items']> = ResolversObject<{
+export type QueryPageResponsiblePersonPeopleItemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageResponsiblePersonPeopleItems'] = ResolversParentTypes['QueryPageResponsiblePersonPeopleItems']> = ResolversObject<{
   object?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  avatar_url?: Resolver<Maybe<ResolversTypes['URL']>, ParentType, ContextType>;
+  avatarUrl?: Resolver<Maybe<ResolversTypes['URL']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['query_page_Responsible_Person_people_items_person']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['QueryPageResponsiblePersonPeopleItemsPerson']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Responsible_Person_people_items_personResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Responsible_Person_people_items_person'] = ResolversParentTypes['query_page_Responsible_Person_people_items_person']> = ResolversObject<{
+export type QueryPageResponsiblePersonPeopleItemsPersonResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageResponsiblePersonPeopleItemsPerson'] = ResolversParentTypes['QueryPageResponsiblePersonPeopleItemsPerson']> = ResolversObject<{
   email?: Resolver<Maybe<ResolversTypes['EmailAddress']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
@@ -528,17 +708,17 @@ export interface EmailAddressScalarConfig extends GraphQLScalarTypeConfig<Resolv
   name: 'EmailAddress';
 }
 
-export type query_page_Last_orderedResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Last_ordered'] = ResolversParentTypes['query_page_Last_ordered']> = ResolversObject<{
+export type QueryPageLastOrderedResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageLastOrdered'] = ResolversParentTypes['QueryPageLastOrdered']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  date?: Resolver<Maybe<ResolversTypes['query_page_Last_ordered_date']>, ParentType, ContextType>;
+  date?: Resolver<Maybe<ResolversTypes['QueryPageLastOrderedDate']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Last_ordered_dateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Last_ordered_date'] = ResolversParentTypes['query_page_Last_ordered_date']> = ResolversObject<{
+export type QueryPageLastOrderedDateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageLastOrderedDate'] = ResolversParentTypes['QueryPageLastOrderedDate']> = ResolversObject<{
   start?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   end?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
-  time_zone?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
+  timeZone?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -550,55 +730,55 @@ export interface VoidScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
   name: 'Void';
 }
 
-export type query_page_Cost_of_next_tripResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Cost_of_next_trip'] = ResolversParentTypes['query_page_Cost_of_next_trip']> = ResolversObject<{
+export type QueryPageCostOfNextTripResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageCostOfNextTrip'] = ResolversParentTypes['QueryPageCostOfNextTrip']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  formula?: Resolver<Maybe<ResolversTypes['query_page_Cost_of_next_trip_formula']>, ParentType, ContextType>;
+  formula?: Resolver<Maybe<ResolversTypes['QueryPageCostOfNextTripFormula']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Cost_of_next_trip_formulaResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Cost_of_next_trip_formula'] = ResolversParentTypes['query_page_Cost_of_next_trip_formula']> = ResolversObject<{
+export type QueryPageCostOfNextTripFormulaResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageCostOfNextTripFormula'] = ResolversParentTypes['QueryPageCostOfNextTripFormula']> = ResolversObject<{
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   number?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_RecipesResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Recipes'] = ResolversParentTypes['query_page_Recipes']> = ResolversObject<{
+export type QueryPageRecipesResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageRecipes'] = ResolversParentTypes['QueryPageRecipes']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  relation?: Resolver<Maybe<Array<Maybe<ResolversTypes['query_page_Recipes_relation_items']>>>, ParentType, ContextType>;
-  has_more?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  relation?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageRecipesRelationItems']>>>, ParentType, ContextType>;
+  hasMore?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Recipes_relation_itemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Recipes_relation_items'] = ResolversParentTypes['query_page_Recipes_relation_items']> = ResolversObject<{
+export type QueryPageRecipesRelationItemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageRecipesRelationItems'] = ResolversParentTypes['QueryPageRecipesRelationItems']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_DescriptionResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Description'] = ResolversParentTypes['query_page_Description']> = ResolversObject<{
+export type QueryPageDescriptionResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageDescription'] = ResolversParentTypes['QueryPageDescription']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  rich_text?: Resolver<Maybe<Array<Maybe<ResolversTypes['query_page_Description_rich_text_items']>>>, ParentType, ContextType>;
+  richText?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageDescriptionRichTextItems']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Description_rich_text_itemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Description_rich_text_items'] = ResolversParentTypes['query_page_Description_rich_text_items']> = ResolversObject<{
+export type QueryPageDescriptionRichTextItemsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageDescriptionRichTextItems'] = ResolversParentTypes['QueryPageDescriptionRichTextItems']> = ResolversObject<{
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  text?: Resolver<Maybe<ResolversTypes['query_page_Description_rich_text_items_text']>, ParentType, ContextType>;
-  annotations?: Resolver<Maybe<ResolversTypes['query_page_Description_rich_text_items_annotations']>, ParentType, ContextType>;
-  plain_text?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  text?: Resolver<Maybe<ResolversTypes['QueryPageDescriptionRichTextItemsText']>, ParentType, ContextType>;
+  annotations?: Resolver<Maybe<ResolversTypes['QueryPageDescriptionRichTextItemsAnnotations']>, ParentType, ContextType>;
+  plainText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Description_rich_text_items_textResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Description_rich_text_items_text'] = ResolversParentTypes['query_page_Description_rich_text_items_text']> = ResolversObject<{
+export type QueryPageDescriptionRichTextItemsTextResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageDescriptionRichTextItemsText'] = ResolversParentTypes['QueryPageDescriptionRichTextItemsText']> = ResolversObject<{
   content?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   link?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Description_rich_text_items_annotationsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Description_rich_text_items_annotations'] = ResolversParentTypes['query_page_Description_rich_text_items_annotations']> = ResolversObject<{
+export type QueryPageDescriptionRichTextItemsAnnotationsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageDescriptionRichTextItemsAnnotations'] = ResolversParentTypes['QueryPageDescriptionRichTextItemsAnnotations']> = ResolversObject<{
   bold?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   italic?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   strikethrough?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
@@ -608,38 +788,194 @@ export type query_page_Description_rich_text_items_annotationsResolvers<ContextT
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_In_stockResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_In_stock'] = ResolversParentTypes['query_page_In_stock']> = ResolversObject<{
+export type QueryPageInStockResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageInStock'] = ResolversParentTypes['QueryPageInStock']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   checkbox?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Number_of_mealsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Number_of_meals'] = ResolversParentTypes['query_page_Number_of_meals']> = ResolversObject<{
+export type QueryPageNumberOfMealsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageNumberOfMeals'] = ResolversParentTypes['QueryPageNumberOfMeals']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  rollup?: Resolver<Maybe<ResolversTypes['query_page_Number_of_meals_rollup']>, ParentType, ContextType>;
+  rollup?: Resolver<Maybe<ResolversTypes['QueryPageNumberOfMealsRollup']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_Number_of_meals_rollupResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Number_of_meals_rollup'] = ResolversParentTypes['query_page_Number_of_meals_rollup']> = ResolversObject<{
+export type QueryPageNumberOfMealsRollupResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageNumberOfMealsRollup'] = ResolversParentTypes['QueryPageNumberOfMealsRollup']> = ResolversObject<{
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   number?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   function?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_PhotoResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Photo'] = ResolversParentTypes['query_page_Photo']> = ResolversObject<{
+export type QueryPagePhotoResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPagePhoto'] = ResolversParentTypes['QueryPagePhoto']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   url?: Resolver<Maybe<ResolversTypes['URL']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type query_page_NameResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['query_page_Name'] = ResolversParentTypes['query_page_Name']> = ResolversObject<{
+export type QueryPageNameResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryPageName'] = ResolversParentTypes['QueryPageName']> = ResolversObject<{
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  title?: Resolver<Maybe<Array<Maybe<ResolversTypes['query_page_Description_rich_text_items']>>>, ParentType, ContextType>;
+  title?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageDescriptionRichTextItems']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type DatabaseResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Database'] = ResolversParentTypes['Database']> = ResolversObject<{
+  object?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdTime?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  lastEditedTime?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  icon?: Resolver<Maybe<ResolversTypes['QueryPageIcon']>, ParentType, ContextType>;
+  cover?: Resolver<Maybe<ResolversTypes['QueryPageCover']>, ParentType, ContextType>;
+  url?: Resolver<Maybe<ResolversTypes['URL']>, ParentType, ContextType>;
+  title?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageDescriptionRichTextItems']>>>, ParentType, ContextType>;
+  description?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageDescriptionRichTextItems']>>>, ParentType, ContextType>;
+  properties?: Resolver<Maybe<ResolversTypes['QueryDatabase']>, ParentType, ContextType>;
+  parent?: Resolver<Maybe<ResolversTypes['QueryDatabaseParent']>, ParentType, ContextType>;
+  archived?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  isInline?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  publicUrl?: Resolver<Maybe<ResolversTypes['Void']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabase'] = ResolversParentTypes['QueryDatabase']> = ResolversObject<{
+  string1?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1']>, ParentType, ContextType>;
+  inStock?: Resolver<Maybe<ResolversTypes['QueryDatabaseInStock']>, ParentType, ContextType>;
+  price?: Resolver<Maybe<ResolversTypes['QueryDatabasePrice']>, ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['QueryDatabaseDescription']>, ParentType, ContextType>;
+  lastOrdered?: Resolver<Maybe<ResolversTypes['QueryDatabaseLastOrdered']>, ParentType, ContextType>;
+  meals?: Resolver<Maybe<ResolversTypes['QueryDatabaseMeals']>, ParentType, ContextType>;
+  numberOfMeals?: Resolver<Maybe<ResolversTypes['QueryDatabaseNumberOfMeals']>, ParentType, ContextType>;
+  storeAvailability?: Resolver<Maybe<ResolversTypes['QueryDatabaseStoreAvailability']>, ParentType, ContextType>;
+  photo?: Resolver<Maybe<ResolversTypes['QueryDatabasePhoto']>, ParentType, ContextType>;
+  foodGroup?: Resolver<Maybe<ResolversTypes['QueryDatabaseFoodGroup']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['QueryDatabaseName']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseString1Resolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseString1'] = ResolversParentTypes['QueryDatabaseString1']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  people?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1People']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export interface QueryDatabaseString1PeopleScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['QueryDatabaseString1People'], any> {
+  name: 'QueryDatabaseString1People';
+}
+
+export type QueryDatabaseInStockResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseInStock'] = ResolversParentTypes['QueryDatabaseInStock']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  checkbox?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1People']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabasePriceResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabasePrice'] = ResolversParentTypes['QueryDatabasePrice']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  number?: Resolver<Maybe<ResolversTypes['QueryDatabasePriceNumber']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabasePriceNumberResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabasePriceNumber'] = ResolversParentTypes['QueryDatabasePriceNumber']> = ResolversObject<{
+  format?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseDescriptionResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseDescription'] = ResolversParentTypes['QueryDatabaseDescription']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  richText?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1People']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseLastOrderedResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseLastOrdered'] = ResolversParentTypes['QueryDatabaseLastOrdered']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  date?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1People']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseMealsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseMeals'] = ResolversParentTypes['QueryDatabaseMeals']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  relation?: Resolver<Maybe<ResolversTypes['QueryDatabaseMealsRelation']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseMealsRelationResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseMealsRelation'] = ResolversParentTypes['QueryDatabaseMealsRelation']> = ResolversObject<{
+  databaseId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  syncedPropertyName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseNumberOfMealsResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseNumberOfMeals'] = ResolversParentTypes['QueryDatabaseNumberOfMeals']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  rollup?: Resolver<Maybe<ResolversTypes['QueryDatabaseNumberOfMealsRollup']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseNumberOfMealsRollupResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseNumberOfMealsRollup'] = ResolversParentTypes['QueryDatabaseNumberOfMealsRollup']> = ResolversObject<{
+  rollupPropertyName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  relationPropertyName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  rollupPropertyId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  relationPropertyId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  function?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseStoreAvailabilityResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseStoreAvailability'] = ResolversParentTypes['QueryDatabaseStoreAvailability']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  multiSelect?: Resolver<Maybe<ResolversTypes['QueryDatabaseStoreAvailabilityMultiSelect']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseStoreAvailabilityMultiSelectResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseStoreAvailabilityMultiSelect'] = ResolversParentTypes['QueryDatabaseStoreAvailabilityMultiSelect']> = ResolversObject<{
+  options?: Resolver<Maybe<Array<Maybe<ResolversTypes['QueryPageStoreAvailabilityMultiSelectItems']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabasePhotoResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabasePhoto'] = ResolversParentTypes['QueryDatabasePhoto']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  files?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1People']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseFoodGroupResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseFoodGroup'] = ResolversParentTypes['QueryDatabaseFoodGroup']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  select?: Resolver<Maybe<ResolversTypes['QueryDatabaseStoreAvailabilityMultiSelect']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseNameResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseName'] = ResolversParentTypes['QueryDatabaseName']> = ResolversObject<{
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  title?: Resolver<Maybe<ResolversTypes['QueryDatabaseString1People']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueryDatabaseParentResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['QueryDatabaseParent'] = ResolversParentTypes['QueryDatabaseParent']> = ResolversObject<{
+  type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  pageId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -647,39 +983,58 @@ export type Resolvers<ContextType = MeshContext> = ResolversObject<{
   Query?: QueryResolvers<ContextType>;
   Page?: PageResolvers<ContextType>;
   DateTime?: GraphQLScalarType;
-  query_page_created_by?: query_page_created_byResolvers<ContextType>;
-  query_page_cover?: query_page_coverResolvers<ContextType>;
-  query_page_cover_external?: query_page_cover_externalResolvers<ContextType>;
+  QueryPageCreatedBy?: QueryPageCreatedByResolvers<ContextType>;
+  QueryPageCover?: QueryPageCoverResolvers<ContextType>;
+  QueryPageCoverExternal?: QueryPageCoverExternalResolvers<ContextType>;
   URL?: GraphQLScalarType;
-  query_page_icon?: query_page_iconResolvers<ContextType>;
-  query_page_parent?: query_page_parentResolvers<ContextType>;
-  query_page?: query_pageResolvers<ContextType>;
-  query_page_Store_availability?: query_page_Store_availabilityResolvers<ContextType>;
-  query_page_Store_availability_multi_select_items?: query_page_Store_availability_multi_select_itemsResolvers<ContextType>;
-  query_page_Food_group?: query_page_Food_groupResolvers<ContextType>;
-  query_page_Food_group_select?: query_page_Food_group_selectResolvers<ContextType>;
-  query_page_Price?: query_page_PriceResolvers<ContextType>;
-  query_page_Responsible_Person?: query_page_Responsible_PersonResolvers<ContextType>;
-  query_page_Responsible_Person_people_items?: query_page_Responsible_Person_people_itemsResolvers<ContextType>;
-  query_page_Responsible_Person_people_items_person?: query_page_Responsible_Person_people_items_personResolvers<ContextType>;
+  QueryPageIcon?: QueryPageIconResolvers<ContextType>;
+  QueryPageParent?: QueryPageParentResolvers<ContextType>;
+  QueryPage?: QueryPageResolvers<ContextType>;
+  QueryPageStoreAvailability?: QueryPageStoreAvailabilityResolvers<ContextType>;
+  QueryPageStoreAvailabilityMultiSelectItems?: QueryPageStoreAvailabilityMultiSelectItemsResolvers<ContextType>;
+  QueryPageFoodGroup?: QueryPageFoodGroupResolvers<ContextType>;
+  QueryPageFoodGroupSelect?: QueryPageFoodGroupSelectResolvers<ContextType>;
+  QueryPagePrice?: QueryPagePriceResolvers<ContextType>;
+  QueryPageResponsiblePerson?: QueryPageResponsiblePersonResolvers<ContextType>;
+  QueryPageResponsiblePersonPeopleItems?: QueryPageResponsiblePersonPeopleItemsResolvers<ContextType>;
+  QueryPageResponsiblePersonPeopleItemsPerson?: QueryPageResponsiblePersonPeopleItemsPersonResolvers<ContextType>;
   EmailAddress?: GraphQLScalarType;
-  query_page_Last_ordered?: query_page_Last_orderedResolvers<ContextType>;
-  query_page_Last_ordered_date?: query_page_Last_ordered_dateResolvers<ContextType>;
+  QueryPageLastOrdered?: QueryPageLastOrderedResolvers<ContextType>;
+  QueryPageLastOrderedDate?: QueryPageLastOrderedDateResolvers<ContextType>;
   Date?: GraphQLScalarType;
   Void?: GraphQLScalarType;
-  query_page_Cost_of_next_trip?: query_page_Cost_of_next_tripResolvers<ContextType>;
-  query_page_Cost_of_next_trip_formula?: query_page_Cost_of_next_trip_formulaResolvers<ContextType>;
-  query_page_Recipes?: query_page_RecipesResolvers<ContextType>;
-  query_page_Recipes_relation_items?: query_page_Recipes_relation_itemsResolvers<ContextType>;
-  query_page_Description?: query_page_DescriptionResolvers<ContextType>;
-  query_page_Description_rich_text_items?: query_page_Description_rich_text_itemsResolvers<ContextType>;
-  query_page_Description_rich_text_items_text?: query_page_Description_rich_text_items_textResolvers<ContextType>;
-  query_page_Description_rich_text_items_annotations?: query_page_Description_rich_text_items_annotationsResolvers<ContextType>;
-  query_page_In_stock?: query_page_In_stockResolvers<ContextType>;
-  query_page_Number_of_meals?: query_page_Number_of_mealsResolvers<ContextType>;
-  query_page_Number_of_meals_rollup?: query_page_Number_of_meals_rollupResolvers<ContextType>;
-  query_page_Photo?: query_page_PhotoResolvers<ContextType>;
-  query_page_Name?: query_page_NameResolvers<ContextType>;
+  QueryPageCostOfNextTrip?: QueryPageCostOfNextTripResolvers<ContextType>;
+  QueryPageCostOfNextTripFormula?: QueryPageCostOfNextTripFormulaResolvers<ContextType>;
+  QueryPageRecipes?: QueryPageRecipesResolvers<ContextType>;
+  QueryPageRecipesRelationItems?: QueryPageRecipesRelationItemsResolvers<ContextType>;
+  QueryPageDescription?: QueryPageDescriptionResolvers<ContextType>;
+  QueryPageDescriptionRichTextItems?: QueryPageDescriptionRichTextItemsResolvers<ContextType>;
+  QueryPageDescriptionRichTextItemsText?: QueryPageDescriptionRichTextItemsTextResolvers<ContextType>;
+  QueryPageDescriptionRichTextItemsAnnotations?: QueryPageDescriptionRichTextItemsAnnotationsResolvers<ContextType>;
+  QueryPageInStock?: QueryPageInStockResolvers<ContextType>;
+  QueryPageNumberOfMeals?: QueryPageNumberOfMealsResolvers<ContextType>;
+  QueryPageNumberOfMealsRollup?: QueryPageNumberOfMealsRollupResolvers<ContextType>;
+  QueryPagePhoto?: QueryPagePhotoResolvers<ContextType>;
+  QueryPageName?: QueryPageNameResolvers<ContextType>;
+  Database?: DatabaseResolvers<ContextType>;
+  QueryDatabase?: QueryDatabaseResolvers<ContextType>;
+  QueryDatabaseString1?: QueryDatabaseString1Resolvers<ContextType>;
+  QueryDatabaseString1People?: GraphQLScalarType;
+  QueryDatabaseInStock?: QueryDatabaseInStockResolvers<ContextType>;
+  QueryDatabasePrice?: QueryDatabasePriceResolvers<ContextType>;
+  QueryDatabasePriceNumber?: QueryDatabasePriceNumberResolvers<ContextType>;
+  QueryDatabaseDescription?: QueryDatabaseDescriptionResolvers<ContextType>;
+  QueryDatabaseLastOrdered?: QueryDatabaseLastOrderedResolvers<ContextType>;
+  QueryDatabaseMeals?: QueryDatabaseMealsResolvers<ContextType>;
+  QueryDatabaseMealsRelation?: QueryDatabaseMealsRelationResolvers<ContextType>;
+  QueryDatabaseNumberOfMeals?: QueryDatabaseNumberOfMealsResolvers<ContextType>;
+  QueryDatabaseNumberOfMealsRollup?: QueryDatabaseNumberOfMealsRollupResolvers<ContextType>;
+  QueryDatabaseStoreAvailability?: QueryDatabaseStoreAvailabilityResolvers<ContextType>;
+  QueryDatabaseStoreAvailabilityMultiSelect?: QueryDatabaseStoreAvailabilityMultiSelectResolvers<ContextType>;
+  QueryDatabasePhoto?: QueryDatabasePhotoResolvers<ContextType>;
+  QueryDatabaseFoodGroup?: QueryDatabaseFoodGroupResolvers<ContextType>;
+  QueryDatabaseName?: QueryDatabaseNameResolvers<ContextType>;
+  QueryDatabaseParent?: QueryDatabaseParentResolvers<ContextType>;
 }>;
 
 
@@ -716,10 +1071,12 @@ export type Scalars = {
   Date: string;
   /** Represents NULL values */
   Void: void;
+  QueryDatabaseString1People: any;
 };
 
 export type Query = {
   page?: Maybe<Page>;
+  database?: Maybe<Database>;
 };
 
 
@@ -727,164 +1084,169 @@ export type QuerypageArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
+
+export type QuerydatabaseArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
 export type Page = {
   object?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  created_time?: Maybe<Scalars['DateTime']>;
-  last_edited_time?: Maybe<Scalars['DateTime']>;
-  created_by?: Maybe<query_page_created_by>;
-  last_edited_by?: Maybe<query_page_created_by>;
-  cover?: Maybe<query_page_cover>;
-  icon?: Maybe<query_page_icon>;
-  parent?: Maybe<query_page_parent>;
+  createdTime?: Maybe<Scalars['DateTime']>;
+  lastEditedTime?: Maybe<Scalars['DateTime']>;
+  createdBy?: Maybe<QueryPageCreatedBy>;
+  lastEditedBy?: Maybe<QueryPageCreatedBy>;
+  cover?: Maybe<QueryPageCover>;
+  icon?: Maybe<QueryPageIcon>;
+  parent?: Maybe<QueryPageParent>;
   archived?: Maybe<Scalars['Boolean']>;
-  properties?: Maybe<query_page>;
+  properties?: Maybe<QueryPage>;
   url?: Maybe<Scalars['URL']>;
-  public_url?: Maybe<Scalars['Void']>;
+  publicUrl?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_created_by = {
+export type QueryPageCreatedBy = {
   object?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
 };
 
-export type query_page_cover = {
+export type QueryPageCover = {
   type?: Maybe<Scalars['String']>;
-  external?: Maybe<query_page_cover_external>;
+  external?: Maybe<QueryPageCoverExternal>;
 };
 
-export type query_page_cover_external = {
+export type QueryPageCoverExternal = {
   url?: Maybe<Scalars['URL']>;
 };
 
-export type query_page_icon = {
+export type QueryPageIcon = {
   type?: Maybe<Scalars['String']>;
   emoji?: Maybe<Scalars['String']>;
 };
 
-export type query_page_parent = {
+export type QueryPageParent = {
   type?: Maybe<Scalars['String']>;
-  database_id?: Maybe<Scalars['String']>;
+  databaseId?: Maybe<Scalars['String']>;
 };
 
-export type query_page = {
-  Store_availability?: Maybe<query_page_Store_availability>;
-  Food_group?: Maybe<query_page_Food_group>;
-  Price?: Maybe<query_page_Price>;
-  Responsible_Person?: Maybe<query_page_Responsible_Person>;
-  Last_ordered?: Maybe<query_page_Last_ordered>;
-  Cost_of_next_trip?: Maybe<query_page_Cost_of_next_trip>;
-  Recipes?: Maybe<query_page_Recipes>;
-  Description?: Maybe<query_page_Description>;
-  In_stock?: Maybe<query_page_In_stock>;
-  Number_of_meals?: Maybe<query_page_Number_of_meals>;
-  Photo?: Maybe<query_page_Photo>;
-  Name?: Maybe<query_page_Name>;
+export type QueryPage = {
+  storeAvailability?: Maybe<QueryPageStoreAvailability>;
+  foodGroup?: Maybe<QueryPageFoodGroup>;
+  price?: Maybe<QueryPagePrice>;
+  responsiblePerson?: Maybe<QueryPageResponsiblePerson>;
+  lastOrdered?: Maybe<QueryPageLastOrdered>;
+  costOfNextTrip?: Maybe<QueryPageCostOfNextTrip>;
+  recipes?: Maybe<QueryPageRecipes>;
+  description?: Maybe<QueryPageDescription>;
+  inStock?: Maybe<QueryPageInStock>;
+  numberOfMeals?: Maybe<QueryPageNumberOfMeals>;
+  photo?: Maybe<QueryPagePhoto>;
+  name?: Maybe<QueryPageName>;
 };
 
-export type query_page_Store_availability = {
+export type QueryPageStoreAvailability = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  multi_select?: Maybe<Array<Maybe<query_page_Store_availability_multi_select_items>>>;
+  multiSelect?: Maybe<Array<Maybe<QueryPageStoreAvailabilityMultiSelectItems>>>;
 };
 
-export type query_page_Store_availability_multi_select_items = {
+export type QueryPageStoreAvailabilityMultiSelectItems = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Food_group = {
+export type QueryPageFoodGroup = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  select?: Maybe<query_page_Food_group_select>;
+  select?: Maybe<QueryPageFoodGroupSelect>;
 };
 
-export type query_page_Food_group_select = {
+export type QueryPageFoodGroupSelect = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Price = {
+export type QueryPagePrice = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   number?: Maybe<Scalars['Float']>;
 };
 
-export type query_page_Responsible_Person = {
+export type QueryPageResponsiblePerson = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  people?: Maybe<Array<Maybe<query_page_Responsible_Person_people_items>>>;
+  people?: Maybe<Array<Maybe<QueryPageResponsiblePersonPeopleItems>>>;
 };
 
-export type query_page_Responsible_Person_people_items = {
+export type QueryPageResponsiblePersonPeopleItems = {
   object?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  avatar_url?: Maybe<Scalars['URL']>;
+  avatarUrl?: Maybe<Scalars['URL']>;
   type?: Maybe<Scalars['String']>;
-  person?: Maybe<query_page_Responsible_Person_people_items_person>;
+  person?: Maybe<QueryPageResponsiblePersonPeopleItemsPerson>;
 };
 
-export type query_page_Responsible_Person_people_items_person = {
+export type QueryPageResponsiblePersonPeopleItemsPerson = {
   email?: Maybe<Scalars['EmailAddress']>;
 };
 
-export type query_page_Last_ordered = {
+export type QueryPageLastOrdered = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  date?: Maybe<query_page_Last_ordered_date>;
+  date?: Maybe<QueryPageLastOrderedDate>;
 };
 
-export type query_page_Last_ordered_date = {
+export type QueryPageLastOrderedDate = {
   start?: Maybe<Scalars['Date']>;
   end?: Maybe<Scalars['Void']>;
-  time_zone?: Maybe<Scalars['Void']>;
+  timeZone?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_Cost_of_next_trip = {
+export type QueryPageCostOfNextTrip = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  formula?: Maybe<query_page_Cost_of_next_trip_formula>;
+  formula?: Maybe<QueryPageCostOfNextTripFormula>;
 };
 
-export type query_page_Cost_of_next_trip_formula = {
+export type QueryPageCostOfNextTripFormula = {
   type?: Maybe<Scalars['String']>;
   number?: Maybe<Scalars['Int']>;
 };
 
-export type query_page_Recipes = {
+export type QueryPageRecipes = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  relation?: Maybe<Array<Maybe<query_page_Recipes_relation_items>>>;
-  has_more?: Maybe<Scalars['Boolean']>;
+  relation?: Maybe<Array<Maybe<QueryPageRecipesRelationItems>>>;
+  hasMore?: Maybe<Scalars['Boolean']>;
 };
 
-export type query_page_Recipes_relation_items = {
+export type QueryPageRecipesRelationItems = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Description = {
+export type QueryPageDescription = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  rich_text?: Maybe<Array<Maybe<query_page_Description_rich_text_items>>>;
+  richText?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
 };
 
-export type query_page_Description_rich_text_items = {
+export type QueryPageDescriptionRichTextItems = {
   type?: Maybe<Scalars['String']>;
-  text?: Maybe<query_page_Description_rich_text_items_text>;
-  annotations?: Maybe<query_page_Description_rich_text_items_annotations>;
-  plain_text?: Maybe<Scalars['String']>;
+  text?: Maybe<QueryPageDescriptionRichTextItemsText>;
+  annotations?: Maybe<QueryPageDescriptionRichTextItemsAnnotations>;
+  plainText?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_Description_rich_text_items_text = {
+export type QueryPageDescriptionRichTextItemsText = {
   content?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['Void']>;
 };
 
-export type query_page_Description_rich_text_items_annotations = {
+export type QueryPageDescriptionRichTextItemsAnnotations = {
   bold?: Maybe<Scalars['Boolean']>;
   italic?: Maybe<Scalars['Boolean']>;
   strikethrough?: Maybe<Scalars['Boolean']>;
@@ -893,40 +1255,176 @@ export type query_page_Description_rich_text_items_annotations = {
   color?: Maybe<Scalars['String']>;
 };
 
-export type query_page_In_stock = {
+export type QueryPageInStock = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   checkbox?: Maybe<Scalars['Boolean']>;
 };
 
-export type query_page_Number_of_meals = {
+export type QueryPageNumberOfMeals = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  rollup?: Maybe<query_page_Number_of_meals_rollup>;
+  rollup?: Maybe<QueryPageNumberOfMealsRollup>;
 };
 
-export type query_page_Number_of_meals_rollup = {
+export type QueryPageNumberOfMealsRollup = {
   type?: Maybe<Scalars['String']>;
   number?: Maybe<Scalars['Int']>;
   function?: Maybe<Scalars['String']>;
 };
 
-export type query_page_Photo = {
+export type QueryPagePhoto = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['URL']>;
 };
 
-export type query_page_Name = {
+export type QueryPageName = {
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  title?: Maybe<Array<Maybe<query_page_Description_rich_text_items>>>;
+  title?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
+};
+
+export type Database = {
+  object?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  createdTime?: Maybe<Scalars['DateTime']>;
+  lastEditedTime?: Maybe<Scalars['DateTime']>;
+  icon?: Maybe<QueryPageIcon>;
+  cover?: Maybe<QueryPageCover>;
+  url?: Maybe<Scalars['URL']>;
+  title?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
+  description?: Maybe<Array<Maybe<QueryPageDescriptionRichTextItems>>>;
+  properties?: Maybe<QueryDatabase>;
+  parent?: Maybe<QueryDatabaseParent>;
+  archived?: Maybe<Scalars['Boolean']>;
+  isInline?: Maybe<Scalars['Boolean']>;
+  publicUrl?: Maybe<Scalars['Void']>;
+};
+
+export type QueryDatabase = {
+  string1?: Maybe<QueryDatabaseString1>;
+  inStock?: Maybe<QueryDatabaseInStock>;
+  price?: Maybe<QueryDatabasePrice>;
+  description?: Maybe<QueryDatabaseDescription>;
+  lastOrdered?: Maybe<QueryDatabaseLastOrdered>;
+  meals?: Maybe<QueryDatabaseMeals>;
+  numberOfMeals?: Maybe<QueryDatabaseNumberOfMeals>;
+  storeAvailability?: Maybe<QueryDatabaseStoreAvailability>;
+  photo?: Maybe<QueryDatabasePhoto>;
+  foodGroup?: Maybe<QueryDatabaseFoodGroup>;
+  name?: Maybe<QueryDatabaseName>;
+};
+
+export type QueryDatabaseString1 = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  people?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseInStock = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  checkbox?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabasePrice = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  number?: Maybe<QueryDatabasePriceNumber>;
+};
+
+export type QueryDatabasePriceNumber = {
+  format?: Maybe<Scalars['String']>;
+};
+
+export type QueryDatabaseDescription = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  richText?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseLastOrdered = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseMeals = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  relation?: Maybe<QueryDatabaseMealsRelation>;
+};
+
+export type QueryDatabaseMealsRelation = {
+  databaseId?: Maybe<Scalars['String']>;
+  syncedPropertyName?: Maybe<Scalars['String']>;
+};
+
+export type QueryDatabaseNumberOfMeals = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  rollup?: Maybe<QueryDatabaseNumberOfMealsRollup>;
+};
+
+export type QueryDatabaseNumberOfMealsRollup = {
+  rollupPropertyName?: Maybe<Scalars['String']>;
+  relationPropertyName?: Maybe<Scalars['String']>;
+  rollupPropertyId?: Maybe<Scalars['String']>;
+  relationPropertyId?: Maybe<Scalars['String']>;
+  function?: Maybe<Scalars['String']>;
+};
+
+export type QueryDatabaseStoreAvailability = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  multiSelect?: Maybe<QueryDatabaseStoreAvailabilityMultiSelect>;
+};
+
+export type QueryDatabaseStoreAvailabilityMultiSelect = {
+  options?: Maybe<Array<Maybe<QueryPageStoreAvailabilityMultiSelectItems>>>;
+};
+
+export type QueryDatabasePhoto = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  files?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseFoodGroup = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  select?: Maybe<QueryDatabaseStoreAvailabilityMultiSelect>;
+};
+
+export type QueryDatabaseName = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['QueryDatabaseString1People']>;
+};
+
+export type QueryDatabaseParent = {
+  type?: Maybe<Scalars['String']>;
+  pageId?: Maybe<Scalars['String']>;
 };
 
     }
     export type QueryNotionSdk = {
   /** undefined **/
-  page: InContextSdkMethod<NotionTypes.Query['page'], NotionTypes.QuerypageArgs, MeshContext>
+  page: InContextSdkMethod<NotionTypes.Query['page'], NotionTypes.QuerypageArgs, MeshContext>,
+  /** undefined **/
+  database: InContextSdkMethod<NotionTypes.Query['database'], NotionTypes.QuerydatabaseArgs, MeshContext>
 };
 
 export type MutationNotionSdk = {

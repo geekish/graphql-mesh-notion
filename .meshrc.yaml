@@ -10,3 +10,16 @@ sources:
             method: GET
             responseSample: ./schemas/Page.response.json
             responseTypeName: Page
+          - type: Query
+            field: database
+            path: /database/{args.id}
+            method: GET
+            responseSample: ./schemas/Database.response.json
+            responseTypeName: Database
+    transforms:
+      - namingConvention:
+          mode: bare | wrap
+          typeNames: pascalCase
+          enumValues: upperCase
+          fieldNames: camelCase
+          fieldArgumentNames: camelCase

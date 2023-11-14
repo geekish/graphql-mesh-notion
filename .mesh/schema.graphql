@@ -1,21 +1,22 @@
 type Query {
   page(id: ID): Page
+  database(id: ID): Database
 }
 
 type Page {
   object: String
   id: String
-  created_time: DateTime
-  last_edited_time: DateTime
-  created_by: query_page_created_by
-  last_edited_by: query_page_created_by
-  cover: query_page_cover
-  icon: query_page_icon
-  parent: query_page_parent
+  createdTime: DateTime
+  lastEditedTime: DateTime
+  createdBy: QueryPageCreatedBy
+  lastEditedBy: QueryPageCreatedBy
+  cover: QueryPageCover
+  icon: QueryPageIcon
+  parent: QueryPageParent
   archived: Boolean
-  properties: query_page
+  properties: QueryPage
   url: URL
-  public_url: Void
+  publicUrl: Void
 }
 
 """
@@ -23,17 +24,17 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
-type query_page_created_by {
+type QueryPageCreatedBy {
   object: String
   id: String
 }
 
-type query_page_cover {
+type QueryPageCover {
   type: String
-  external: query_page_cover_external
+  external: QueryPageCoverExternal
 }
 
-type query_page_cover_external {
+type QueryPageCoverExternal {
   url: URL
 }
 
@@ -42,77 +43,77 @@ A field whose value conforms to the standard URL format as specified in RFC3986:
 """
 scalar URL
 
-type query_page_icon {
+type QueryPageIcon {
   type: String
   emoji: String
 }
 
-type query_page_parent {
+type QueryPageParent {
   type: String
-  database_id: String
+  databaseId: String
 }
 
-type query_page {
-  Store_availability: query_page_Store_availability
-  Food_group: query_page_Food_group
-  Price: query_page_Price
-  Responsible_Person: query_page_Responsible_Person
-  Last_ordered: query_page_Last_ordered
-  Cost_of_next_trip: query_page_Cost_of_next_trip
-  Recipes: query_page_Recipes
-  Description: query_page_Description
-  In_stock: query_page_In_stock
-  Number_of_meals: query_page_Number_of_meals
-  Photo: query_page_Photo
-  Name: query_page_Name
+type QueryPage {
+  storeAvailability: QueryPageStoreAvailability
+  foodGroup: QueryPageFoodGroup
+  price: QueryPagePrice
+  responsiblePerson: QueryPageResponsiblePerson
+  lastOrdered: QueryPageLastOrdered
+  costOfNextTrip: QueryPageCostOfNextTrip
+  recipes: QueryPageRecipes
+  description: QueryPageDescription
+  inStock: QueryPageInStock
+  numberOfMeals: QueryPageNumberOfMeals
+  photo: QueryPagePhoto
+  name: QueryPageName
 }
 
-type query_page_Store_availability {
+type QueryPageStoreAvailability {
   id: String
   type: String
-  multi_select: [query_page_Store_availability_multi_select_items]
+  multiSelect: [QueryPageStoreAvailabilityMultiSelectItems]
 }
 
-type query_page_Store_availability_multi_select_items {
+type QueryPageStoreAvailabilityMultiSelectItems {
   id: String
   name: String
   color: String
 }
 
-type query_page_Food_group {
+type QueryPageFoodGroup {
   id: String
   type: String
-  select: query_page_Food_group_select
+  select: QueryPageFoodGroupSelect
 }
 
-type query_page_Food_group_select {
+type QueryPageFoodGroupSelect {
   id: String
   name: String
   color: String
 }
 
-type query_page_Price {
+type QueryPagePrice {
   id: String
   type: String
   number: Float
 }
 
-type query_page_Responsible_Person {
+type QueryPageResponsiblePerson {
   id: String
   type: String
-  people: [query_page_Responsible_Person_people_items]
+  people: [QueryPageResponsiblePersonPeopleItems]
 }
 
-type query_page_Responsible_Person_people_items {
+type QueryPageResponsiblePersonPeopleItems {
   object: String
   id: String
   name: String
-  avatar_url: URL
+  avatarUrl: URL
   type: String
-  person: query_page_Responsible_Person_people_items_person
+  person: QueryPageResponsiblePersonPeopleItemsPerson
 }
 
-type query_page_Responsible_Person_people_items_person {
+type QueryPageResponsiblePersonPeopleItemsPerson {
   email: EmailAddress
 }
 
@@ -121,16 +122,16 @@ A field whose value conforms to the standard internet email address format as sp
 """
 scalar EmailAddress @specifiedBy(url: "https://www.w3.org/Protocols/rfc822/")
 
-type query_page_Last_ordered {
+type QueryPageLastOrdered {
   id: String
   type: String
-  date: query_page_Last_ordered_date
+  date: QueryPageLastOrderedDate
 }
 
-type query_page_Last_ordered_date {
+type QueryPageLastOrderedDate {
   start: Date
   end: Void
-  time_zone: Void
+  timeZone: Void
 }
 
 """Represents date values"""
@@ -139,48 +140,48 @@ scalar Date
 """Represents NULL values"""
 scalar Void
 
-type query_page_Cost_of_next_trip {
+type QueryPageCostOfNextTrip {
   id: String
   type: String
-  formula: query_page_Cost_of_next_trip_formula
+  formula: QueryPageCostOfNextTripFormula
 }
 
-type query_page_Cost_of_next_trip_formula {
+type QueryPageCostOfNextTripFormula {
   type: String
   number: Int
 }
 
-type query_page_Recipes {
+type QueryPageRecipes {
   id: String
   type: String
-  relation: [query_page_Recipes_relation_items]
-  has_more: Boolean
+  relation: [QueryPageRecipesRelationItems]
+  hasMore: Boolean
 }
 
-type query_page_Recipes_relation_items {
+type QueryPageRecipesRelationItems {
   id: String
 }
 
-type query_page_Description {
+type QueryPageDescription {
   id: String
   type: String
-  rich_text: [query_page_Description_rich_text_items]
+  richText: [QueryPageDescriptionRichTextItems]
 }
 
-type query_page_Description_rich_text_items {
+type QueryPageDescriptionRichTextItems {
   type: String
-  text: query_page_Description_rich_text_items_text
-  annotations: query_page_Description_rich_text_items_annotations
-  plain_text: String
+  text: QueryPageDescriptionRichTextItemsText
+  annotations: QueryPageDescriptionRichTextItemsAnnotations
+  plainText: String
   href: Void
 }
 
-type query_page_Description_rich_text_items_text {
+type QueryPageDescriptionRichTextItemsText {
   content: String
   link: Void
 }
 
-type query_page_Description_rich_text_items_annotations {
+type QueryPageDescriptionRichTextItemsAnnotations {
   bold: Boolean
   italic: Boolean
   strikethrough: Boolean
@@ -189,32 +190,168 @@ type query_page_Description_rich_text_items_annotations {
   color: String
 }
 
-type query_page_In_stock {
+type QueryPageInStock {
   id: String
   type: String
   checkbox: Boolean
 }
 
-type query_page_Number_of_meals {
+type QueryPageNumberOfMeals {
   id: String
   type: String
-  rollup: query_page_Number_of_meals_rollup
+  rollup: QueryPageNumberOfMealsRollup
 }
 
-type query_page_Number_of_meals_rollup {
+type QueryPageNumberOfMealsRollup {
   type: String
   number: Int
   function: String
 }
 
-type query_page_Photo {
+type QueryPagePhoto {
   id: String
   type: String
   url: URL
 }
 
-type query_page_Name {
+type QueryPageName {
   id: String
   type: String
-  title: [query_page_Description_rich_text_items]
+  title: [QueryPageDescriptionRichTextItems]
+}
+
+type Database {
+  object: String
+  id: String
+  createdTime: DateTime
+  lastEditedTime: DateTime
+  icon: QueryPageIcon
+  cover: QueryPageCover
+  url: URL
+  title: [QueryPageDescriptionRichTextItems]
+  description: [QueryPageDescriptionRichTextItems]
+  properties: QueryDatabase
+  parent: QueryDatabaseParent
+  archived: Boolean
+  isInline: Boolean
+  publicUrl: Void
+}
+
+type QueryDatabase {
+  string1: QueryDatabaseString1
+  inStock: QueryDatabaseInStock
+  price: QueryDatabasePrice
+  description: QueryDatabaseDescription
+  lastOrdered: QueryDatabaseLastOrdered
+  meals: QueryDatabaseMeals
+  numberOfMeals: QueryDatabaseNumberOfMeals
+  storeAvailability: QueryDatabaseStoreAvailability
+  photo: QueryDatabasePhoto
+  foodGroup: QueryDatabaseFoodGroup
+  name: QueryDatabaseName
+}
+
+type QueryDatabaseString1 {
+  id: String
+  name: String
+  type: String
+  people: QueryDatabaseString1People
+}
+
+scalar QueryDatabaseString1People
+
+type QueryDatabaseInStock {
+  id: String
+  name: String
+  type: String
+  checkbox: QueryDatabaseString1People
+}
+
+type QueryDatabasePrice {
+  id: String
+  name: String
+  type: String
+  number: QueryDatabasePriceNumber
+}
+
+type QueryDatabasePriceNumber {
+  format: String
+}
+
+type QueryDatabaseDescription {
+  id: String
+  name: String
+  type: String
+  richText: QueryDatabaseString1People
+}
+
+type QueryDatabaseLastOrdered {
+  id: String
+  name: String
+  type: String
+  date: QueryDatabaseString1People
+}
+
+type QueryDatabaseMeals {
+  id: String
+  name: String
+  type: String
+  relation: QueryDatabaseMealsRelation
+}
+
+type QueryDatabaseMealsRelation {
+  databaseId: String
+  syncedPropertyName: String
+}
+
+type QueryDatabaseNumberOfMeals {
+  id: String
+  name: String
+  type: String
+  rollup: QueryDatabaseNumberOfMealsRollup
+}
+
+type QueryDatabaseNumberOfMealsRollup {
+  rollupPropertyName: String
+  relationPropertyName: String
+  rollupPropertyId: String
+  relationPropertyId: String
+  function: String
+}
+
+type QueryDatabaseStoreAvailability {
+  id: String
+  name: String
+  type: String
+  multiSelect: QueryDatabaseStoreAvailabilityMultiSelect
+}
+
+type QueryDatabaseStoreAvailabilityMultiSelect {
+  options: [QueryPageStoreAvailabilityMultiSelectItems]
+}
+
+type QueryDatabasePhoto {
+  id: String
+  name: String
+  type: String
+  files: QueryDatabaseString1People
+}
+
+type QueryDatabaseFoodGroup {
+  id: String
+  name: String
+  type: String
+  select: QueryDatabaseStoreAvailabilityMultiSelect
+}
+
+type QueryDatabaseName {
+  id: String
+  name: String
+  type: String
+  title: QueryDatabaseString1People
+}
+
+type QueryDatabaseParent {
+  type: String
+  pageId: String
 }
