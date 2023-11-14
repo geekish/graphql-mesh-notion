@@ -868,7 +868,6 @@ type Query {
   Equivalent to GET /V1/lof-auction/myBids
   """
   lofAuctionDataAmountSearchResultsInterface(
-    customerId: Int!
     """Current page."""
     searchCriteriaCurrentPage: Int
     """Condition type"""
@@ -896,7 +895,6 @@ type Query {
   Equivalent to GET /V1/lof-auction/myAutoBids
   """
   lofAuctionDataAutoAuctionSearchResultsInterface(
-    customerId: Int!
     """Current page."""
     searchCriteriaCurrentPage: Int
     """Condition type"""
@@ -950,7 +948,7 @@ type Query {
   
   Equivalent to GET /V1/lof-auction/winner/{entityId}
   """
-  lofAuctionDataWinnerDataInterface(entityId: String!): LofAuctionDataWinnerDataInterface
+  lofAuctionDataWinnerDataInterface(entityId: Int!): LofAuctionDataWinnerDataInterface
   """
   Retrieve WinnerData matching the specified criteria.
   
@@ -1928,6 +1926,118 @@ type Query {
   """
   lofHidePriceHidepriceRepositoryV1GetMatchedHidePriceGet(productId: Int!, storeId: Int!): LofHidePriceDataHidepriceInterface
   """
+  Retrieve AmountTransaction matching the specified criteria.
+  
+  Equivalent to GET /V1/lofmarketplace/amounttransaction/search
+  """
+  lofMarketPlaceAmountTransactionRepositoryV1GetListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataAmountTransactionSearchResultsInterface
+  """
+  
+  
+  Equivalent to GET /V1/me/sellermessages/{messageId}
+  """
+  lofMarketPlaceCustomerMessageRepositoryV1GetMyDetailsGet(
+    messageId: Int!
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataMessageSearchResultsInterface
+  """
+  
+  
+  Equivalent to GET /V1/me/sellermessages
+  """
+  lofMarketPlaceCustomerMessageRepositoryV1GetMyListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataMessageSearchResultsInterface
+  """
+  
+  
+  Equivalent to GET /V1/seller/adminmessages
+  """
+  lofMarketPlaceDataAdminMessageSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataAdminMessageSearchResultsInterface
+  """
+  Retrieve AmountTransaction
+  
+  Equivalent to GET /V1/lofmarketplace/amounttransaction/{id}
+  """
+  lofMarketPlaceDataAmountTransactionInterface(id: Int!): LofMarketPlaceDataAmountTransactionInterface
+  """
+  GET seller transactions
+  
+  Equivalent to GET /V1/seller/transactions
+  """
+  lofMarketPlaceDataAmountTransactionSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataAmountTransactionSearchResultsInterface
+  """
   Retrieve Seller Group
   
   Equivalent to GET /V1/lofmarketplace/group/{entityId}
@@ -1955,9 +2065,85 @@ type Query {
     searchCriteriaSortOrders0Field: String
   ): LofMarketPlaceDataGroupSearchResultsInterface
   """
+  get message admin details by id
+  
+  Equivalent to GET /V1/seller/adminmessages/{messageId}
+  """
+  lofMarketPlaceDataMessageDetailSearchResultsInterface(
+    messageId: Int!
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataMessageDetailSearchResultsInterface
+  """
+  
+  
+  Equivalent to GET /V1/seller/messages
+  """
+  lofMarketPlaceDataMessageSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataMessageSearchResultsInterface
+  """
+  Retrieve Payment
+  
+  Equivalent to GET /V1/lofmarketplace/payment/{paymentId}
+  """
+  lofMarketPlaceDataPaymentInterface(paymentId: String!): LofMarketPlaceDataPaymentInterface
+  """
+  Retrieve Payment matching the specified criteria.
+  
+  Equivalent to GET /V1/lofmarketplace/payment/search
+  """
+  lofMarketPlaceDataPaymentSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataPaymentSearchResultsInterface
+  """
   Retrieve Seller Ratings matching the specified criteria.
   
-  Equivalent to GET /V1/sellersrating/{seller_id}
+  Equivalent to GET /V1/seller/myRatings/{ratingId}
+  """
+  lofMarketPlaceDataRatingInterface(ratingId: Int!): LofMarketPlaceDataRatingInterface
+  """
+  Retrieve Seller Ratings matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/myRatings
   """
   lofMarketPlaceDataRatingSearchResultsInterface(
     """Current page."""
@@ -1974,12 +2160,11 @@ type Query {
     searchCriteriaSortOrders0Direction: String
     """Sorting field."""
     searchCriteriaSortOrders0Field: String
-    sellerId: Int!
   ): LofMarketPlaceDataRatingSearchResultsInterface
   """
   Retrieve Seller Review matching the specified criteria.
   
-  Equivalent to GET /V1/sellersreview/{seller_id}
+  Equivalent to GET /V1/seller/{sellerUrl}/reviews
   """
   lofMarketPlaceDataReviewSearchResultsInterface(
     """Current page."""
@@ -1996,7 +2181,8 @@ type Query {
     searchCriteriaSortOrders0Direction: String
     """Sorting field."""
     searchCriteriaSortOrders0Field: String
-    sellerId: Int!
+    """- the url key of seller. ex: sellerA"""
+    sellerUrl: String!
   ): LofMarketPlaceDataReviewSearchResultsInterface
   """
   
@@ -2005,11 +2191,32 @@ type Query {
   """
   lofMarketPlaceDataSellerInterface: LofMarketPlaceDataSellerInterface
   """
-  Retrieve Vacation
+  Retrieve seller matching the specified criteria.
   
-  Equivalent to GET /V1/getsellervacation
+  Equivalent to GET /V1/seller/products
   """
-  lofMarketPlaceDataSellerVacationInterface(sellerId: Int!): LofMarketPlaceDataSellerVacationInterface
+  lofMarketPlaceDataSellerProductSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataSellerProductSearchResultsInterface
+  """
+  Retrieve Vacation of logged in customer
+  
+  Equivalent to GET /V1/sellervacation
+  """
+  lofMarketPlaceDataSellerVacationInterface: LofMarketPlaceDataSellerVacationInterface
   """
   Retrieve Sellers matching the specified criteria.
   
@@ -2032,11 +2239,17 @@ type Query {
     searchCriteriaSortOrders0Field: String
   ): LofMarketPlaceDataSellersSearchResultsInterface
   """
-  Retrieve Seller Products matching the specified criteria.
+  Retrieve Setting
   
-  Equivalent to GET /V1/sellersproducts/{seller_id}
+  Equivalent to GET /V1/seller/setting/{settingId}
   """
-  lofMarketPlaceSellersFrontendProductRepositoryV1GetListGet(
+  lofMarketPlaceDataSettingInterface(settingId: Int!): LofMarketPlaceDataSettingInterface
+  """
+  Retrieve Setting matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/setting/search
+  """
+  lofMarketPlaceDataSettingSearchResultsInterface(
     """Current page."""
     searchCriteriaCurrentPage: Int
     """Condition type"""
@@ -2051,20 +2264,240 @@ type Query {
     searchCriteriaSortOrders0Direction: String
     """Sorting field."""
     searchCriteriaSortOrders0Field: String
-    sellerId: Int!
+  ): LofMarketPlaceDataSettingSearchResultsInterface
+  """
+  Retrieve Seller Review matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/{sellerUrl}/summaryRatings
+  """
+  lofMarketPlaceDataSummaryRatingInterface(
+    """- the url key of seller. ex: sellerA"""
+    sellerUrl: String!
+  ): LofMarketPlaceDataSummaryRatingInterface
+  """
+  Retrieve Withdrawal
+  
+  Equivalent to GET /V1/lofmarketplace/withdrawal/{withdrawalId}
+  """
+  lofMarketPlaceDataWithdrawalInterface(withdrawalId: String!): LofMarketPlaceDataWithdrawalInterface
+  """
+  Retrieve Withdrawal matching the specified criteria.
+  
+  Equivalent to GET /V1/lofmarketplace/withdrawal/search
+  """
+  lofMarketPlaceDataWithdrawalSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataWithdrawalSearchResultsInterface
+  """
+  Retrieve Payment matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/payment/search
+  """
+  lofMarketPlacePaymentRepositoryV1GetPublicListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataPaymentSearchResultsInterface
+  """
+  Retrieve Seller Group matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/groups
+  """
+  lofMarketPlaceSellerGroupRepositoryV1GetPublicListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataGroupSearchResultsInterface
+  """
+  
+  
+  Equivalent to GET /V1/seller/messages/{messageId}
+  """
+  lofMarketPlaceSellerMessageRepositoryV1SellerGetDetailsGet(
+    messageId: Int!
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataMessageSearchResultsInterface
+  """
+  Get info about product by product SKU
+  
+  Equivalent to GET /V1/sellerproduct/{sku}
+  """
+  lofMarketPlaceSellerProductManagementV1SellerGetGet(editMode: Boolean, forceReload: Boolean, sku: String!, storeId: Int): CatalogDataProductInterface
+  """
+  Get seller product list
+  
+  Equivalent to GET /V1/sellerproducts
+  """
+  lofMarketPlaceSellerProductManagementV1SellerGetListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
   ): CatalogDataProductSearchResultsInterface
   """
+  GET seller product by seller url key
   
-  
-  Equivalent to GET /V1/getsellerbyid/{seller_id}
+  Equivalent to GET /V1/seller/products/{sellerUrl}
   """
-  lofMarketPlaceSellersFrontendRepositoryV1GetGet(sellerId: String!, showOtherInfo: Boolean): LofMarketPlaceDataSellerInterface
+  lofMarketPlaceSellerProductsRepositoryV1GetListSellersProductGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+    """- sellerUrl key - ex: sellerA"""
+    sellerUrl: String!
+  ): CatalogDataProductSearchResultsInterface
+  """
+  Retrieve Seller Ratings matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/ratings/{ratingId}
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1GetByIdGet(ratingId: Int!): LofMarketPlaceDataRatingInterface
+  """
+  Retrieve Seller Ratings matching the specified criteria.
+  
+  Equivalent to GET /V1/sellerRatings/{ratingId}
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1GetGet(ratingId: Int!): LofMarketPlaceDataRatingInterface
+  """
+  Retrieve Seller Review matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/{sellerUrl}/ratings
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1GetListByUrlGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+    """- the url key of seller. ex: sellerA"""
+    sellerUrl: String!
+  ): LofMarketPlaceDataRatingSearchResultsInterface
+  """
+  Retrieve Message matching the specified criteria.
+  
+  Equivalent to GET /V1/sellerRatings/search
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1GetRatingsListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataRatingSearchResultsInterface
+  """
+  GET seller vacation - the url key of seller. ex: sellerA
+  
+  Equivalent to GET /V1/seller/{sellerUrl}/vacation
+  """
+  lofMarketPlaceSellerVacationRepositoryV1GetSellerVacationGet(sellerUrl: String!): LofMarketPlaceDataSellerVacationInterface
+  """
+  get seller by url key
+  
+  Equivalent to GET /V1/seller/{sellerUrl}
+  """
+  lofMarketPlaceSellersFrontendRepositoryV1GetByUrlGet(
+    """- option to show seller products"""
+    getProducts: Boolean
+    """- the url key of seller. ex: sellerA"""
+    sellerUrl: String!
+    """- option to show other information of this seller"""
+    showOtherInfo: Boolean
+  ): LofMarketPlaceDataSellerInterface
   """
   
   
-  Equivalent to GET /V1/getlistsellers
+  Equivalent to GET /V1/seller/search
   """
   lofMarketPlaceSellersFrontendRepositoryV1GetListGet(
+    """- option to show seller products"""
+    getProducts: Boolean
     """Current page."""
     searchCriteriaCurrentPage: Int
     """Condition type"""
@@ -2082,17 +2515,45 @@ type Query {
     showOtherInfo: Boolean
   ): LofMarketPlaceDataSellersSearchResultsInterface
   """
-  get seller by product id
+  get seller info by product sku
   
-  Equivalent to GET /V1/sellersbyproductid/{product_id}
+  Equivalent to GET /V1/seller/getSellerInfoBySku/{sku}
   """
-  lofMarketPlaceSellersFrontendRepositoryV1GetSellersbyProductIDGet(productId: String!): LofMarketPlaceDataSellerInterface
+  lofMarketPlaceSellersFrontendRepositoryV1GetSellerByProductSkuGet(
+    """- option to show seller products"""
+    getProducts: Boolean
+    """- option to show other information of this seller"""
+    showOtherInfo: Boolean
+    sku: String!
+    storeId: Int
+  ): LofMarketPlaceDataSellerInterface
   """
   Retrieve SellerInterface
   
   Equivalent to GET /V1/sellers/{sellerId}
   """
   lofMarketPlaceSellersManagementV1GetGet(sellerId: Int!): LofMarketPlaceDataSellerInterface
+  """
+  Retrieve Withdrawal matching the specified criteria.
+  
+  Equivalent to GET /V1/seller/withdrawal/search
+  """
+  lofMarketPlaceWithdrawalRepositoryV1GetMyListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofMarketPlaceDataWithdrawalSearchResultsInterface
   """
   Retrieve DeviceToken
   
@@ -2716,6 +3177,115 @@ type Query {
     searchCriteriaSortOrders0Field: String
   ): LofQuickrfqDataQuickrfqSearchResultsInterface
   """
+  Retrieve Redeem
+  
+  Equivalent to GET /V1/lof-rewardpoints/redeemcode/{redeemId}
+  """
+  lofRewardPointsDataRedeemInterface(redeemId: String!): LofRewardPointsDataRedeemInterface
+  """
+  Retrieve Redeem matching the specified criteria.
+  
+  Equivalent to GET /V1/lof-rewardpoints/redeemcodes
+  """
+  lofRewardPointsDataRedeemSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofRewardPointsDataRedeemSearchResultsInterface
+  """
+  Retrieve Transaction
+  
+  Equivalent to GET /V1/lof-rewardpoints/mine/transaction/{transactionId}
+  """
+  lofRewardPointsDataTransactionInterface(customerId: Int!, transactionId: Int!): LofRewardPointsDataTransactionInterface
+  """
+  Retrieve Transaction matching the specified criteria.
+  
+  Equivalent to GET /V1/lof-rewardpoints/mine/transactions
+  """
+  lofRewardPointsDataTransactionSearchResultsInterface(
+    customerId: Int!
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofRewardPointsDataTransactionSearchResultsInterface
+  """
+  Retrieve Transaction
+  
+  Equivalent to GET /V1/lof-rewardpoints/transaction/{transactionId}
+  """
+  lofRewardPointsTransactionRepositoryV1GetByIdGet(transactionId: Int!): LofRewardPointsDataTransactionInterface
+  """
+  Retrieve Transaction matching the specified criteria.
+  
+  Equivalent to GET /V1/lof-rewardpoints/transactions
+  """
+  lofRewardPointsTransactionRepositoryV1GetListGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofRewardPointsDataTransactionSearchResultsInterface
+  """
+  
+  
+  Equivalent to GET /V1/SellerInvoice/sellerinvoice/{orderId}
+  """
+  lofSellerInvoiceDataDataInvoiceInterface(orderId: Int!): LofSellerInvoiceDataDataInvoiceInterface
+  """
+  Retrieve sellerinvoice matching the specified criteria.
+  
+  Equivalent to GET /V1/SellerInvoice/sellerinvoice/search
+  """
+  lofSellerInvoiceDataSellerinvoiceSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofSellerInvoiceDataSellerinvoiceSearchResultsInterface
+  """
   Retrieve Brand
   
   Equivalent to GET /V1/lof-shopbybrand/brand/{brandId}
@@ -3145,6 +3715,28 @@ type Query {
     searchCriteriaSortOrders0Field: String
   ): LofmpCouponCodeDataCouponSearchResultsInterface
   """
+  Retrieve Public Coupons matching the specified criteria.
+  
+  Equivalent to GET /V1/lof-couponcode/{sellerUrl}/coupons
+  """
+  lofmpCouponCodeCouponManagementV1GetPublicCouponsGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+    sellerUrl: String!
+  ): LofmpCouponCodeDataCouponSearchResultsInterface
+  """
   Retrieve Used Coupon matching the specified criteria.
   
   Equivalent to GET /V1/lof-couponcode/listUsedCoupon
@@ -3281,6 +3873,55 @@ type Query {
   Equivalent to GET /V1/lofmp-facebooklivechat/sellerfacebook/seller/{sellerId}
   """
   lofmpFacebookLiveChatSellerfacebookRepositoryV1GetBySellerIdGet(sellerId: Int!): LofmpFacebookLiveChatDataSellerfacebookInterface
+  """
+  Retrieve FeaturedProduct
+  
+  Equivalent to GET /V1/sellerFeaturedProduct/{id}
+  """
+  lofmpFeaturedProductsDataFeaturedProductInterface(id: Int!): LofmpFeaturedProductsDataFeaturedProductInterface
+  """
+  Retrieve FeaturedProduct matching the specified criteria.
+  
+  Equivalent to GET /V1/sellerFeaturedProduct/search
+  """
+  lofmpFeaturedProductsDataFeaturedProductSearchResultsInterface(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+  ): LofmpFeaturedProductsDataFeaturedProductSearchResultsInterface
+  """
+  Retrieve seller featured Products matching the specified criteria.
+  
+  Equivalent to GET /V1/sellerFeaturedProduct/{sellerUrl}/search
+  """
+  lofmpFeaturedProductsGetFeaturedProductRepositoryV1GetGet(
+    """Current page."""
+    searchCriteriaCurrentPage: Int
+    """Condition type"""
+    searchCriteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    searchCriteriaFilterGroups0Filters0Field: String
+    """Value"""
+    searchCriteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    searchCriteriaPageSize: Int
+    """Sorting direction."""
+    searchCriteriaSortOrders0Direction: String
+    """Sorting field."""
+    searchCriteriaSortOrders0Field: String
+    sellerUrl: String!
+  ): CatalogDataProductSearchResultsInterface
   """
   Retrieve address
   
@@ -3623,17 +4264,17 @@ type Query {
     searchCriteriaSortOrders0Field: String
   ): LofmpRmaDataMessageSearchResultsInterface
   """
-  Retrieve Quote
+  Retrieve Attachment
   
-  Equivalent to GET /V1/lofmp-splitcart/quote/{entityId}
+  Equivalent to GET /V1/selleridentificationapproval/attachment/{id}
   """
-  lofmpSplitCartDataQuoteInterface(entityId: String!): LofmpSplitCartDataQuoteInterface
+  lofmpSellerIdentificationApprovalDataAttachmentInterface(id: Int!): LofmpSellerIdentificationApprovalDataAttachmentInterface
   """
-  Retrieve Quote matching the specified criteria.
+  Retrieve Attachment matching the specified criteria.
   
-  Equivalent to GET /V1/lofmp-splitcart/quote/search
+  Equivalent to GET /V1/selleridentificationapproval/attachment/search
   """
-  lofmpSplitCartDataQuoteSearchResultsInterface(
+  lofmpSellerIdentificationApprovalDataAttachmentSearchResultsInterface(
     """Current page."""
     searchCriteriaCurrentPage: Int
     """Condition type"""
@@ -3648,7 +4289,7 @@ type Query {
     searchCriteriaSortOrders0Direction: String
     """Sorting field."""
     searchCriteriaSortOrders0Field: String
-  ): LofmpSplitCartDataQuoteSearchResultsInterface
+  ): LofmpSellerIdentificationApprovalDataAttachmentSearchResultsInterface
   """
   Returns details required to be able to submit a payment with apple pay.
   
@@ -4475,17 +5116,38 @@ type Query {
     limit: Int
   ): [DirectoryDataCountryInformationInterface]
   """
+  Check if the seller is on the customer's favorite list or not
+  
+  Equivalent to GET /V1/favoriteseller/checkseller/{seller_id}
+  """
+  v1FavoritesellerCheckseller(sellerId: Int!): Boolean
+  """
+  Get list favorites from customer
+  
+  Equivalent to GET /V1/favoriteseller/list
+  """
+  v1FavoritesellerList(
+    """Current page."""
+    criteriaCurrentPage: Int
+    """Condition type"""
+    criteriaFilterGroups0Filters0ConditionType: String
+    """Field"""
+    criteriaFilterGroups0Filters0Field: String
+    """Value"""
+    criteriaFilterGroups0Filters0Value: String
+    """Page size."""
+    criteriaPageSize: Int
+    """Sorting direction."""
+    criteriaSortOrders0Direction: String
+    """Sorting field."""
+    criteriaSortOrders0Field: String
+  ): String
+  """
   GET seller order
   
   Equivalent to GET /V1/getsellerorders
   """
   v1Getsellerorders: String
-  """
-  GET seller transactions
-  
-  Equivalent to GET /V1/gettransactions
-  """
-  v1Gettransactions: String
   """
   Return information for a coupon in a specified cart.
   
@@ -4736,6 +5398,36 @@ type Query {
   """
   v1LofReorderProductSearch: String
   """
+  Cancel Transaction by ID
+  
+  Equivalent to GET /V1/lof-rewardpoints/canceltransaction/{transactionId}
+  """
+  v1LofRewardpointsCanceltransaction(transactionId: Int!): Boolean
+  """
+  GET for  total point
+  
+  Equivalent to GET /V1/lof-rewardpoints/customer/{customer}
+  """
+  v1LofRewardpointsCustomer(customer: String!, customerId: String!): String
+  """
+  Apply Code
+  
+  Equivalent to GET /V1/lof-rewardpoints/mine/applyCode/{code}/{storeId}
+  """
+  v1LofRewardpointsMineApplyCode(code: String!, customerId: String!, storeId: Int!): Boolean
+  """
+  GET for total earn points by order id
+  
+  Equivalent to GET /V1/lof-rewardpoints/order
+  """
+  v1LofRewardpointsOrder(orderId: Int!): String
+  """
+  GET spending total point by customer
+  
+  Equivalent to GET /V1/lof-rewardpoints/spend-point
+  """
+  v1LofRewardpointsSpendPoint(cartId: Int!): String
+  """
   GET for brandProducts api
   
   Equivalent to GET /V1/lof-shopbybrand/brandproducts/{brand_id}
@@ -4979,25 +5671,13 @@ type Query {
   
   Equivalent to GET /V1/sellerinvoices/{InvoiceId}
   """
-  v1Sellerinvoice(invoiceId: Int!): String
+  v1Sellerinvoice(invoiceId: String!): String
   """
   GET seller invoice
   
   Equivalent to GET /V1/sellerinvoices
   """
   v1Sellerinvoices: String
-  """
-  GET seller seller message
-  
-  Equivalent to GET /V1/sellermessages/{messageId}
-  """
-  v1Sellermessage(messageId: Int!): String
-  """
-  GET seller seller message
-  
-  Equivalent to GET /V1/sellermessages
-  """
-  v1Sellermessages2: String
   """
   GET order cancel
   
@@ -5010,15 +5690,6 @@ type Query {
   Equivalent to GET /V1/sellerordersbyid/{id}
   """
   v1Sellerordersbyid(id: Int!): String
-  """
-  GET seller product by id
-  
-  Equivalent to GET /V1/sellersproduct/{id}
-  """
-  v1Sellersproduct(
-    """- seller id"""
-    id: String!
-  ): String
   """
   Gets a specified shipment label.
   
@@ -6161,7 +6832,7 @@ type CatalogDataCategoryInterface {
   """
   ExtensionInterface class for @see \Magento\Catalog\Api\Data\CategoryInterface
   """
-  extensionAttributes: JSON
+  extensionAttributes: CatalogDataCategoryExtensionInterface
   """Category id."""
   id: Int
   """Category is included in menu."""
@@ -6180,6 +6851,36 @@ type CatalogDataCategoryInterface {
   position: Int
   """Category last update date and time."""
   updatedAt: String
+}
+
+"""
+ExtensionInterface class for @see \Magento\Catalog\Api\Data\CategoryInterface
+"""
+type CatalogDataCategoryExtensionInterface {
+  """Virtual Category Rule Interface."""
+  virtualRule: SmileElasticsuiteVirtualCategoryDataVirtualRuleInterface
+}
+
+"""Virtual Category Rule Interface."""
+type SmileElasticsuiteVirtualCategoryDataVirtualRuleInterface {
+  """Rule Conditions Data Interface (mostly used for API)"""
+  condition: SmileElasticsuiteCatalogRuleDataConditionInterface
+}
+
+"""Rule Conditions Data Interface (mostly used for API)"""
+type SmileElasticsuiteCatalogRuleDataConditionInterface {
+  """The aggregator type"""
+  aggregatorType: String
+  """The attribute name of the condition"""
+  attributeName: String
+  """Condition type"""
+  conditionType: String!
+  """List of conditions"""
+  conditions: [SmileElasticsuiteCatalogRuleDataConditionInterface]
+  """The operator of the condition"""
+  operator: String!
+  """The value of the condition"""
+  value: String!
 }
 
 type CatalogDataCategorySearchResultsInterface {
@@ -8042,10 +8743,16 @@ type LofAuctionDataProductInterface {
   autoAuctionOpt: Int
   """Buy_it_now"""
   buyItNow: Int
+  """Continue_time"""
+  continueTime: String!
   """Created_at"""
   createdAt: String
+  """Current_time_stamp"""
+  currentTimeStamp: String!
   """Customer_id"""
   customerId: String
+  """Customer_name"""
+  customerName: String!
   """Array"""
   dataArray: String!
   """Days"""
@@ -8058,26 +8765,50 @@ type LofAuctionDataProductInterface {
   incrementOpt: Int
   """Increment_price"""
   incrementPrice: String
+  """Limit_bids"""
+  limitBids: Int!
   """Max_amount"""
   maxAmount: Float
+  """Max_bids"""
+  maxBids: Int!
   """Max_qty"""
   maxQty: Int
   """Min_amount"""
   minAmount: Float
   """Min_qty"""
   minQty: Int
+  """New_auction_start"""
+  newAuctionStart: Boolean!
+  """Pro_name"""
+  proName: String!
+  """Pro_url"""
+  proUrl: String!
   """Product_id"""
   productId: Int
   """Reserve_price"""
   reservePrice: Float
+  """Seller_id"""
+  sellerId: Int!
   """Start_auction_time"""
   startAuctionTime: String
+  """Start_auction_time_stamp"""
+  startAuctionTimeStamp: String!
+  """Start_auction_utc_time"""
+  startAuctionUtcTime: String!
   """Starting_price"""
   startingPrice: Int
   """Status"""
   status: Int
   """Stop_auction_time"""
   stopAuctionTime: String
+  """Stop_auction_time_stamp"""
+  stopAuctionTimeStamp: String!
+  """Stop_auction_utc_time"""
+  stopAuctionUtcTime: String!
+  """Time_zone"""
+  timeZone: String!
+  """Today_time"""
+  todayTime: String!
 }
 
 """Interface ProductSearchResultsInterface"""
@@ -9538,6 +10269,114 @@ type LofHidePriceDataQuoteSearchResultsInterface {
   totalCount: Int!
 }
 
+type LofMarketPlaceDataAmountTransactionSearchResultsInterface {
+  """AmountTransaction list."""
+  items: [LofMarketPlaceDataAmountTransactionInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofMarketPlaceDataAmountTransactionInterface {
+  """Additional_info"""
+  additionalInfo: String
+  """Amount"""
+  amount: Float
+  """Balance"""
+  balance: Float
+  """Created_at"""
+  createdAt: String
+  """Transaction_id"""
+  customerId: String
+  """Description"""
+  description: String
+  """Seller_id"""
+  sellerId: Int
+  """Transaction_id"""
+  transactionId: Int
+  """Type"""
+  type: String
+}
+
+type LofMarketPlaceDataMessageSearchResultsInterface {
+  """Seller message list."""
+  items: [LofMarketPlaceDataMessageInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofMarketPlaceDataMessageInterface {
+  """Created_at"""
+  createdAt: String
+  """Description"""
+  description: String
+  """Is_read"""
+  isRead: Int
+  """Message_id"""
+  messageId: Int
+  """Owner_id"""
+  ownerId: Int
+  """Receiver_id"""
+  receiverId: Int
+  """Seller_send"""
+  sellerSend: Int
+  """Sender_email"""
+  senderEmail: String
+  """Sender_id"""
+  senderId: String
+  """Sender_name"""
+  senderName: String
+  """Status"""
+  status: Int
+  """Subject"""
+  subject: String
+}
+
+type LofMarketPlaceDataAdminMessageSearchResultsInterface {
+  """Seller message list."""
+  items: [LofMarketPlaceDataAdminMessageInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofMarketPlaceDataAdminMessageInterface {
+  """Admin_email"""
+  adminEmail: String
+  """Admin_id"""
+  adminId: Int
+  """Admin_name"""
+  adminName: String
+  """Created_at"""
+  createdAt: String
+  """Description"""
+  description: String
+  """Is_read"""
+  isRead: Int
+  """Message_id"""
+  messageId: Int
+  """Owner_id"""
+  ownerId: Int
+  """Receiver_id"""
+  receiverId: Int
+  """Seller_email"""
+  sellerEmail: String
+  """Seller_id"""
+  sellerId: Int
+  """Seller_name"""
+  sellerName: String
+  """Seller_send"""
+  sellerSend: Int
+  """Status"""
+  status: Int
+  """Subject"""
+  subject: String
+}
+
 type LofMarketPlaceDataGroupInterface {
   """Can_add_product"""
   canAddProduct: Int
@@ -9549,14 +10388,8 @@ type LofMarketPlaceDataGroupInterface {
   canUseVacation: Int
   """Can_use_withdrawal"""
   canUseWithdrawal: Int
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\GroupInterface
-  """
-  extensionAttributes: JSON
   """Group_id"""
   groupId: Int
-  """Id"""
-  id: Int
   """Limit_product"""
   limitProduct: Int
   """Name"""
@@ -9580,9 +10413,80 @@ type LofMarketPlaceDataGroupSearchResultsInterface {
   totalCount: Int!
 }
 
-type LofMarketPlaceDataRatingSearchResultsInterface {
-  """Seller rating list."""
-  items: [LofMarketPlaceDataRatingInterface]!
+type LofMarketPlaceDataMessageDetailSearchResultsInterface {
+  """Seller message list."""
+  items: [LofMarketPlaceDataMessageDetailInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofMarketPlaceDataMessageDetailInterface {
+  """Content"""
+  content: String
+  """Created_at"""
+  createdAt: String
+  """Detail_id"""
+  detailId: Int
+  """Is_read"""
+  isRead: Int
+  """Message_admin"""
+  messageAdmin: Int
+  """Message_id"""
+  messageId: Int
+  """Receiver_email"""
+  receiverEmail: String
+  """Receiver_id"""
+  receiverId: Int
+  """Receiver_name"""
+  receiverName: String
+  """Seller_send"""
+  sellerSend: String
+  """Sender_email"""
+  senderEmail: String
+  """Sender_id"""
+  senderId: Int
+  """Sender_name"""
+  senderName: String
+}
+
+type LofMarketPlaceDataPaymentInterface {
+  """Additional"""
+  additional: String
+  """Created_at"""
+  createdAt: String
+  """Description"""
+  description: String
+  """Email_account"""
+  emailAccount: String
+  """Fee"""
+  fee: String
+  """Fee_by"""
+  feeBy: String
+  """Fee_percent"""
+  feePercent: String
+  """Max_amount"""
+  maxAmount: String
+  """Message"""
+  message: String
+  """Min_amount"""
+  minAmount: String
+  """Name"""
+  name: String
+  """Order"""
+  order: String
+  """Payment_id"""
+  paymentId: String
+  """Status"""
+  status: String
+  """Updated_at"""
+  updatedAt: String
+}
+
+type LofMarketPlaceDataPaymentSearchResultsInterface {
+  """Payment list."""
+  items: [LofMarketPlaceDataPaymentInterface]!
   """Search criteria interface."""
   searchCriteria: FrameworkSearchCriteriaInterface!
   """Total count."""
@@ -9590,14 +10494,32 @@ type LofMarketPlaceDataRatingSearchResultsInterface {
 }
 
 type LofMarketPlaceDataRatingInterface {
+  """Admin_note"""
+  adminNote: String!
+  """Answer"""
+  answer: String!
+  """Created_at"""
+  createdAt: String
   """Customer_id"""
   customerId: Int
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\RatingInterface
-  """
-  extensionAttributes: JSON
-  """Id"""
-  id: Int
+  """Detail"""
+  detail: String
+  """Email"""
+  email: String
+  """Guest_email"""
+  guestEmail: String
+  """Is_recommended"""
+  isRecommended: Boolean!
+  """Like_about"""
+  likeAbout: String!
+  """Minus_review"""
+  minusReview: Int!
+  """Nickname"""
+  nickname: String
+  """Not_like_about"""
+  notLikeAbout: String!
+  """Plus_review"""
+  plusReview: Int!
   """Rate1"""
   rate1: Int
   """Rate2"""
@@ -9608,8 +10530,27 @@ type LofMarketPlaceDataRatingInterface {
   rating: Int
   """Rating_id"""
   ratingId: Int
+  """Report_abuse"""
+  reportAbuse: Int
   """Seller_id"""
   sellerId: Int
+  """Status"""
+  status: String
+  """Title"""
+  title: String
+  """Updated_at"""
+  updatedAt: String
+  """Verified_buyer"""
+  verifiedBuyer: Int!
+}
+
+type LofMarketPlaceDataRatingSearchResultsInterface {
+  """Seller rating list."""
+  items: [LofMarketPlaceDataRatingInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
 }
 
 type LofMarketPlaceDataReviewSearchResultsInterface {
@@ -9622,16 +10563,16 @@ type LofMarketPlaceDataReviewSearchResultsInterface {
 }
 
 type LofMarketPlaceDataReviewInterface {
+  """Created_at"""
+  createdAt: String
   """Customer_id"""
   customerId: Int
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\RatingInterface
-  """
-  extensionAttributes: JSON
-  """Id"""
-  id: Int
+  """Detail"""
+  detail: String
   """Is_public"""
   isPublic: Int
+  """Nickname"""
+  nickname: String
   """Order_id"""
   orderId: Int
   """Product_id"""
@@ -9646,6 +10587,8 @@ type LofMarketPlaceDataReviewInterface {
   sellerId: Int
   """Status"""
   status: Int
+  """Title"""
+  title: String
   """Type"""
   type: Int
 }
@@ -9657,6 +10600,8 @@ type LofMarketPlaceDataSellerInterface {
   attributeSetId: Int
   """Banner_pic"""
   bannerPic: String
+  """Benefits"""
+  benefits: String
   """City"""
   city: String
   """Commission_id"""
@@ -9675,6 +10620,8 @@ type LofMarketPlaceDataSellerInterface {
   country: String
   """Country_id"""
   countryId: String
+  """Creation_time"""
+  creationTime: String!
   """Custom attributes values."""
   customAttributes: [FrameworkAttributeInterface]
   """Customer_id"""
@@ -9727,8 +10674,14 @@ type LofMarketPlaceDataSellerInterface {
   metaKeyword: String
   """Name"""
   name: String
+  """Offers"""
+  offers: String
   """Opening_hours"""
   openingHours: String
+  """Operating_time"""
+  operatingTime: String
+  """Order_processing_time"""
+  orderProcessingTime: String
   """Page_layout"""
   pageLayout: String
   """Pinterest_active"""
@@ -9739,13 +10692,21 @@ type LofMarketPlaceDataSellerInterface {
   position: Int
   """Postcode"""
   postcode: String
+  """Prepare_time"""
+  prepareTime: String
   """Product_count"""
   productCount: Int
+  """Product_shipping_info"""
+  productShippingInfo: String
   products: LofMarketPlaceDataSellerProductSearchResultsInterface
   """Region"""
   region: String
   """Region_id"""
   regionId: String
+  """Response_ratio"""
+  responseRatio: String
+  """Response_time"""
+  responseTime: String
   """Return_policy"""
   returnPolicy: String
   """Sale"""
@@ -9753,6 +10714,9 @@ type LofMarketPlaceDataSellerInterface {
   """Seller_id"""
   sellerId: Int
   sellerRates: LofMarketPlaceDataRatingSearchResultsInterface
+  sellerReviews: LofMarketPlaceDataReviewSearchResultsInterface
+  """Shipping_partners"""
+  shippingPartners: String
   """Shipping_policy"""
   shippingPolicy: String
   """Shop_title"""
@@ -9767,12 +10731,19 @@ type LofMarketPlaceDataSellerInterface {
   storeId: String
   """Street"""
   street: String
+  summaryRates: LofMarketPlaceDataSummaryRatingInterface
   """Taxvat"""
   taxvat: String
   """Telephone"""
   telephone: String
   """Thumbnail"""
   thumbnail: String
+  """Total_products"""
+  totalProducts: Int!
+  """Total_reviews"""
+  totalReviews: Int!
+  """TotalSales"""
+  totalSales: Int!
   """Total_sold"""
   totalSold: Int
   """Tw_active"""
@@ -9783,6 +10754,7 @@ type LofMarketPlaceDataSellerInterface {
   url: String
   """Url_key"""
   urlKey: String
+  vacation: LofMarketPlaceDataSellerVacationInterface
   """Verify_status"""
   verifyStatus: Int
   """Vimeo_active"""
@@ -9806,27 +10778,25 @@ type LofMarketPlaceDataProductInterface {
   """Approval"""
   approval: String
   """Price"""
-  attributeSetId: String
+  attributeSetId: Int!
   """Created_at"""
   createdAt: String
   """ID"""
   entityId: Int
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\ProductInterface
-  """
-  extensionAttributes: JSON
   """Has_options"""
   hasOptions: String
   """ID"""
   id: Int
+  """Is_in_stock"""
+  isInStock: Int!
   """Name"""
   name: String
   """Price"""
-  price: String
+  price: Float
   """Product_id"""
   productId: Int
   """ID"""
-  qty: Int
+  qty: Int!
   """Required_options"""
   requiredOptions: String
   """Seller_id"""
@@ -9839,13 +10809,36 @@ type LofMarketPlaceDataProductInterface {
   updatedAt: String
 }
 
+type LofMarketPlaceDataSummaryRatingInterface {
+  """Average"""
+  average: Float
+  """Count"""
+  count: Int
+  """
+  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\SummaryRatingInterface
+  """
+  extensionAttributes: JSON
+  """PerRate"""
+  perRate: Float
+  """RateFive"""
+  rateFive: Float
+  """RateFour"""
+  rateFour: Float
+  """RateOne"""
+  rateOne: Float
+  """RateThree"""
+  rateThree: Float
+  """RateTwo"""
+  rateTwo: Float
+  """Total_count"""
+  totalCount: Int
+  """Total_rate"""
+  totalRate: Float
+}
+
 type LofMarketPlaceDataSellerVacationInterface {
   """Created_at"""
   createdAt: String
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\SellerVacationInterface
-  """
-  extensionAttributes: JSON
   """From_date"""
   fromDate: String
   """Seller_id"""
@@ -9867,6 +10860,72 @@ type LofMarketPlaceDataSellerVacationInterface {
 type LofMarketPlaceDataSellersSearchResultsInterface {
   """Seller list."""
   items: [LofMarketPlaceDataSellerInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofMarketPlaceDataSettingInterface {
+  """Group"""
+  group: String
+  """Key"""
+  key: String
+  """Path"""
+  path: String
+  """Scope"""
+  scope: String
+  """Scope_id"""
+  scopeId: Int
+  """Seller_id"""
+  sellerId: Int
+  """Setting_id"""
+  settingId: Int
+  """Updated_at"""
+  updatedAt: String
+  """Value"""
+  value: String
+}
+
+type LofMarketPlaceDataSettingSearchResultsInterface {
+  """Setting list."""
+  items: [LofMarketPlaceDataSettingInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofMarketPlaceDataWithdrawalInterface {
+  """Admin_message"""
+  adminMessage: String
+  """Amount"""
+  amount: String
+  """Comment"""
+  comment: String
+  """Created_at"""
+  createdAt: String
+  """Email"""
+  email: String
+  """Fee"""
+  fee: String
+  """Net_amount"""
+  netAmount: String
+  """Payment_id"""
+  paymentId: String
+  """Seller_id"""
+  sellerId: String
+  """Status"""
+  status: String
+  """Updated_at"""
+  updatedAt: String
+  """Withdrawal_id"""
+  withdrawalId: String
+}
+
+type LofMarketPlaceDataWithdrawalSearchResultsInterface {
+  """Withdrawal list."""
+  items: [LofMarketPlaceDataWithdrawalInterface]!
   """Search criteria interface."""
   searchCriteria: FrameworkSearchCriteriaInterface!
   """Total count."""
@@ -10633,6 +11692,203 @@ type LofQuickrfqDataMessageInterface {
   message: String
   """Quickrfq_id"""
   quickrfqId: Int
+}
+
+type LofRewardPointsDataRedeemInterface {
+  """Active_from"""
+  activeFrom: String
+  """Active_to"""
+  activeTo: String
+  """Code"""
+  code: String
+  """Code_id"""
+  codeId: String
+  """Code_prefix"""
+  codePrefix: String
+  """Code_used"""
+  codeUsed: String
+  """Earn_points"""
+  earnPoints: String
+  """Store_id"""
+  storeId: String
+  """Uses_per_code"""
+  usesPerCode: String
+}
+
+type LofRewardPointsDataRedeemSearchResultsInterface {
+  """Redeem list."""
+  items: [LofRewardPointsDataRedeemInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofRewardPointsDataTransactionInterface {
+  """Action"""
+  action: String
+  """Admin_user_id"""
+  adminUserId: Int
+  """Amount"""
+  amount: Float
+  """Amount_used"""
+  amountUsed: Float
+  """Apply_at"""
+  applyAt: String
+  """Code"""
+  code: String
+  """Created_at"""
+  createdAt: String
+  """Customer_id"""
+  customerId: Int
+  """Email_message"""
+  emailMessage: String
+  """Expires_at"""
+  expiresAt: String
+  """Is_applied"""
+  isApplied: Int
+  """Is_expiration_email_sent"""
+  isExpirationEmailSent: Int
+  """Is_expired"""
+  isExpired: Int
+  """Params"""
+  params: String
+  """Quote_id"""
+  quoteId: Int
+  """Status"""
+  status: String
+  """Store_id"""
+  storeId: Int
+  """Title"""
+  title: String
+  """Transaction_id"""
+  transactionId: Int
+  """Updated_at"""
+  updatedAt: String
+}
+
+type LofRewardPointsDataTransactionSearchResultsInterface {
+  """Redeem list."""
+  items: [LofRewardPointsDataTransactionInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofSellerInvoiceDataDataInvoiceInterface {
+  """Base_discount_amount"""
+  baseDiscountAmount: String
+  """Base_grand_total"""
+  baseGrandTotal: String
+  """Payment"""
+  customerEmail: String
+  """Customer_ic"""
+  customerId: Int
+  """Payment"""
+  customerName: String
+  """Discount_amount"""
+  discountAmount: String
+  """Grand_total"""
+  grandTotal: String
+  """Invoice_id"""
+  invoiceId: String
+  """Payment"""
+  payment: String
+  """Payment"""
+  phone: String
+  """Product_id"""
+  productId: String
+  """Seller_amount"""
+  sellerAmount: String
+  """Payment"""
+  sellerEmail: String
+  """Seller_id"""
+  sellerId: Int
+  """Payment"""
+  sellerName: String
+  """Seller_order_id"""
+  sellerOrderId: String
+  """Seller_id"""
+  shippingAddress: String
+  """Payment"""
+  shippingMethod: String
+  """Subtotal"""
+  subtotal: String
+  """Subtotal_incl_tax"""
+  subtotalInclTax: String
+  """Tax_amount"""
+  taxAmount: String
+  """Total_qty"""
+  totalQty: String
+}
+
+type LofSellerInvoiceDataSellerinvoiceSearchResultsInterface {
+  """Sellerinvoice list."""
+  items: [LofSellerInvoiceDataSellerinvoiceInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+type LofSellerInvoiceDataSellerinvoiceInterface {
+  """Base_discount_amount"""
+  baseDiscountAmount: String
+  """Base_grand_total"""
+  baseGrandTotal: String
+  """Base_shipping_amount"""
+  baseShippingAmount: String
+  """Base_shipping_incl_tax"""
+  baseShippingInclTax: String
+  """Base_shipping_tax_amount"""
+  baseShippingTaxAmount: String
+  """Base_subtotal"""
+  baseSubtotal: String
+  """Base_subtotal_incl_tax"""
+  baseSubtotalInclTax: String
+  """Base_tax_amount"""
+  baseTaxAmount: String
+  """Base_total_refunded"""
+  baseTotalRefunded: String
+  """Created_at"""
+  createdAt: String
+  """Customer_note"""
+  customerNote: String
+  """Discount_amount"""
+  discountAmount: String
+  """Discount_description"""
+  discountDescription: String
+  """Grand_total"""
+  grandTotal: String
+  """Invoice_id"""
+  invoiceId: String
+  """Seller_amount"""
+  sellerAmount: String
+  """Seller_id"""
+  sellerId: String
+  """Seller_order_id"""
+  sellerOrderId: String
+  """Sellerinvoice_id"""
+  sellerinvoiceId: String
+  """Shipping_amount"""
+  shippingAmount: String
+  """Shipping_incl_tax"""
+  shippingInclTax: String
+  """Shipping_tax_amount"""
+  shippingTaxAmount: String
+  """State"""
+  state: String
+  """Subtotal"""
+  subtotal: String
+  """Subtotal_incl_tax"""
+  subtotalInclTax: String
+  """Tax_amount"""
+  taxAmount: String
+  """Total_qty"""
+  totalQty: String
+  """Updated_at"""
+  updatedAt: String
 }
 
 type LofShopByBrandDataBrandInterface {
@@ -12541,12 +13797,140 @@ type LofmpCouponCodeDataCouponInterface {
   couponcodeId: Int
   """Customer_id"""
   customerId: Int
+  """Description"""
+  description: String
+  """Discount_amount"""
+  discountAmount: Float!
   """Email"""
   email: String
+  """From_date"""
+  fromDate: String
+  """Is_public"""
+  isPublic: Int
   """Rule_id"""
   ruleId: Int
+  """Interface RuleInterface"""
+  salesRuleCoupon: SalesRuleDataRuleInterface
   """Seller_id"""
   sellerId: Int
+  """Simple_action"""
+  simpleAction: String
+  """Times_used"""
+  timesUsed: Int
+  """To_date"""
+  toDate: String
+  """Usage_limit"""
+  usageLimit: Int
+}
+
+"""Interface RuleInterface"""
+type SalesRuleDataRuleInterface {
+  """Interface ConditionInterface"""
+  actionCondition: SalesRuleDataConditionInterface
+  """The rule applies to shipping"""
+  applyToShipping: Boolean!
+  """Interface ConditionInterface"""
+  condition: SalesRuleDataConditionInterface
+  """Coupon type"""
+  couponType: String!
+  """Ids of customer groups that the rule applies to"""
+  customerGroupIds: [Int]!
+  """Description"""
+  description: String
+  """Discount amount"""
+  discountAmount: Float!
+  """Maximum qty discount is applied"""
+  discountQty: Float
+  """Discount step"""
+  discountStep: Int!
+  """
+  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
+  """
+  extensionAttributes: SalesRuleDataRuleExtensionInterface
+  """The start date when the coupon is active"""
+  fromDate: String
+  """The coupon is active"""
+  isActive: Boolean!
+  """Is this field needed"""
+  isAdvanced: Boolean!
+  """Whether the rule is in RSS"""
+  isRss: Boolean!
+  """Rule name"""
+  name: String
+  """Product ids"""
+  productIds: [Int]
+  """Rule id"""
+  ruleId: Int
+  """Simple action of the rule"""
+  simpleAction: String
+  """To grant free shipping"""
+  simpleFreeShipping: String
+  """Sort order"""
+  sortOrder: Int!
+  """To stop rule processing"""
+  stopRulesProcessing: Boolean!
+  """Display label"""
+  storeLabels: [SalesRuleDataRuleLabelInterface]
+  """How many times the rule has been used"""
+  timesUsed: Int!
+  """The end date when the coupon is active"""
+  toDate: String
+  """To auto generate coupon"""
+  useAutoGeneration: Boolean!
+  """Limit of uses per coupon"""
+  usesPerCoupon: Int!
+  """Number of uses per customer"""
+  usesPerCustomer: Int!
+  """A list of websites the rule applies to"""
+  websiteIds: [Int]!
+}
+
+"""Interface ConditionInterface"""
+type SalesRuleDataConditionInterface {
+  """The aggregator type"""
+  aggregatorType: String
+  """The attribute name of the condition"""
+  attributeName: String
+  """Condition type"""
+  conditionType: String!
+  """List of conditions"""
+  conditions: [SalesRuleDataConditionInterface]
+  """
+  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\ConditionInterface
+  """
+  extensionAttributes: JSON
+  """The operator of the condition"""
+  operator: String!
+  """The value of the condition"""
+  value: String!
+}
+
+"""
+ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
+"""
+type SalesRuleDataRuleExtensionInterface {
+  """GiftRule interface."""
+  giftRule: LofGiftSalesRuleDataGiftRuleInterface
+}
+
+"""GiftRule interface."""
+type LofGiftSalesRuleDataGiftRuleInterface {
+  """The maximum number product."""
+  maximumNumberProduct: Int!
+  """The price range."""
+  priceRange: Float!
+}
+
+"""Interface RuleLabelInterface"""
+type SalesRuleDataRuleLabelInterface {
+  """
+  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleLabelInterface
+  """
+  extensionAttributes: JSON
+  """StoreId"""
+  storeId: Int!
+  """The label for the store"""
+  storeLabel: String!
 }
 
 type LofmpCouponCodeDataLogInterface {
@@ -12676,6 +14060,30 @@ type LofmpFacebookLiveChatDataSellerfacebookSearchResultsInterface {
   totalCount: Int!
 }
 
+type LofmpFeaturedProductsDataFeaturedProductInterface {
+  """Featured_from"""
+  featuredFrom: String
+  """Featured_to"""
+  featuredTo: String
+  """Id"""
+  id: Int
+  """Product_id"""
+  productId: String
+  """Seller_id"""
+  sellerId: Int
+  """Sort_order"""
+  sortOrder: Int
+}
+
+type LofmpFeaturedProductsDataFeaturedProductSearchResultsInterface {
+  """FeaturedProduct list."""
+  items: [LofmpFeaturedProductsDataFeaturedProductInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
 type LofmpRmaDataAddressInterface {
   address: String!
   id: Int
@@ -12742,6 +14150,7 @@ type LofmpRmaDataItemInterface {
   conditionId: Int!
   createdAt: String!
   id: Int
+  itemId: Int!
   name: String!
   orderId: Int!
   orderItemId: Int!
@@ -12853,6 +14262,7 @@ type LofmpRmaDataRmaInterface {
   orderId: Int!
   returnAddress: String!
   returnAddressHtml: String!
+  rmaId: Int!
   statusId: Int!
   storeId: Int!
   trackingCode: String!
@@ -12922,28 +14332,30 @@ type LofmpRmaDataStatusSearchResultsInterface {
   totalCount: Int!
 }
 
-type LofmpSplitCartDataQuoteInterface {
+type LofmpSellerIdentificationApprovalDataAttachmentInterface {
+  """Created_at"""
+  createdAt: String
   """Entity_id"""
   entityId: String
-  """
-  ExtensionInterface class for @see \Lofmp\SplitCart\Api\Data\QuoteInterface
-  """
-  extensionAttributes: JSON
-  """Is_active"""
-  isActive: String
-  """Is_ordered"""
-  isOrdered: String
-  """Parent_id"""
-  parentId: String
-  """Quote_id"""
-  quoteId: String
+  """File_name"""
+  fileName: String
+  """File_path"""
+  filePath: String
+  """File_type"""
+  fileType: String
+  """Identification_request"""
+  identificationRequest: String
+  """Identify_type"""
+  identifyType: String
   """Seller_id"""
   sellerId: String
+  """Updated_at"""
+  updatedAt: String
 }
 
-type LofmpSplitCartDataQuoteSearchResultsInterface {
-  """Quote list."""
-  items: [LofmpSplitCartDataQuoteInterface]!
+type LofmpSellerIdentificationApprovalDataAttachmentSearchResultsInterface {
+  """Attachment list."""
+  items: [LofmpSellerIdentificationApprovalDataAttachmentInterface]!
   """Search criteria interface."""
   searchCriteria: FrameworkSearchCriteriaInterface!
   """Total count."""
@@ -13433,116 +14845,6 @@ type SalesRuleDataCouponSearchResultInterface {
   searchCriteria: FrameworkSearchCriteriaInterface!
   """Total count."""
   totalCount: Int!
-}
-
-"""Interface RuleInterface"""
-type SalesRuleDataRuleInterface {
-  """Interface ConditionInterface"""
-  actionCondition: SalesRuleDataConditionInterface
-  """The rule applies to shipping"""
-  applyToShipping: Boolean!
-  """Interface ConditionInterface"""
-  condition: SalesRuleDataConditionInterface
-  """Coupon type"""
-  couponType: String!
-  """Ids of customer groups that the rule applies to"""
-  customerGroupIds: [Int]!
-  """Description"""
-  description: String
-  """Discount amount"""
-  discountAmount: Float!
-  """Maximum qty discount is applied"""
-  discountQty: Float
-  """Discount step"""
-  discountStep: Int!
-  """
-  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
-  """
-  extensionAttributes: SalesRuleDataRuleExtensionInterface
-  """The start date when the coupon is active"""
-  fromDate: String
-  """The coupon is active"""
-  isActive: Boolean!
-  """Is this field needed"""
-  isAdvanced: Boolean!
-  """Whether the rule is in RSS"""
-  isRss: Boolean!
-  """Rule name"""
-  name: String
-  """Product ids"""
-  productIds: [Int]
-  """Rule id"""
-  ruleId: Int
-  """Simple action of the rule"""
-  simpleAction: String
-  """To grant free shipping"""
-  simpleFreeShipping: String
-  """Sort order"""
-  sortOrder: Int!
-  """To stop rule processing"""
-  stopRulesProcessing: Boolean!
-  """Display label"""
-  storeLabels: [SalesRuleDataRuleLabelInterface]
-  """How many times the rule has been used"""
-  timesUsed: Int!
-  """The end date when the coupon is active"""
-  toDate: String
-  """To auto generate coupon"""
-  useAutoGeneration: Boolean!
-  """Limit of uses per coupon"""
-  usesPerCoupon: Int!
-  """Number of uses per customer"""
-  usesPerCustomer: Int!
-  """A list of websites the rule applies to"""
-  websiteIds: [Int]!
-}
-
-"""Interface ConditionInterface"""
-type SalesRuleDataConditionInterface {
-  """The aggregator type"""
-  aggregatorType: String
-  """The attribute name of the condition"""
-  attributeName: String
-  """Condition type"""
-  conditionType: String!
-  """List of conditions"""
-  conditions: [SalesRuleDataConditionInterface]
-  """
-  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\ConditionInterface
-  """
-  extensionAttributes: JSON
-  """The operator of the condition"""
-  operator: String!
-  """The value of the condition"""
-  value: String!
-}
-
-"""
-ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
-"""
-type SalesRuleDataRuleExtensionInterface {
-  """GiftRule interface."""
-  giftRule: LofGiftSalesRuleDataGiftRuleInterface
-}
-
-"""GiftRule interface."""
-type LofGiftSalesRuleDataGiftRuleInterface {
-  """The maximum number product."""
-  maximumNumberProduct: Int!
-  """The price range."""
-  priceRange: Float!
-}
-
-"""Interface RuleLabelInterface"""
-type SalesRuleDataRuleLabelInterface {
-  """
-  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleLabelInterface
-  """
-  extensionAttributes: JSON
-  """StoreId"""
-  storeId: Int!
-  """The label for the store"""
-  storeLabel: String!
 }
 
 type SalesRuleDataRuleSearchResultInterface {
@@ -15291,7 +16593,7 @@ type Mutation {
   
   Equivalent to POST /V1/lof-auction/auctionBid
   """
-  lofAuctionAmountRepositoryV1SaveBidPost(v1LofAuctionAuctionBidInput: V1LofAuctionAuctionBidInput): LofAuctionDataAmountInterface
+  lofAuctionAmountRepositoryV1PlaceManualBidPost(v1LofAuctionAuctionBidInput: V1LofAuctionAuctionBidInput): LofAuctionDataAmountInterface
   """
   Save Amount
   
@@ -15305,17 +16607,29 @@ type Mutation {
   """
   lofAuctionAmountRepositoryV1SavePut(entityId: String!, v1LofAuctionBidInput: V1LofAuctionBidInput): LofAuctionDataAmountInterface
   """
+  Retrieve Auction Product
+  
+  Equivalent to POST /V1/getAuctionDetailAfterEnd/{entityId}
+  """
+  lofAuctionAuctionRepositoryV1GetAuctionDetailAfterEndPost(entityId: Int!, v1GetAuctionDetailAfterEndInput: V1GetAuctionDetailAfterEndInput): LofAuctionDataEndAuctionInterface
+  """
+  Retrieve Min Auction Amount
+  
+  Equivalent to POST /V1/getMinAuctionAmount/{entityId}
+  """
+  lofAuctionAuctionRepositoryV1GetMinAuctionAmountPost(entityId: Int!, v1GetMinAuctionAmountInput: V1GetMinAuctionAmountInput): Float
+  """
   Delete AutoAuction by ID
   
   Equivalent to DELETE /V1/lof-auction/autobid/{entityId}
   """
   lofAuctionAutoAuctionRepositoryV1DeleteByIdDelete(entityId: Int!): Boolean
   """
-  Save AutoAuction
+  Place AutoAuction
   
   Equivalent to POST /V1/lof-auction/auctionAutoBid
   """
-  lofAuctionAutoAuctionRepositoryV1SaveAutoBidPost(v1LofAuctionAuctionAutoBidInput: V1LofAuctionAuctionAutoBidInput): LofAuctionDataAutoAuctionInterface
+  lofAuctionAutoAuctionRepositoryV1PlaceAutoBidPost(v1LofAuctionAuctionAutoBidInput: V1LofAuctionAuctionAutoBidInput): LofAuctionDataAutoAuctionInterface
   """
   Save AutoAmount
   
@@ -15329,6 +16643,12 @@ type Mutation {
   """
   lofAuctionAutoAuctionRepositoryV1SavePut(entityId: String!, v1LofAuctionAutobidInput: V1LofAuctionAutobidInput): LofAuctionDataAutoAuctionInterface
   """
+  Retrieve list bids by auction id matching the specified criteria.
+  
+  Equivalent to POST /V1/getAuctionBids/{entityId}
+  """
+  lofAuctionBidRepositoryV1GetListPost(entityId: Int!, v1GetAuctionBidInput: V1GetAuctionBidInput): LofAuctionDataMixBidSearchResultsInterface
+  """
   Set MaxAbsenteeBid for customer
   
   Equivalent to POST /V1/lof-auction/setMaxAbsenteeBid
@@ -15340,6 +16660,12 @@ type Mutation {
   Equivalent to DELETE /V1/lof-auction/product/{entityId}
   """
   lofAuctionProductRepositoryV1DeleteByIdDelete(entityId: Int!): Boolean
+  """
+  Retrieve Auction Product
+  
+  Equivalent to POST /V1/getAuctionInformation/{sku}
+  """
+  lofAuctionProductRepositoryV1GetByProductSkuPost(sku: String!, v1GetAuctionInformationInput: V1GetAuctionInformationInput): LofAuctionDataProductInterface
   """
   Save Product
   
@@ -16057,17 +17383,89 @@ type Mutation {
   """
   lofHidePriceQuoteRepositoryV1SubmitQuotePost(v1LofhidepriceSubmitQuoteInput: V1LofhidepriceSubmitQuoteInput): LofHidePriceDataQuoteInterface
   """
+  reply Message Admin
   
-  
-  Equivalent to POST /V1/customer/sendmessage
+  Equivalent to PUT /V1/seller/adminmessages/{messageId}
   """
-  lofMarketPlaceCustomerMessageRepositoryV1SendMessageSellerPost(v1CustomerSendmessageInput: V1CustomerSendmessageInput): String
+  lofMarketPlaceAdminMessageRepositoryV1ReplyMessagePut(messageId: Int!, v1SellerAdminmessageInput: V1SellerAdminmessageInput): LofMarketPlaceDataMessageDetailInterface
+  """
+  send message to admin
+  
+  Equivalent to POST /V1/seller/adminmessages
+  """
+  lofMarketPlaceAdminMessageRepositoryV1SendMessagePost(v1SellerAdminmessagesInput: V1SellerAdminmessagesInput): LofMarketPlaceDataAdminMessageInterface
+  """
+  
+  
+  Equivalent to PUT /V1/seller/isReadAdminMessage/{messageId}
+  """
+  lofMarketPlaceAdminMessageRepositoryV1SetIsReadPut(messageId: Int!, v1SellerIsReadAdminMessageInput: V1SellerIsReadAdminMessageInput): LofMarketPlaceDataAdminMessageInterface
+  """
+  Delete AmountTransaction by ID
+  
+  Equivalent to DELETE /V1/lofmarketplace/amounttransaction/{id}
+  """
+  lofMarketPlaceAmountTransactionRepositoryV1DeleteByIdDelete(id: Int!): Boolean
+  """
+  Save AmountTransaction
+  
+  Equivalent to POST /V1/lofmarketplace/amounttransaction
+  """
+  lofMarketPlaceAmountTransactionRepositoryV1SavePost(v1LofmarketplaceAmounttransactionInput: V1LofmarketplaceAmounttransactionInput): LofMarketPlaceDataAmountTransactionInterface
+  """
+  Save AmountTransaction
+  
+  Equivalent to PUT /V1/lofmarketplace/amounttransaction/{id}
+  """
+  lofMarketPlaceAmountTransactionRepositoryV1SavePut(id: String!, v1LofmarketplaceAmounttransactionInput: V1LofmarketplaceAmounttransactionInput): LofMarketPlaceDataAmountTransactionInterface
+  """
+  delete customer Message
+  
+  Equivalent to DELETE /V1/me/sellermessages/{messageId}
+  """
+  lofMarketPlaceCustomerMessageRepositoryV1DeleteMessageDelete(messageId: Int!): Boolean
+  """
+  reply Message
+  
+  Equivalent to POST /V1/me/sellermessages/{messageId}
+  """
+  lofMarketPlaceCustomerMessageRepositoryV1ReplyMessagePost(messageId: Int!, v1MeSellermessageInput: V1MeSellermessageInput): LofMarketPlaceDataMessageDetailInterface
+  """
+  
+  
+  Equivalent to POST /V1/me/sendmessage/{sellerUrl}
+  """
+  lofMarketPlaceCustomerMessageRepositoryV1SendMessagePost(sellerUrl: String!, v1MeSendmessageInput: V1MeSendmessageInput): LofMarketPlaceDataMessageInterface
+  """
+  
+  
+  Equivalent to PUT /V1/seller/isReadMessage/{messageId}
+  """
+  lofMarketPlaceMessageRepositoryV1SetIsReadPut(messageId: Int!, v1SellerIsReadMessageInput: V1SellerIsReadMessageInput): LofMarketPlaceDataMessageInterface
+  """
+  Delete Payment by ID
+  
+  Equivalent to DELETE /V1/lofmarketplace/payment/{paymentId}
+  """
+  lofMarketPlacePaymentRepositoryV1DeleteByIdDelete(paymentId: String!): Boolean
+  """
+  Save Payment
+  
+  Equivalent to POST /V1/llofmarketplace/payment
+  """
+  lofMarketPlacePaymentRepositoryV1SavePost(v1LlofmarketplacePaymentInput: V1LlofmarketplacePaymentInput): LofMarketPlaceDataPaymentInterface
+  """
+  Save Payment
+  
+  Equivalent to PUT /V1/lofmarketplace/payment/{paymentId}
+  """
+  lofMarketPlacePaymentRepositoryV1SavePut(paymentId: String!, v1LofmarketplacePaymentInput: V1LofmarketplacePaymentInput): LofMarketPlaceDataPaymentInterface
   """
   POST create Seller Order
   
-  Equivalent to POST /V1/sellerorders/createorder/{orderId}
+  Equivalent to POST /V1/seller/createorder/{orderId}
   """
-  lofMarketPlaceSalesRepositoryV1CreateSellerOrderPost(orderId: Int!): String
+  lofMarketPlaceSalesRepositoryV1CreateSellerOrderPost(orderId: String!): String
   """
   Delete Seller Group by ID
   
@@ -16075,17 +17473,29 @@ type Mutation {
   """
   lofMarketPlaceSellerGroupRepositoryV1DeleteByIdDelete(entityId: String!): Boolean
   """
-  Save Profile
+  seller delete Message
   
-  Equivalent to POST /V1/sellermessages
+  Equivalent to DELETE /V1/seller/messages/{messageId}
   """
-  lofMarketPlaceSellerMessageRepositoryV1ReplyMessagePost(v1SellermessagesInput: V1SellermessagesInput): LofMarketPlaceDataSellerMessageInterface
+  lofMarketPlaceSellerMessageRepositoryV1SellerDeleteMessageDelete(messageId: Int!): Boolean
+  """
+  reply Message
+  
+  Equivalent to PUT /V1/seller/messages/{messageId}
+  """
+  lofMarketPlaceSellerMessageRepositoryV1SellerReplyMessagePut(messageId: Int!, v1SellerMessageInput: V1SellerMessageInput): LofMarketPlaceDataMessageDetailInterface
+  """
+  Create product
+  
+  Equivalent to PUT /V1/sellerproduct/{sku}
+  """
+  lofMarketPlaceSellerProductManagementV1SellerSavePut(sku: String!, v1SellerproductInput: V1SellerproductInput): CatalogDataProductInterface
   """
   assign product.
   
-  Equivalent to POST /V1/assignproducts/{productId}/{storeId}
+  Equivalent to POST /V1/assignproducts/{productId}/{storeId}/{sellerId}
   """
-  lofMarketPlaceSellerProductV1AssignProductPost(productId: Int!, storeId: Int!): Boolean
+  lofMarketPlaceSellerProductV1AssignProductPost(productId: Int!, sellerId: String!, storeId: Int!, v1AssignproductInput: V1AssignproductInput): Boolean
   """
   Create product
   
@@ -16098,6 +17508,30 @@ type Mutation {
   Equivalent to POST /V1/setcommission/{productId}/{commission}/{seller_id}
   """
   lofMarketPlaceSellerProductV1SetCommissionForSpecialProductPost(commission: Int!, productId: Int!, sellerId: String!, v1SetcommissionInput: V1SetcommissionInput): String
+  """
+  Delete Rating by ID
+  
+  Equivalent to DELETE /V1/sellerRatings/{ratingId}
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1DeleteByIdDelete(ratingId: Int!): Boolean
+  """
+  Save Rating
+  
+  Equivalent to PUT /V1/seller/myRatings/{ratingId}
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1SaveMyRatingPut(ratingId: String!, v1SellerMyRatingInput: V1SellerMyRatingInput): LofMarketPlaceDataRatingInterface
+  """
+  Save Rating
+  
+  Equivalent to PUT /V1/sellerRatings/{ratingId}
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1SavePut(ratingId: String!, v1SellerRatingInput: V1SellerRatingInput): LofMarketPlaceDataRatingInterface
+  """
+  Plus/Minus/Report Rating
+  
+  Equivalent to PUT /V1/seller/ratings/{ratingId}
+  """
+  lofMarketPlaceSellerRatingsRepositoryV1UpdateRatingPut(ratingId: Int!, v1SellerRating3Input: V1SellerRating3Input): LofMarketPlaceDataRatingInterface
   """
   PUT Vacation
   
@@ -16119,9 +17553,15 @@ type Mutation {
   """
   
   
-  Equivalent to POST /V1/registernewseller
+  Equivalent to POST /V1/seller/becomeSeller
   """
-  lofMarketPlaceSellersRepositoryV1RegisterNewSellerPost(v1RegisternewsellerInput: V1RegisternewsellerInput): LofMarketPlaceDataSellerInterface
+  lofMarketPlaceSellersRepositoryV1BecomeSellerPost(v1SellerBecomeSellerInput: V1SellerBecomeSellerInput): LofMarketPlaceDataSellerInterface
+  """
+  
+  
+  Equivalent to POST /V1/seller/register
+  """
+  lofMarketPlaceSellersRepositoryV1RegisterNewSellerPost(v1SellerRegisterInput: V1SellerRegisterInput): LofMarketPlaceDataSellerInterface
   """
   
   
@@ -16135,17 +17575,59 @@ type Mutation {
   """
   lofMarketPlaceSellersRepositoryV1SaveSellerPut(v1SellersInput: V1SellersInput): LofMarketPlaceDataSellerInterface
   """
-  Update stock price
+  Save Setting
   
-  Equivalent to PUT /V1/sellersUpdatePrice
+  Equivalent to POST /V1/seller/setting
   """
-  lofMarketPlaceUpdateStockRepositoryV1SaveSellerProductPricePut(v1SellersUpdatePriceInput: V1SellersUpdatePriceInput): String
+  lofMarketPlaceSettingRepositoryV1SaveMySettingPost(v1SellerSettingInput: V1SellerSettingInput): LofMarketPlaceDataSettingInterface
   """
-  Update stock qty
+  Save Setting
   
-  Equivalent to PUT /V1/sellersUpdateStock
+  Equivalent to PUT /V1/seller/setting/{settingId}
   """
-  lofMarketPlaceUpdateStockRepositoryV1SaveSellerStockPut(v1SellersUpdateStockInput: V1SellersUpdateStockInput): String
+  lofMarketPlaceSettingRepositoryV1SaveMySettingPut(settingId: String!, v1SellerSettingInput: V1SellerSettingInput): LofMarketPlaceDataSettingInterface
+  """
+  
+  
+  Equivalent to POST /V1/seller/{sellerUrl}/ratings
+  """
+  lofMarketPlaceSubmitSellerReviewRepositoryV1SavePost(sellerUrl: String!, v1SellerRatingsInput: V1SellerRatingsInput): LofMarketPlaceDataRatingInterface
+  """
+  Update product price, require fields: product_id, price
+  
+  Equivalent to PUT /V1/sellerproduct/updatePrice
+  """
+  lofMarketPlaceUpdateStockRepositoryV1SaveSellerProductPricePut(v1SellerproductUpdatePriceInput: V1SellerproductUpdatePriceInput): LofMarketPlaceDataProductInterface
+  """
+  Update stock qty, require fields: product_id, qty, is_in_stock
+  
+  Equivalent to PUT /V1/sellerproduct/updateStock
+  """
+  lofMarketPlaceUpdateStockRepositoryV1SaveSellerStockPut(v1SellerproductUpdateStockInput: V1SellerproductUpdateStockInput): LofMarketPlaceDataProductInterface
+  """
+  Delete Withdrawal by ID
+  
+  Equivalent to DELETE /V1/lofmarketplace/withdrawal/{withdrawalId}
+  """
+  lofMarketPlaceWithdrawalRepositoryV1DeleteByIdDelete(withdrawalId: String!): Boolean
+  """
+  Request Withdrawal
+  
+  Equivalent to POST /V1/seller/withdrawal
+  """
+  lofMarketPlaceWithdrawalRepositoryV1RequestWithdrawalPost(v1SellerWithdrawalInput: V1SellerWithdrawalInput): LofMarketPlaceDataWithdrawalInterface
+  """
+  Save Withdrawal
+  
+  Equivalent to POST /V1/lofmarketplace/withdrawal
+  """
+  lofMarketPlaceWithdrawalRepositoryV1SavePost(v1LofmarketplaceWithdrawalInput: V1LofmarketplaceWithdrawalInput): LofMarketPlaceDataWithdrawalInterface
+  """
+  Save Withdrawal
+  
+  Equivalent to PUT /V1/lofmarketplace/withdrawal/{withdrawalId}
+  """
+  lofMarketPlaceWithdrawalRepositoryV1SavePut(v1LofmarketplaceWithdrawalInput: V1LofmarketplaceWithdrawalInput, withdrawalId: String!): LofMarketPlaceDataWithdrawalInterface
   """
   Delete DeviceToken by ID
   
@@ -16480,6 +17962,42 @@ type Mutation {
   """
   lofQuickrfqQuickrfqRepositoryV1UpdatePost(v1LofQuickrfqQuickrfqUpdateInput: V1LofQuickrfqQuickrfqUpdateInput): LofQuickrfqDataQuickrfqInterface
   """
+  Apply credit to a specified cart.
+  
+  Equivalent to PUT /V1/carts/mine/point
+  """
+  lofRewardPointsCreditManagementV1SetPut(v1CartsMinePointInput: V1CartsMinePointInput): Boolean
+  """
+  Delete Redeem by ID
+  
+  Equivalent to DELETE /V1/lof-rewardpoints/redeemcode/{redeemId}
+  """
+  lofRewardPointsRedeemRepositoryV1DeleteByIdDelete(redeemId: String!): Boolean
+  """
+  Save Redeem
+  
+  Equivalent to PUT /V1/lof-rewardpoints/redeemcode
+  """
+  lofRewardPointsRedeemRepositoryV1SavePut(v1LofRewardpointsRedeemcode2Input: V1LofRewardpointsRedeemcode2Input): LofRewardPointsDataRedeemInterface
+  """
+  apply point in cart
+  
+  Equivalent to POST /V1/carts/applypoint/{cartId}/{spendPoint}/{spendingRuleId}
+  """
+  lofRewardPointsRewardPointManagementV1ApplyPointPost(cartId: Int!, spendPoint: Float!, spendingRuleId: Int!): String
+  """
+  Delete Transaction by ID
+  
+  Equivalent to DELETE /V1/lof-rewardpoints/transaction/{transactionId}
+  """
+  lofRewardPointsTransactionRepositoryV1DeleteByIdDelete(transactionId: Int!): Boolean
+  """
+  Save Transaction
+  
+  Equivalent to PUT /V1/lof-rewardpoints/transaction
+  """
+  lofRewardPointsTransactionRepositoryV1SavePut(v1LofRewardpointsTransaction2Input: V1LofRewardpointsTransaction2Input): LofRewardPointsDataTransactionInterface
+  """
   POST get Shipping Rates Config
   
   Equivalent to POST /V1/lofShippingCalculator/getRates
@@ -16739,7 +18257,7 @@ type Mutation {
   
   Equivalent to DELETE /V1/lof-couponcode/coupon/{couponId}
   """
-  lofmpCouponCodeCouponManagementV1DeleteByIdDelete(couponId: Int!): Boolean
+  lofmpCouponCodeCouponManagementV1DeleteByIdDelete(couponId: String!): Boolean
   """
   Save coupon
   
@@ -16819,6 +18337,36 @@ type Mutation {
   """
   lofmpFacebookLiveChatSellerfacebookRepositoryV1SavePut(sellerfacebookId: String!, v1LofmpFacebooklivechatSellerfacebookInput: V1LofmpFacebooklivechatSellerfacebookInput): LofmpFacebookLiveChatDataSellerfacebookInterface
   """
+  Current customer add a seller to the favorite list
+  
+  Equivalent to POST /V1/favoriteseller/add/{seller_id}
+  """
+  lofmpFavoriteSellerSellerCustomerRepositoryV1AddSellerPost(sellerId: Int!): String
+  """
+  Remove sellers to customer's favorite list
+  
+  Equivalent to POST /V1/favoriteseller/remove
+  """
+  lofmpFavoriteSellerSellerCustomerRepositoryV1RemoveSellersPost(v1FavoritesellerRemoveInput: V1FavoritesellerRemoveInput): String
+  """
+  Delete FeaturedProduct by ID
+  
+  Equivalent to DELETE /V1/sellerFeaturedProduct/{id}
+  """
+  lofmpFeaturedProductsFeaturedProductRepositoryV1DeleteByIdDelete(id: Int!): Boolean
+  """
+  Save FeaturedProduct
+  
+  Equivalent to POST /V1/sellerFeaturedProduct
+  """
+  lofmpFeaturedProductsFeaturedProductRepositoryV1SaveFeatureProductPost(v1SellerFeaturedProductInput: V1SellerFeaturedProductInput): LofmpFeaturedProductsDataFeaturedProductInterface
+  """
+  Save FeaturedProduct
+  
+  Equivalent to PUT /V1/sellerFeaturedProduct/{id}
+  """
+  lofmpFeaturedProductsFeaturedProductRepositoryV1SaveFeatureProductPut(id: String!, v1SellerFeaturedProductInput: V1SellerFeaturedProductInput): LofmpFeaturedProductsDataFeaturedProductInterface
+  """
   Delete address by ID
   
   Equivalent to DELETE /V1/admin/lofmp-returns/address/{addressId}
@@ -16873,11 +18421,11 @@ type Mutation {
   """
   lofmpRmaRepositoryCustomerRmaRepositoryV1SaveBundlePost(v1LofmpReturnsMeBundlermaInput: V1LofmpReturnsMeBundlermaInput): LofmpRmaDataRmaInterface
   """
-  Save rma
+  Save rma New Api
   
   Equivalent to POST /V1/lofmp-returns/me/rma
   """
-  lofmpRmaRepositoryCustomerRmaRepositoryV1SavePost(v1LofmpReturnsMeRmaInput: V1LofmpReturnsMeRmaInput): LofmpRmaDataRmaInterface
+  lofmpRmaRepositoryCustomerRmaRepositoryV1SaveRmaPost(v1LofmpReturnsMeRmaInput: V1LofmpReturnsMeRmaInput): LofmpRmaDataRmaInterface
   """
   Delete field by ID
   
@@ -17023,23 +18571,23 @@ type Mutation {
   """
   lofmpRmaRepositoryStatusRepositoryV1SavePut(statusId: String!, v1AdminLofmpReturnsStatusInput: V1AdminLofmpReturnsStatusInput): LofmpRmaDataStatusInterface
   """
-  Delete Quote by ID
+  Delete Attachment by ID
   
-  Equivalent to DELETE /V1/lofmp-splitcart/quote/{entityId}
+  Equivalent to DELETE /V1/selleridentificationapproval/attachment/{id}
   """
-  lofmpSplitCartQuoteRepositoryV1DeleteByIdDelete(entityId: String!): Boolean
+  lofmpSellerIdentificationApprovalAttachmentRepositoryV1DeleteByIdDelete(id: Int!): Boolean
   """
-  Save Quote
+  Save Attachment
   
-  Equivalent to POST /V1/lofmp-splitcart/quote
+  Equivalent to POST /V1/selleridentificationapproval/attachment
   """
-  lofmpSplitCartQuoteRepositoryV1SavePost(v1LofmpSplitcartQuoteInput: V1LofmpSplitcartQuoteInput): LofmpSplitCartDataQuoteInterface
+  lofmpSellerIdentificationApprovalAttachmentRepositoryV1SavePost(v1SelleridentificationapprovalAttachmentInput: V1SelleridentificationapprovalAttachmentInput): LofmpSellerIdentificationApprovalDataAttachmentInterface
   """
-  Save Quote
+  Save Attachment
   
-  Equivalent to PUT /V1/lofmp-splitcart/quote/{entityId}
+  Equivalent to PUT /V1/selleridentificationapproval/attachment/{id}
   """
-  lofmpSplitCartQuoteRepositoryV1SavePut(entityId: String!, v1LofmpSplitcartQuoteInput: V1LofmpSplitcartQuoteInput): LofmpSplitCartDataQuoteInterface
+  lofmpSellerIdentificationApprovalAttachmentRepositoryV1SavePut(id: String!, v1SelleridentificationapprovalAttachmentInput: V1SelleridentificationapprovalAttachmentInput): LofmpSellerIdentificationApprovalDataAttachmentInterface
   """
   Assigns a specified billing address to a specified cart.
   
@@ -17532,6 +19080,12 @@ type Mutation {
   Equivalent to POST /V1/shipment/track
   """
   salesShipmentTrackRepositoryV1SavePost(v1ShipmentTrackInput: V1ShipmentTrackInput): SalesDataShipmentTrackInterface
+  """
+  Add a tracked event.
+  
+  Equivalent to POST /V1/elasticsuite-tracker/hit
+  """
+  smileElasticsuiteTrackerCustomerTrackingServiceV1HitPost(v1ElasticsuiteTrackerHitInput: V1ElasticsuiteTrackerHitInput): ErrorResponse
   """
   Add to Cart
   
@@ -18029,7 +19583,7 @@ input CatalogDataCategoryInterfaceInput {
   """
   ExtensionInterface class for @see \Magento\Catalog\Api\Data\CategoryInterface
   """
-  extensionAttributes: JSON
+  extensionAttributes: CatalogDataCategoryExtensionInterfaceInput
   """Category id."""
   id: Int
   """Category is included in menu."""
@@ -18055,6 +19609,36 @@ input FrameworkAttributeInterfaceInput {
   """Attribute code"""
   attributeCode: String!
   """Attribute value"""
+  value: String!
+}
+
+"""
+ExtensionInterface class for @see \Magento\Catalog\Api\Data\CategoryInterface
+"""
+input CatalogDataCategoryExtensionInterfaceInput {
+  """Virtual Category Rule Interface."""
+  virtualRule: SmileElasticsuiteVirtualCategoryDataVirtualRuleInterfaceInput
+}
+
+"""Virtual Category Rule Interface."""
+input SmileElasticsuiteVirtualCategoryDataVirtualRuleInterfaceInput {
+  """Rule Conditions Data Interface (mostly used for API)"""
+  condition: SmileElasticsuiteCatalogRuleDataConditionInterfaceInput
+}
+
+"""Rule Conditions Data Interface (mostly used for API)"""
+input SmileElasticsuiteCatalogRuleDataConditionInterfaceInput {
+  """The aggregator type"""
+  aggregatorType: String
+  """The attribute name of the condition"""
+  attributeName: String
+  """Condition type"""
+  conditionType: String!
+  """List of conditions"""
+  conditions: [SmileElasticsuiteCatalogRuleDataConditionInterfaceInput]
+  """The operator of the condition"""
+  operator: String!
+  """The value of the condition"""
   value: String!
 }
 
@@ -19894,7 +21478,6 @@ input InventorySourceSelectionApiDataItemRequestInterfaceInput {
 input V1LofAuctionAuctionBidInput {
   """Interface AmountInterface"""
   amount: LofAuctionDataAmountInterfaceInput!
-  customerId: Int!
 }
 
 """Interface AmountInterface"""
@@ -19926,10 +21509,62 @@ input V1LofAuctionBidInput {
   amount: LofAuctionDataAmountInterfaceInput!
 }
 
+"""Interface EndAuctionInterface"""
+type LofAuctionDataEndAuctionInterface {
+  """
+  ExtensionInterface class for @see \Lof\Auction\Api\Data\EndAuctionInterface
+  """
+  extensionAttributes: JSON
+  """Interface WattingUserInterface"""
+  wattingUser: LofAuctionDataWattingUserInterface
+  """Interface WinnerInterface"""
+  winner: LofAuctionDataWinnerInterface
+}
+
+"""Interface WattingUserInterface"""
+type LofAuctionDataWattingUserInterface {
+  """Auc_list_url"""
+  aucListUrl: String
+  """Auc_url_lable"""
+  aucUrlLable: String
+  """
+  ExtensionInterface class for @see \Lof\Auction\Api\Data\WattingUserInterface
+  """
+  extensionAttributes: JSON
+  """Msg_lable"""
+  msgLable: String
+}
+
+"""Interface WinnerInterface"""
+type LofAuctionDataWinnerInterface {
+  """
+  ExtensionInterface class for @see \Lof\Auction\Api\Data\WinnerInterface
+  """
+  extensionAttributes: JSON
+  """Price"""
+  price: Float!
+  """Shop"""
+  shop: String
+  """Time_for_buy"""
+  timeForBuy: Int!
+}
+
+input V1GetAuctionDetailAfterEndInput {
+  productId2: Int!
+  storeId2: Int
+}
+
+input V1GetMinAuctionAmountInput {
+  storeId3: Int
+}
+
 input V1LofAuctionAuctionAutoBidInput {
+  productId3: Int!
+}
+
+input V1LofAuctionAutobidInput {
   """Interface AutoAuctionInterface"""
   autoauction: LofAuctionDataAutoAuctionInterfaceInput!
-  customerId: Int!
 }
 
 """Interface AutoAuctionInterface"""
@@ -19957,14 +21592,98 @@ input LofAuctionDataAutoAuctionInterfaceInput {
   winningPrice: Float
 }
 
-input V1LofAuctionAutobidInput {
-  """Interface AutoAuctionInterface"""
-  autoauction: LofAuctionDataAutoAuctionInterfaceInput!
+"""Interface MixBidSearchResultsInterface"""
+type LofAuctionDataMixBidSearchResultsInterface {
+  """Bid list."""
+  items: [LofAuctionDataMixBidInterface]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterface!
+  """Total count."""
+  totalCount: Int!
+}
+
+"""Interface MixBidInterface"""
+type LofAuctionDataMixBidInterface {
+  """Amount"""
+  amount: Float
+  """Auction_id"""
+  auctionId: Int
+  """Bid_id"""
+  bidId: Int
+  """Created_at"""
+  createdAt: String
+  """Customer_id"""
+  customerId: String
+  """Customer_name"""
+  customerName: String
+  """Entity_id"""
+  entityId: Int
+  """Is_auto"""
+  isAuto: Int
+  """Is_spam"""
+  isSpam: Int
+  """Is_subscribed"""
+  isSubscribed: Int
+  """Product_id"""
+  productId: Int
+  """Restrict_count"""
+  restrictCount: Int
+  """Updated_at"""
+  updatedAt: String
+  """Utc_created_at"""
+  utcCreatedAt: String
+  """Winning_status"""
+  winningStatus: Int
+}
+
+input V1GetAuctionBidInput {
+  """Search criteria interface."""
+  searchCriteria2: FrameworkSearchCriteriaInterfaceInput!
+}
+
+"""Search criteria interface."""
+input FrameworkSearchCriteriaInterfaceInput {
+  """Current page."""
+  currentPage: Int
+  """A list of filter groups."""
+  filterGroups: [FrameworkSearchFilterGroupInput]!
+  """Page size."""
+  pageSize: Int
+  """Sort order."""
+  sortOrders: [FrameworkSortOrderInput]
+}
+
+"""Groups two or more filters together using a logical OR"""
+input FrameworkSearchFilterGroupInput {
+  """A list of filters in this group"""
+  filters: [FrameworkFilterInput]
+}
+
+"""Filter which can be used by any methods from service layer."""
+input FrameworkFilterInput {
+  """Condition type"""
+  conditionType: String
+  """Field"""
+  field: String!
+  """Value"""
+  value: String!
+}
+
+"""Data object for sort order."""
+input FrameworkSortOrderInput {
+  """Sorting direction."""
+  direction: String!
+  """Sorting field."""
+  field: String!
 }
 
 input V1LofAuctionSetMaxAbsenteeBidInput {
   auctionId: Int!
   maxBidAmount: Float!
+}
+
+input V1GetAuctionInformationInput {
+  storeId4: Int
 }
 
 input V1LofAuctionProductInput {
@@ -19980,10 +21699,16 @@ input LofAuctionDataProductInterfaceInput {
   autoAuctionOpt: Int
   """Buy_it_now"""
   buyItNow: Int
+  """Continue_time"""
+  continueTime: String!
   """Created_at"""
   createdAt: String
+  """Current_time_stamp"""
+  currentTimeStamp: String!
   """Customer_id"""
   customerId: String
+  """Customer_name"""
+  customerName: String!
   """Array"""
   dataArray: String!
   """Days"""
@@ -19996,26 +21721,50 @@ input LofAuctionDataProductInterfaceInput {
   incrementOpt: Int
   """Increment_price"""
   incrementPrice: String
+  """Limit_bids"""
+  limitBids: Int!
   """Max_amount"""
   maxAmount: Float
+  """Max_bids"""
+  maxBids: Int!
   """Max_qty"""
   maxQty: Int
   """Min_amount"""
   minAmount: Float
   """Min_qty"""
   minQty: Int
+  """New_auction_start"""
+  newAuctionStart: Boolean!
+  """Pro_name"""
+  proName: String!
+  """Pro_url"""
+  proUrl: String!
   """Product_id"""
   productId: Int
   """Reserve_price"""
   reservePrice: Float
+  """Seller_id"""
+  sellerId: Int!
   """Start_auction_time"""
   startAuctionTime: String
+  """Start_auction_time_stamp"""
+  startAuctionTimeStamp: String!
+  """Start_auction_utc_time"""
+  startAuctionUtcTime: String!
   """Starting_price"""
   startingPrice: Int
   """Status"""
   status: Int
   """Stop_auction_time"""
   stopAuctionTime: String
+  """Stop_auction_time_stamp"""
+  stopAuctionTimeStamp: String!
+  """Stop_auction_utc_time"""
+  stopAuctionUtcTime: String!
+  """Time_zone"""
+  timeZone: String!
+  """Today_time"""
+  todayTime: String!
 }
 
 input V1LofAuctionWinnerInput {
@@ -21480,39 +23229,111 @@ input V1LofhidepriceSubmitQuoteInput {
   quote: LofHidePriceDataQuoteInterfaceInput!
 }
 
-input V1CustomerSendmessageInput {
+input V1SellerAdminmessageInput {
+  message: String!
+}
+
+input V1SellerAdminmessagesInput {
+  message: String!
+  subject: String!
+}
+
+input V1SellerIsReadAdminMessageInput {
+  """- available status: sent, read, unread, draft"""
+  status: String
+}
+
+input V1LofmarketplaceAmounttransactionInput {
+  amountTransaction: LofMarketPlaceDataAmountTransactionInterfaceInput!
+}
+
+input LofMarketPlaceDataAmountTransactionInterfaceInput {
+  """Additional_info"""
+  additionalInfo: String
+  """Amount"""
+  amount: Float
+  """Balance"""
+  balance: Float
+  """Created_at"""
+  createdAt: String
+  """Transaction_id"""
+  customerId: String
+  """Description"""
+  description: String
+  """Seller_id"""
+  sellerId: Int
+  """Transaction_id"""
+  transactionId: Int
+  """Type"""
+  type: String
+}
+
+input V1MeSellermessageInput {
+  message: String!
+}
+
+input V1MeSendmessageInput {
   content: String!
-  sellerId2: String!
+  subject: String!
 }
 
-type LofMarketPlaceDataSellerMessageInterface {
-  """Content"""
-  content: String
-  """Message_id"""
-  messageId: String
-  """Receiver email"""
-  receiverEmail: String
-  """Receiver name"""
-  receiverName: String
-  """Shop_title"""
+input V1SellerIsReadMessageInput {
+  """- available status: sent, read, unread, draft"""
   status: String
 }
 
-input V1SellermessagesInput {
-  message: LofMarketPlaceDataSellerMessageInterfaceInput!
+input V1LlofmarketplacePaymentInput {
+  payment: LofMarketPlaceDataPaymentInterfaceInput!
 }
 
-input LofMarketPlaceDataSellerMessageInterfaceInput {
-  """Content"""
-  content: String
-  """Message_id"""
-  messageId: String
-  """Receiver email"""
-  receiverEmail: String
-  """Receiver name"""
-  receiverName: String
-  """Shop_title"""
+input LofMarketPlaceDataPaymentInterfaceInput {
+  """Additional"""
+  additional: String
+  """Created_at"""
+  createdAt: String
+  """Description"""
+  description: String
+  """Email_account"""
+  emailAccount: String
+  """Fee"""
+  fee: String
+  """Fee_by"""
+  feeBy: String
+  """Fee_percent"""
+  feePercent: String
+  """Max_amount"""
+  maxAmount: String
+  """Message"""
+  message: String
+  """Min_amount"""
+  minAmount: String
+  """Name"""
+  name: String
+  """Order"""
+  order: String
+  """Payment_id"""
+  paymentId: String
+  """Status"""
   status: String
+  """Updated_at"""
+  updatedAt: String
+}
+
+input V1LofmarketplacePaymentInput {
+  payment: LofMarketPlaceDataPaymentInterfaceInput!
+}
+
+input V1SellerMessageInput {
+  message: String!
+}
+
+input V1SellerproductInput {
+  product: CatalogDataProductInterfaceInput!
+  saveOptions: Boolean
+}
+
+input V1AssignproductInput {
+  customerId2: Int!
 }
 
 input V1CreateproductInput {
@@ -21520,7 +23341,71 @@ input V1CreateproductInput {
 }
 
 input V1SetcommissionInput {
-  sellerId3: String!
+  sellerId2: String!
+}
+
+input V1SellerMyRatingInput {
+  rating: LofMarketPlaceDataRatingInterfaceInput!
+}
+
+input LofMarketPlaceDataRatingInterfaceInput {
+  """Admin_note"""
+  adminNote: String!
+  """Answer"""
+  answer: String!
+  """Created_at"""
+  createdAt: String
+  """Customer_id"""
+  customerId: Int
+  """Detail"""
+  detail: String
+  """Email"""
+  email: String
+  """Guest_email"""
+  guestEmail: String
+  """Is_recommended"""
+  isRecommended: Boolean!
+  """Like_about"""
+  likeAbout: String!
+  """Minus_review"""
+  minusReview: Int!
+  """Nickname"""
+  nickname: String
+  """Not_like_about"""
+  notLikeAbout: String!
+  """Plus_review"""
+  plusReview: Int!
+  """Rate1"""
+  rate1: Int
+  """Rate2"""
+  rate2: Int
+  """Rate3"""
+  rate3: Int
+  """Rating"""
+  rating: Int
+  """Rating_id"""
+  ratingId: Int
+  """Report_abuse"""
+  reportAbuse: Int
+  """Seller_id"""
+  sellerId: Int
+  """Status"""
+  status: String
+  """Title"""
+  title: String
+  """Updated_at"""
+  updatedAt: String
+  """Verified_buyer"""
+  verifiedBuyer: Int!
+}
+
+input V1SellerRatingInput {
+  rating: LofMarketPlaceDataRatingInterfaceInput!
+}
+
+input V1SellerRating3Input {
+  """(accept value: plus|minus|report)"""
+  type: String!
 }
 
 input V1SellervacationInput {
@@ -21530,10 +23415,6 @@ input V1SellervacationInput {
 input LofMarketPlaceDataSellerVacationInterfaceInput {
   """Created_at"""
   createdAt: String
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\SellerVacationInterface
-  """
-  extensionAttributes: JSON
   """From_date"""
   fromDate: String
   """Seller_id"""
@@ -21553,20 +23434,17 @@ input LofMarketPlaceDataSellerVacationInterfaceInput {
 }
 
 input V1SellersChangeStatusInput {
-  sellerId4: Int!
+  sellerId3: Int!
   status: Int!
 }
 
 input V1SellersVerifyInput {
-  sellerId5: Int!
+  sellerId4: Int!
   status: Boolean!
 }
 
-input V1RegisternewsellerInput {
-  """Customer entity interface for API handling."""
-  customer: CustomerDataCustomerInterfaceInput!
+input V1SellerBecomeSellerInput {
   data: LofMarketPlaceDataRegisterSellerInterfaceInput!
-  password: String
 }
 
 input LofMarketPlaceDataRegisterSellerInterfaceInput {
@@ -21598,6 +23476,13 @@ input LofMarketPlaceDataRegisterSellerInterfaceInput {
   telephone: String
 }
 
+input V1SellerRegisterInput {
+  """Customer entity interface for API handling."""
+  customer: CustomerDataCustomerInterfaceInput!
+  data: LofMarketPlaceDataRegisterSellerInterfaceInput!
+  password: String
+}
+
 input V1SaveprofileMeInput {
   seller: LofMarketPlaceDataSellerInterfaceInput!
 }
@@ -21609,6 +23494,8 @@ input LofMarketPlaceDataSellerInterfaceInput {
   attributeSetId: Int
   """Banner_pic"""
   bannerPic: String
+  """Benefits"""
+  benefits: String
   """City"""
   city: String
   """Commission_id"""
@@ -21627,6 +23514,8 @@ input LofMarketPlaceDataSellerInterfaceInput {
   country: String
   """Country_id"""
   countryId: String
+  """Creation_time"""
+  creationTime: String!
   """Custom attributes values."""
   customAttributes: [FrameworkAttributeInterfaceInput]
   """Customer_id"""
@@ -21679,8 +23568,14 @@ input LofMarketPlaceDataSellerInterfaceInput {
   metaKeyword: String
   """Name"""
   name: String
+  """Offers"""
+  offers: String
   """Opening_hours"""
   openingHours: String
+  """Operating_time"""
+  operatingTime: String
+  """Order_processing_time"""
+  orderProcessingTime: String
   """Page_layout"""
   pageLayout: String
   """Pinterest_active"""
@@ -21691,13 +23586,21 @@ input LofMarketPlaceDataSellerInterfaceInput {
   position: Int
   """Postcode"""
   postcode: String
+  """Prepare_time"""
+  prepareTime: String
   """Product_count"""
   productCount: Int
+  """Product_shipping_info"""
+  productShippingInfo: String
   products: LofMarketPlaceDataSellerProductSearchResultsInterfaceInput
   """Region"""
   region: String
   """Region_id"""
   regionId: String
+  """Response_ratio"""
+  responseRatio: String
+  """Response_time"""
+  responseTime: String
   """Return_policy"""
   returnPolicy: String
   """Sale"""
@@ -21705,6 +23608,9 @@ input LofMarketPlaceDataSellerInterfaceInput {
   """Seller_id"""
   sellerId: Int
   sellerRates: LofMarketPlaceDataRatingSearchResultsInterfaceInput
+  sellerReviews: LofMarketPlaceDataReviewSearchResultsInterfaceInput
+  """Shipping_partners"""
+  shippingPartners: String
   """Shipping_policy"""
   shippingPolicy: String
   """Shop_title"""
@@ -21719,12 +23625,19 @@ input LofMarketPlaceDataSellerInterfaceInput {
   storeId: String
   """Street"""
   street: String
+  summaryRates: LofMarketPlaceDataSummaryRatingInterfaceInput
   """Taxvat"""
   taxvat: String
   """Telephone"""
   telephone: String
   """Thumbnail"""
   thumbnail: String
+  """Total_products"""
+  totalProducts: Int!
+  """Total_reviews"""
+  totalReviews: Int!
+  """TotalSales"""
+  totalSales: Int!
   """Total_sold"""
   totalSold: Int
   """Tw_active"""
@@ -21735,6 +23648,7 @@ input LofMarketPlaceDataSellerInterfaceInput {
   url: String
   """Url_key"""
   urlKey: String
+  vacation: LofMarketPlaceDataSellerVacationInterfaceInput
   """Verify_status"""
   verifyStatus: Int
   """Vimeo_active"""
@@ -21758,27 +23672,25 @@ input LofMarketPlaceDataProductInterfaceInput {
   """Approval"""
   approval: String
   """Price"""
-  attributeSetId: String
+  attributeSetId: Int!
   """Created_at"""
   createdAt: String
   """ID"""
   entityId: Int
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\ProductInterface
-  """
-  extensionAttributes: JSON
   """Has_options"""
   hasOptions: String
   """ID"""
   id: Int
+  """Is_in_stock"""
+  isInStock: Int!
   """Name"""
   name: String
   """Price"""
-  price: String
+  price: Float
   """Product_id"""
   productId: Int
   """ID"""
-  qty: Int
+  qty: Int!
   """Required_options"""
   requiredOptions: String
   """Seller_id"""
@@ -21791,42 +23703,6 @@ input LofMarketPlaceDataProductInterfaceInput {
   updatedAt: String
 }
 
-"""Search criteria interface."""
-input FrameworkSearchCriteriaInterfaceInput {
-  """Current page."""
-  currentPage: Int
-  """A list of filter groups."""
-  filterGroups: [FrameworkSearchFilterGroupInput]!
-  """Page size."""
-  pageSize: Int
-  """Sort order."""
-  sortOrders: [FrameworkSortOrderInput]
-}
-
-"""Groups two or more filters together using a logical OR"""
-input FrameworkSearchFilterGroupInput {
-  """A list of filters in this group"""
-  filters: [FrameworkFilterInput]
-}
-
-"""Filter which can be used by any methods from service layer."""
-input FrameworkFilterInput {
-  """Condition type"""
-  conditionType: String
-  """Field"""
-  field: String!
-  """Value"""
-  value: String!
-}
-
-"""Data object for sort order."""
-input FrameworkSortOrderInput {
-  """Sorting direction."""
-  direction: String!
-  """Sorting field."""
-  field: String!
-}
-
 input LofMarketPlaceDataRatingSearchResultsInterfaceInput {
   """Seller rating list."""
   items: [LofMarketPlaceDataRatingInterfaceInput]!
@@ -21836,39 +23712,170 @@ input LofMarketPlaceDataRatingSearchResultsInterfaceInput {
   totalCount: Int!
 }
 
-input LofMarketPlaceDataRatingInterfaceInput {
+input LofMarketPlaceDataReviewSearchResultsInterfaceInput {
+  """Seller rating list."""
+  items: [LofMarketPlaceDataReviewInterfaceInput]!
+  """Search criteria interface."""
+  searchCriteria: FrameworkSearchCriteriaInterfaceInput!
+  """Total count."""
+  totalCount: Int!
+}
+
+input LofMarketPlaceDataReviewInterfaceInput {
+  """Created_at"""
+  createdAt: String
   """Customer_id"""
   customerId: Int
-  """
-  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\RatingInterface
-  """
-  extensionAttributes: JSON
-  """Id"""
-  id: Int
-  """Rate1"""
-  rate1: Int
-  """Rate2"""
-  rate2: Int
-  """Rate3"""
-  rate3: Int
+  """Detail"""
+  detail: String
+  """Is_public"""
+  isPublic: Int
+  """Nickname"""
+  nickname: String
+  """Order_id"""
+  orderId: Int
+  """Product_id"""
+  productId: Int
   """Rating"""
   rating: Int
-  """Rating_id"""
-  ratingId: Int
+  """Review_id"""
+  reviewId: Int
+  """Reviewseller_id"""
+  reviewsellerId: Int
   """Seller_id"""
   sellerId: Int
+  """Status"""
+  status: Int
+  """Title"""
+  title: String
+  """Type"""
+  type: Int
+}
+
+input LofMarketPlaceDataSummaryRatingInterfaceInput {
+  """Average"""
+  average: Float
+  """Count"""
+  count: Int
+  """
+  ExtensionInterface class for @see \Lof\MarketPlace\Api\Data\SummaryRatingInterface
+  """
+  extensionAttributes: JSON
+  """PerRate"""
+  perRate: Float
+  """RateFive"""
+  rateFive: Float
+  """RateFour"""
+  rateFour: Float
+  """RateOne"""
+  rateOne: Float
+  """RateThree"""
+  rateThree: Float
+  """RateTwo"""
+  rateTwo: Float
+  """Total_count"""
+  totalCount: Int
+  """Total_rate"""
+  totalRate: Float
 }
 
 input V1SellersInput {
   seller: LofMarketPlaceDataSellerInterfaceInput!
 }
 
-input V1SellersUpdatePriceInput {
-  product: String!
+input V1SellerSettingInput {
+  setting: LofMarketPlaceDataSettingInterfaceInput!
 }
 
-input V1SellersUpdateStockInput {
-  product: String!
+input LofMarketPlaceDataSettingInterfaceInput {
+  """Group"""
+  group: String
+  """Key"""
+  key: String
+  """Path"""
+  path: String
+  """Scope"""
+  scope: String
+  """Scope_id"""
+  scopeId: Int
+  """Seller_id"""
+  sellerId: Int
+  """Setting_id"""
+  settingId: Int
+  """Updated_at"""
+  updatedAt: String
+  """Value"""
+  value: String
+}
+
+input V1SellerRatingsInput {
+  rating: LofMarketPlaceDataSubmitSellerReviewInterfaceInput!
+}
+
+input LofMarketPlaceDataSubmitSellerReviewInterfaceInput {
+  """Detail"""
+  detail: String
+  """Email"""
+  email: String
+  """Is_recommended"""
+  isRecommended: Boolean!
+  """Like_about"""
+  likeAbout: String!
+  """Nickname"""
+  nickname: String
+  """Not_like_about"""
+  notLikeAbout: String!
+  """Rate1"""
+  rate1: Int
+  """Rate2"""
+  rate2: Int
+  """Rate3"""
+  rate3: Int
+  """Title"""
+  title: String
+}
+
+input V1SellerproductUpdatePriceInput {
+  product: LofMarketPlaceDataProductInterfaceInput!
+}
+
+input V1SellerproductUpdateStockInput {
+  product: LofMarketPlaceDataProductInterfaceInput!
+}
+
+input V1SellerWithdrawalInput {
+  withdrawal: LofMarketPlaceDataWithdrawalInterfaceInput!
+}
+
+input LofMarketPlaceDataWithdrawalInterfaceInput {
+  """Admin_message"""
+  adminMessage: String
+  """Amount"""
+  amount: String
+  """Comment"""
+  comment: String
+  """Created_at"""
+  createdAt: String
+  """Email"""
+  email: String
+  """Fee"""
+  fee: String
+  """Net_amount"""
+  netAmount: String
+  """Payment_id"""
+  paymentId: String
+  """Seller_id"""
+  sellerId: String
+  """Status"""
+  status: String
+  """Updated_at"""
+  updatedAt: String
+  """Withdrawal_id"""
+  withdrawalId: String
+}
+
+input V1LofmarketplaceWithdrawalInput {
+  withdrawal: LofMarketPlaceDataWithdrawalInterfaceInput!
 }
 
 input V1LofMobileDevicetokenInput {
@@ -22615,6 +24622,83 @@ input V1LofQuickrfqQuickrfqUpdateInput {
   quickrfqId: String!
 }
 
+input V1CartsMinePointInput {
+  """The cart ID."""
+  cartId2: Int!
+}
+
+input V1LofRewardpointsRedeemcode2Input {
+  redeem: LofRewardPointsDataRedeemInterfaceInput!
+}
+
+input LofRewardPointsDataRedeemInterfaceInput {
+  """Active_from"""
+  activeFrom: String
+  """Active_to"""
+  activeTo: String
+  """Code"""
+  code: String
+  """Code_id"""
+  codeId: String
+  """Code_prefix"""
+  codePrefix: String
+  """Code_used"""
+  codeUsed: String
+  """Earn_points"""
+  earnPoints: String
+  """Store_id"""
+  storeId: String
+  """Uses_per_code"""
+  usesPerCode: String
+}
+
+input V1LofRewardpointsTransaction2Input {
+  transaction: LofRewardPointsDataTransactionInterfaceInput!
+}
+
+input LofRewardPointsDataTransactionInterfaceInput {
+  """Action"""
+  action: String
+  """Admin_user_id"""
+  adminUserId: Int
+  """Amount"""
+  amount: Float
+  """Amount_used"""
+  amountUsed: Float
+  """Apply_at"""
+  applyAt: String
+  """Code"""
+  code: String
+  """Created_at"""
+  createdAt: String
+  """Customer_id"""
+  customerId: Int
+  """Email_message"""
+  emailMessage: String
+  """Expires_at"""
+  expiresAt: String
+  """Is_applied"""
+  isApplied: Int
+  """Is_expiration_email_sent"""
+  isExpirationEmailSent: Int
+  """Is_expired"""
+  isExpired: Int
+  """Params"""
+  params: String
+  """Quote_id"""
+  quoteId: Int
+  """Status"""
+  status: String
+  """Store_id"""
+  storeId: Int
+  """Title"""
+  title: String
+  """Transaction_id"""
+  transactionId: Int
+  """Updated_at"""
+  updatedAt: String
+}
+
 type LofShippingCalculatorDataShippingRateInterface {
   """Amount"""
   amount: Float
@@ -23017,12 +25101,140 @@ input LofmpCouponCodeDataCouponInterfaceInput {
   couponcodeId: Int
   """Customer_id"""
   customerId: Int
+  """Description"""
+  description: String
+  """Discount_amount"""
+  discountAmount: Float!
   """Email"""
   email: String
+  """From_date"""
+  fromDate: String
+  """Is_public"""
+  isPublic: Int
   """Rule_id"""
   ruleId: Int
+  """Interface RuleInterface"""
+  salesRuleCoupon: SalesRuleDataRuleInterfaceInput
   """Seller_id"""
   sellerId: Int
+  """Simple_action"""
+  simpleAction: String
+  """Times_used"""
+  timesUsed: Int
+  """To_date"""
+  toDate: String
+  """Usage_limit"""
+  usageLimit: Int
+}
+
+"""Interface RuleInterface"""
+input SalesRuleDataRuleInterfaceInput {
+  """Interface ConditionInterface"""
+  actionCondition: SalesRuleDataConditionInterfaceInput
+  """The rule applies to shipping"""
+  applyToShipping: Boolean!
+  """Interface ConditionInterface"""
+  condition: SalesRuleDataConditionInterfaceInput
+  """Coupon type"""
+  couponType: String!
+  """Ids of customer groups that the rule applies to"""
+  customerGroupIds: [Int]!
+  """Description"""
+  description: String
+  """Discount amount"""
+  discountAmount: Float!
+  """Maximum qty discount is applied"""
+  discountQty: Float
+  """Discount step"""
+  discountStep: Int!
+  """
+  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
+  """
+  extensionAttributes: SalesRuleDataRuleExtensionInterfaceInput
+  """The start date when the coupon is active"""
+  fromDate: String
+  """The coupon is active"""
+  isActive: Boolean!
+  """Is this field needed"""
+  isAdvanced: Boolean!
+  """Whether the rule is in RSS"""
+  isRss: Boolean!
+  """Rule name"""
+  name: String
+  """Product ids"""
+  productIds: [Int]
+  """Rule id"""
+  ruleId: Int
+  """Simple action of the rule"""
+  simpleAction: String
+  """To grant free shipping"""
+  simpleFreeShipping: String
+  """Sort order"""
+  sortOrder: Int!
+  """To stop rule processing"""
+  stopRulesProcessing: Boolean!
+  """Display label"""
+  storeLabels: [SalesRuleDataRuleLabelInterfaceInput]
+  """How many times the rule has been used"""
+  timesUsed: Int!
+  """The end date when the coupon is active"""
+  toDate: String
+  """To auto generate coupon"""
+  useAutoGeneration: Boolean!
+  """Limit of uses per coupon"""
+  usesPerCoupon: Int!
+  """Number of uses per customer"""
+  usesPerCustomer: Int!
+  """A list of websites the rule applies to"""
+  websiteIds: [Int]!
+}
+
+"""Interface ConditionInterface"""
+input SalesRuleDataConditionInterfaceInput {
+  """The aggregator type"""
+  aggregatorType: String
+  """The attribute name of the condition"""
+  attributeName: String
+  """Condition type"""
+  conditionType: String!
+  """List of conditions"""
+  conditions: [SalesRuleDataConditionInterfaceInput]
+  """
+  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\ConditionInterface
+  """
+  extensionAttributes: JSON
+  """The operator of the condition"""
+  operator: String!
+  """The value of the condition"""
+  value: String!
+}
+
+"""
+ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
+"""
+input SalesRuleDataRuleExtensionInterfaceInput {
+  """GiftRule interface."""
+  giftRule: LofGiftSalesRuleDataGiftRuleInterfaceInput
+}
+
+"""GiftRule interface."""
+input LofGiftSalesRuleDataGiftRuleInterfaceInput {
+  """The maximum number product."""
+  maximumNumberProduct: Int!
+  """The price range."""
+  priceRange: Float!
+}
+
+"""Interface RuleLabelInterface"""
+input SalesRuleDataRuleLabelInterfaceInput {
+  """
+  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleLabelInterface
+  """
+  extensionAttributes: JSON
+  """StoreId"""
+  storeId: Int!
+  """The label for the store"""
+  storeLabel: String!
 }
 
 input V1LofCouponcodeLogInput {
@@ -23098,6 +25310,29 @@ input LofmpFacebookLiveChatDataSellerfacebookInterfaceInput {
   updatedAt: String
 }
 
+input V1FavoritesellerRemoveInput {
+  sellerIds: [Int]!
+}
+
+input V1SellerFeaturedProductInput {
+  featuredProduct: LofmpFeaturedProductsDataFeaturedProductInterfaceInput!
+}
+
+input LofmpFeaturedProductsDataFeaturedProductInterfaceInput {
+  """Featured_from"""
+  featuredFrom: String
+  """Featured_to"""
+  featuredTo: String
+  """Id"""
+  id: Int
+  """Product_id"""
+  productId: String
+  """Seller_id"""
+  sellerId: Int
+  """Sort_order"""
+  sortOrder: Int
+}
+
 input V1AdminLofmpReturnsAddressInput {
   address: LofmpRmaDataAddressInterfaceInput!
 }
@@ -23131,6 +25366,7 @@ input LofmpRmaDataItemInterfaceInput {
   conditionId: Int!
   createdAt: String!
   id: Int
+  itemId: Int!
   name: String!
   orderId: Int!
   orderItemId: Int!
@@ -23181,6 +25417,7 @@ input LofmpRmaDataRmaInterfaceInput {
   orderId: Int!
   returnAddress: String!
   returnAddressHtml: String!
+  rmaId: Int!
   statusId: Int!
   storeId: Int!
   trackingCode: String!
@@ -23189,7 +25426,30 @@ input LofmpRmaDataRmaInterfaceInput {
 }
 
 input V1LofmpReturnsMeRmaInput {
-  rma: LofmpRmaDataRmaInterfaceInput!
+  rma: LofmpRmaDataRmaFrontendInterfaceInput!
+}
+
+input LofmpRmaDataRmaFrontendInterfaceInput {
+  code: String!
+  createdAt: String!
+  customerId: Int!
+  id: Int
+  incrementId: String!
+  isAdminRead: Boolean
+  isGift: Boolean
+  isResolved: Boolean!
+  items: [LofmpRmaDataItemInterfaceInput]!
+  lastReplyName: String!
+  orderId: Int!
+  returnAddress: String!
+  returnAddressHtml: String!
+  rmaId: Int!
+  sellerId: Int!
+  statusId: Int!
+  storeId: Int!
+  trackingCode: String!
+  updatedAt: String!
+  userId: Int!
 }
 
 input V1AdminLofmpReturnsCustomfieldInput {
@@ -23293,27 +25553,29 @@ input LofmpRmaDataStatusInterfaceInput {
   sortOrder: Int!
 }
 
-input V1LofmpSplitcartQuoteInput {
-  quote: LofmpSplitCartDataQuoteInterfaceInput!
+input V1SelleridentificationapprovalAttachmentInput {
+  attachment: LofmpSellerIdentificationApprovalDataAttachmentInterfaceInput!
 }
 
-input LofmpSplitCartDataQuoteInterfaceInput {
+input LofmpSellerIdentificationApprovalDataAttachmentInterfaceInput {
+  """Created_at"""
+  createdAt: String
   """Entity_id"""
   entityId: String
-  """
-  ExtensionInterface class for @see \Lofmp\SplitCart\Api\Data\QuoteInterface
-  """
-  extensionAttributes: JSON
-  """Is_active"""
-  isActive: String
-  """Is_ordered"""
-  isOrdered: String
-  """Parent_id"""
-  parentId: String
-  """Quote_id"""
-  quoteId: String
+  """File_name"""
+  fileName: String
+  """File_path"""
+  filePath: String
+  """File_type"""
+  fileType: String
+  """Identification_request"""
+  identificationRequest: String
+  """Identify_type"""
+  identifyType: String
   """Seller_id"""
   sellerId: String
+  """Updated_at"""
+  updatedAt: String
 }
 
 input V1CartBillingAddressInput {
@@ -23365,8 +25627,8 @@ input V1CartItemInput {
 
 input V1CartInput {
   """The customer ID."""
-  customerId2: Int!
-  storeId2: Int!
+  customerId3: Int!
+  storeId5: Int!
 }
 
 input V1CartsMineOrderInput {
@@ -23539,8 +25801,8 @@ input V1GuestCartItemInput {
 
 input V1GuestCartInput {
   """The customer ID."""
-  customerId3: Int!
-  storeId3: Int!
+  customerId4: Int!
+  storeId6: Int!
 }
 
 input V1GuestCartOrderInput {
@@ -25221,116 +27483,6 @@ input V1SalesRulesInput {
   rule: SalesRuleDataRuleInterfaceInput!
 }
 
-"""Interface RuleInterface"""
-input SalesRuleDataRuleInterfaceInput {
-  """Interface ConditionInterface"""
-  actionCondition: SalesRuleDataConditionInterfaceInput
-  """The rule applies to shipping"""
-  applyToShipping: Boolean!
-  """Interface ConditionInterface"""
-  condition: SalesRuleDataConditionInterfaceInput
-  """Coupon type"""
-  couponType: String!
-  """Ids of customer groups that the rule applies to"""
-  customerGroupIds: [Int]!
-  """Description"""
-  description: String
-  """Discount amount"""
-  discountAmount: Float!
-  """Maximum qty discount is applied"""
-  discountQty: Float
-  """Discount step"""
-  discountStep: Int!
-  """
-  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
-  """
-  extensionAttributes: SalesRuleDataRuleExtensionInterfaceInput
-  """The start date when the coupon is active"""
-  fromDate: String
-  """The coupon is active"""
-  isActive: Boolean!
-  """Is this field needed"""
-  isAdvanced: Boolean!
-  """Whether the rule is in RSS"""
-  isRss: Boolean!
-  """Rule name"""
-  name: String
-  """Product ids"""
-  productIds: [Int]
-  """Rule id"""
-  ruleId: Int
-  """Simple action of the rule"""
-  simpleAction: String
-  """To grant free shipping"""
-  simpleFreeShipping: String
-  """Sort order"""
-  sortOrder: Int!
-  """To stop rule processing"""
-  stopRulesProcessing: Boolean!
-  """Display label"""
-  storeLabels: [SalesRuleDataRuleLabelInterfaceInput]
-  """How many times the rule has been used"""
-  timesUsed: Int!
-  """The end date when the coupon is active"""
-  toDate: String
-  """To auto generate coupon"""
-  useAutoGeneration: Boolean!
-  """Limit of uses per coupon"""
-  usesPerCoupon: Int!
-  """Number of uses per customer"""
-  usesPerCustomer: Int!
-  """A list of websites the rule applies to"""
-  websiteIds: [Int]!
-}
-
-"""Interface ConditionInterface"""
-input SalesRuleDataConditionInterfaceInput {
-  """The aggregator type"""
-  aggregatorType: String
-  """The attribute name of the condition"""
-  attributeName: String
-  """Condition type"""
-  conditionType: String!
-  """List of conditions"""
-  conditions: [SalesRuleDataConditionInterfaceInput]
-  """
-  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\ConditionInterface
-  """
-  extensionAttributes: JSON
-  """The operator of the condition"""
-  operator: String!
-  """The value of the condition"""
-  value: String!
-}
-
-"""
-ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleInterface
-"""
-input SalesRuleDataRuleExtensionInterfaceInput {
-  """GiftRule interface."""
-  giftRule: LofGiftSalesRuleDataGiftRuleInterfaceInput
-}
-
-"""GiftRule interface."""
-input LofGiftSalesRuleDataGiftRuleInterfaceInput {
-  """The maximum number product."""
-  maximumNumberProduct: Int!
-  """The price range."""
-  priceRange: Float!
-}
-
-"""Interface RuleLabelInterface"""
-input SalesRuleDataRuleLabelInterfaceInput {
-  """
-  ExtensionInterface class for @see \Magento\SalesRule\Api\Data\RuleLabelInterface
-  """
-  extensionAttributes: JSON
-  """StoreId"""
-  storeId: Int!
-  """The label for the store"""
-  storeLabel: String!
-}
-
 input V1SalesRuleInput {
   """Interface RuleInterface"""
   rule: SalesRuleDataRuleInterfaceInput!
@@ -25585,6 +27737,11 @@ input V1ShipmentTrackInput {
   entity: SalesDataShipmentTrackInterfaceInput!
 }
 
+input V1ElasticsuiteTrackerHitInput {
+  """Event data."""
+  eventData: String!
+}
+
 input V1StripePaymentsAddtocartInput {
   request: String!
   shippingId: String
@@ -25607,7 +27764,7 @@ input V1StripePaymentsGetKlarnaPaymentOptionsInput {
   billingAddress6: String!
   guestEmail2: String
   shippingAddress2: String
-  shippingMethod: String
+  shippingMethod2: String
   sourceId: String
 }
 
@@ -25623,7 +27780,7 @@ input V1StripePaymentsGetTrialingSubscriptionsInput {
   billingAddress7: String!
   couponCode2: String
   shippingAddress3: String
-  shippingMethod: String
+  shippingMethod3: String
 }
 
 input V1StripePaymentsPlaceOrderInput {
@@ -25790,7 +27947,7 @@ input V1GuestAddressCleanseInput {
   """
   address: VertexAddressValidationApiDataAddressInterfaceInput!
   """Guest Cart ID (used for auth)"""
-  cartId2: String!
+  cartId3: String!
   scopeCode3: String
   scopeType3: String
 }

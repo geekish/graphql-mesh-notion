@@ -1,26 +1,12 @@
 sources:
-  - name: Lof
+  - name: Notion
     handler:
-      openapi:
-        source: https://magento2.landofcoder.com/index.php/rest/default/schema?services=all
-        customFetch: ./src/customFetch.js
-  - name: MagentoAutoRelatedGraphQLApi
-    handler:
-      graphql:
-        endpoint: https://automatic-related-products.pwa-demo.amasty.com/graphql
-  - name: MagentoElasticSearchGraphQLApi
-    handler:
-      graphql:
-        endpoint: https://elasticsearch.pwa-demo.amasty.com/graphql
-  - name: MagentoLandingPageGraphQLApi
-    handler:
-      graphql:
-        endpoint: https://landing-pages.pwa-demo.amasty.com/graphql
-  - name: MagentoProductLabelsGraphQLApi
-    handler:
-      graphql:
-        endpoint: https://product-labels.pwa-demo.amasty.com/graphql
-  # - name: MagentoGraphQLApi
-  #   handler:
-  #     graphql:
-  #       endpoint: https://demo.landofcoder.com/graphql
+      jsonSchema:
+        source: https://api.notion.com/v1
+        operations:
+          - type: Query
+            field: page
+            path: /pages/{args.id}
+            method: GET
+            responseSample: ./schemas/Page.response.json
+            responseTypeName: Page

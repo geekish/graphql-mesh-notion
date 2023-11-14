@@ -1,3 +1,7 @@
+schema {
+  query: Query
+}
+
 type Query {
   page(id: ID): Page
 }
@@ -18,9 +22,7 @@ type Page {
   public_url: Void
 }
 
-"""
-A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
-"""
+"A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
 scalar DateTime
 
 type query_page_created_by {
@@ -37,9 +39,7 @@ type query_page_cover_external {
   url: URL
 }
 
-"""
-A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
-"""
+"A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt."
 scalar URL
 
 type query_page_icon {
@@ -116,9 +116,7 @@ type query_page_Responsible_Person_people_items_person {
   email: EmailAddress
 }
 
-"""
-A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.
-"""
+"A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/."
 scalar EmailAddress @specifiedBy(url: "https://www.w3.org/Protocols/rfc822/")
 
 type query_page_Last_ordered {
@@ -133,10 +131,10 @@ type query_page_Last_ordered_date {
   time_zone: Void
 }
 
-"""Represents date values"""
+"Represents date values"
 scalar Date
 
-"""Represents NULL values"""
+"Represents NULL values"
 scalar Void
 
 type query_page_Cost_of_next_trip {
